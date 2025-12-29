@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 4,
-    "lastUpdated": "2025-12-29T08:10:02.908Z",
+    "totalProblems": 5,
+    "lastUpdated": "2025-12-29T08:11:04.993Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -22,9 +22,9 @@
         "Hard": 0
       },
       "Hackerrank": {
-        "total": 2,
+        "total": 3,
         "Easy": 0,
-        "Medium": 2,
+        "Medium": 3,
         "Hard": 0
       }
     }
@@ -45,6 +45,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2025-12-29T08:07:30.000Z"
+    },
+    {
+      "id": "hackerrank-medium-java-date-and-time",
+      "platform": "Hackerrank",
+      "difficulty": "Medium",
+      "problemName": "Java Date and Time",
+      "language": "java",
+      "files": {
+        "code": "import java.io.*;\nimport java.math.*;\nimport java.security.*;\nimport java.text.*;\nimport java.util.*;\nimport java.util.concurrent.*;\nimport java.util.function.*;\nimport java.util.regex.*;\nimport java.util.stream.*;\nimport static java.util.stream.Collectors.joining;\nimport static java.util.stream.Collectors.toList;\n\nclass Result {\n\n    /*\n     * Complete the 'findDay' function below.\n     *\n     * The function is expected to return a STRING.\n     * The function accepts following parameters:\n     *  1. INTEGER month\n     *  2. INTEGER day\n     *  3. INTEGER year\n     */\n\n    public static String findDay(int month, int day, int year) {\n    Calendar calendar = Calendar.getInstance();\n    calendar.set(year, month - 1, day);\n    var dayOfWeek = calendar.get(calendar.DAY_OF_WEEK);\n    String[] names = new String[] {\"SUNDAY\", \"MONDAY\", \"TUESDAY\", \"WEDNESDAY\", \"THURSDAY\", \"FRIDAY\", \"SATURDAY\"};\n    return names[dayOfWeek - 1];\n}\n\n}\n\npublic class Solution {\n    public static void main(String[] args) throws IOException {\n        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));\n        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv(\"OUTPUT_PATH\")));\n\n        String[] firstMultipleInput = bufferedReader.readLine().replaceAll(\"\\\\s+$\", \"\").split(\" \");\n\n        int month = Integer.parseInt(firstMultipleInput[0]);\n\n        int day = Integer.parseInt(firstMultipleInput[1]);\n\n        int year = Integer.parseInt(firstMultipleInput[2]);\n\n        String res = Result.findDay(month, day, year);\n\n        bufferedWriter.write(res);\n        bufferedWriter.newLine();\n\n        bufferedReader.close();\n        bufferedWriter.close();\n    }\n}",
+        "readme": "null\n\nThe Calendar class is an abstract class that provides methods for converting between a specific instant in time and a set of calendar fields such as YEAR, MONTH, DAY_OF_MONTH, HOUR, and so on, and for manipulating the calendar fields, such as getting the date of the next week.\n\nYou are given a date. You just need to write the method, , which returns the day on that date. To simplify your task, we have provided a portion of the code in the editor.\n\nExample\n\n\n\n\nThe method should return  as the day on that date.\n\nFunction Description\n\nComplete the findDay function in the editor below.\n\nfindDay has the following parameters:\n\nint: month\nint: day\nint: year\n\nReturns\n\nstring: the day of the week in capital letters\n\nInput Format\n\nA single line of input containing the space separated month, day and year, respectively, in    format.\n\nConstraints\n\nSample Input\n\n08 05 2015\n\n\nSample Output\n\nWEDNESDAY\n\n\nExplanation\n\nThe day on August th  was WEDNESDAY.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2025-12-29T08:10:52.000Z"
     },
     {
       "id": "hackerrank-medium-java-int-to-string",
