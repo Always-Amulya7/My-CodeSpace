@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 3,
-    "lastUpdated": "2025-12-29T08:09:24.152Z",
+    "totalProblems": 4,
+    "lastUpdated": "2025-12-29T08:10:02.908Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -22,9 +22,9 @@
         "Hard": 0
       },
       "Hackerrank": {
-        "total": 1,
+        "total": 2,
         "Easy": 0,
-        "Medium": 1,
+        "Medium": 2,
         "Hard": 0
       }
     }
@@ -45,6 +45,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2025-12-29T08:07:30.000Z"
+    },
+    {
+      "id": "hackerrank-medium-java-int-to-string",
+      "platform": "Hackerrank",
+      "difficulty": "Medium",
+      "problemName": "Java Int to String",
+      "language": "java",
+      "files": {
+        "code": "import java.util.Scanner;\n\nclass Solution\n{\n    public static void main(String args[])\n    {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        sc.close();\n        \n        String s = Integer.toString(n);\n        \n        if(n == Integer.parseInt(s))\n            System.out.println(\"Good job\");\n        else\n            System.out.println(\"Wrong Answer\");\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2025-12-29T08:09:51.000Z"
     },
     {
       "id": "hackerrank-medium-java-stdin-and-stdout-ii",
