@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 1,
-    "lastUpdated": "2025-12-29T07:57:05.264Z",
+    "totalProblems": 2,
+    "lastUpdated": "2025-12-29T08:07:39.886Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -10,8 +10,8 @@
         "Hard": 0
       },
       "Gfg": {
-        "total": 0,
-        "Easy": 0,
+        "total": 1,
+        "Easy": 1,
         "Medium": 0,
         "Hard": 0
       },
@@ -30,6 +30,22 @@
     }
   },
   "problems": [
+    {
+      "id": "gfg-easy-decision-making-in-java",
+      "platform": "Gfg",
+      "difficulty": "Easy",
+      "problemName": "Decision Making in Java",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n     static String compareNM(int n, int m){\n        if(n<m){\n            return \"lesser\";\n        }\n        else if(n==m){\n            return \"equal\";\n        }\n        else{\n            return \"greater\";\n        }\n        \n    }\n }",
+        "readme": "Decision_Making_Javaif_Else_Switch_Break_Continue_Jump\n\nDecision Making in Java\nDifficulty: BasicAccuracy: 60.12%Submissions: 208K+Points: 1\n\nGiven two integers, n and m. The task is to check the relation between n and m. Return \"lesser\" if n < m,  \"equal\" if n == m, and \"greater\" if n > m.\n\nExamples :\n\n\nInput: n = 4, m = 8\nOutput: lesser\nExplanation: 4 < 8 so print 'lesser'.\nInput: n = 8, m = 8\nOutput: equal\nExplanation: 8 = 8 so print 'equal'.\nInput: n = 8, m = 4\nOutput: greater\nExplanation: 8 > 4 so print 'greater'.\n\nConstraints:\n-109 <= m , n <= 109\n\n\nTry more examples\nExpected Complexities\nTopic Tags\nRelated Articles\nReport An Issue\nIf you are facing any issue on this page. Please let us know.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2025-12-29T08:07:30.000Z"
+    },
     {
       "id": "leetcode-medium-integer-to-roman",
       "platform": "Leetcode",
