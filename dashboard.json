@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "totalProblems": 1,
+    "lastUpdated": "2025-12-29T07:57:05.264Z",
+    "breakdown": {
+      "Codechef": {
+        "total": 0,
+        "Easy": 0,
+        "Medium": 0,
+        "Hard": 0
+      },
+      "Gfg": {
+        "total": 0,
+        "Easy": 0,
+        "Medium": 0,
+        "Hard": 0
+      },
+      "Leetcode": {
+        "total": 1,
+        "Easy": 0,
+        "Medium": 1,
+        "Hard": 0
+      },
+      "Hackerrank": {
+        "total": 0,
+        "Easy": 0,
+        "Medium": 0,
+        "Hard": 0
+      }
+    }
+  },
+  "problems": [
+    {
+      "id": "leetcode-medium-integer-to-roman",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Integer to Roman",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public static void main(String[] args) {}\n\n    public String intToRoman(int num) {\n        String[][] s = {\n            {\"\", \"I\", \"II\", \"III\", \"IV\", \"V\", \"VI\", \"VII\", \"VIII\", \"IX\"},\n            {\"\", \"X\", \"XX\", \"XXX\", \"XL\", \"L\", \"LX\", \"LXX\", \"LXXX\", \"XC\"},\n            {\"\", \"C\", \"CC\", \"CCC\", \"CD\", \"D\", \"DC\", \"DCC\", \"DCCC\", \"CM\"},\n            {\"\", \"M\", \"MM\", \"MMM\"}\n        };\n\n        return s[3][num / 1000 % 10] + s[2][num / 100 % 10] + s[1][num / 10 % 10] + s[0][num % 10];\n    }\n}",
+        "readme": "HashTableMathString\n\nSeven different symbols represent Roman numerals with the following values:\n\nSymbolValueI1V5X10L50C100D500M1000\n\nRoman numerals are formed by appending the conversions of decimal place values from highest to lowest. Converting a decimal place value into a Roman numeral has the following rules:\n\n\n\tIf the value does not start with 4 or 9, select the symbol of the maximal value that can be subtracted from the input, append that symbol to the result, subtract its value, and convert the remainder to a Roman numeral.\n\tIf the value starts with 4 or 9 use the subtractive form representing one symbol subtracted from the following symbol, for example, 4 is 1 (I) less than 5 (V): IV and 9 is 1 (I) less than 10 (X): IX. Only the following subtractive forms are used: 4 (IV), 9 (IX), 40 (XL), 90 (XC), 400 (CD) and 900 (CM).\n\tOnly powers of 10 (I, X, C, M) can be appended consecutively at most 3 times to represent multiples of 10. You cannot append 5 (V), 50 (L), or 500 (D) multiple times. If you need to append a symbol 4 times use the subtractive form.\n\n\nGiven an integer, convert it to a Roman numeral.\n\n \nExample 1:\n\n\nInput: num = 3749\n\nOutput: \"MMMDCCXLIX\"\n\nExplanation:\n\n3000 = MMM as 1000 (M) + 1000 (M) + 1000 (M)\n 700 = DCC as 500 (D) + 100 (C) + 100 (C)\n  40 = XL as 10 (X) less of 50 (L)\n   9 = IX as 1 (I) less of 10 (X)\nNote: 49 is not 1 (I) less of 50 (L) because the conversion is based on decimal places\n\n\n\nExample 2:\n\n\nInput: num = 58\n\nOutput: \"LVIII\"\n\nExplanation:\n\n50 = L\n 8 = VIII\n\n\n\nExample 3:\n\n\nInput: num = 1994\n\nOutput: \"MCMXCIV\"\n\nExplanation:\n\n1000 = M\n 900 = CM\n  90 = XC\n   4 = IV\n\n\n\n \nConstraints:\n\n\n\t1 <= num <= 3999",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2025-12-29T07:54:23.000Z"
+    }
+  ]
+}
