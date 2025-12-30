@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 5,
-    "lastUpdated": "2025-12-29T08:11:04.993Z",
+    "totalProblems": 6,
+    "lastUpdated": "2025-12-30T15:11:38.858Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,9 +16,9 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 1,
+        "total": 2,
         "Easy": 0,
-        "Medium": 1,
+        "Medium": 2,
         "Hard": 0
       },
       "Hackerrank": {
@@ -109,6 +109,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2025-12-29T07:54:23.000Z"
+    },
+    {
+      "id": "leetcode-medium-magic-squares-in-grid",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Magic Squares In Grid",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public boolean isMagicSquare(int[][] grid, int r, int c) {\n        if (grid[r+1][c+1] != 5) return false; //center must always be 5\n\n        int a = grid[r][c],b = grid[r][c+1],d = grid[r][c+2]; // grid ele except centre\n        int e = grid[r+1][c],f = grid[r+1][c+2];\n        int h = grid[r+2][c],i = grid[r+2][c+1],j = grid[r+2][c+2];\n\n        boolean[] seen = new boolean[10];\n        int[] arr = {a,b,d,e,f,h,i,j,5};// 1 - 9 checking\n        for (int x : arr) {\n            if (x < 1 || x > 9 || seen[x]) return false;\n            seen[x] = true;\n        }\n\n        if (a + j != 10) return false; //opposite cells must sum to 10\n        if (b + i != 10) return false;\n        if (d + h != 10) return false;\n        if (e + f != 10) return false;\n\n         // Check all rows, columns, and diagonals sum to 15\n        if (a + b + d != 15) return false;\n        if (h + i + j != 15) return false;\n        if (a + e + h != 15) return false;\n        if (d + f + j != 15) return false;\n        if (a + 5 + j != 15) return false;// centre is 5\n        if (d + 5 + h != 15) return false;\n\n        return true;\n    }\n\n    public int numMagicSquaresInside(int[][] grid) {\n        int m = grid.length, n = grid[0].length, c = 0;\n        for (int i = 0;i <= m-3;i++) {\n            for (int j = 0;j <= n-3;j++) {\n                if (isMagicSquare(grid,i,j)) c++;\n            }\n        }\n        return c;\n    }\n}",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,167,Days,Consistencyiskey,seeyoutomorrow!\n\nA 3 x 3 magic square is a 3 x 3 grid filled with distinct numbers from 1 to 9 such that each row, column, and both diagonals all have the same sum.\n\nGiven a row x col grid of integers, how many 3 x 3 magic square subgrids are there?\n\nNote: while a magic square can only contain numbers from 1 to 9, grid may contain numbers up to 15.\n\n \nExample 1:\n\nInput: grid = [[4,3,8,4],[9,5,1,9],[2,7,6,2]]\nOutput: 1\nExplanation: \nThe following subgrid is a 3 x 3 magic square:\n\nwhile this one is not:\n\nIn total, there is only one magic square inside the given grid.\n\n\nExample 2:\n\nInput: grid = [[8]]\nOutput: 0\n\n\n \nConstraints:\n\n\n\trow == grid.length\n\tcol == grid[i].length\n\t1 <= row, col <= 10\n\t0 <= grid[i][j] <= 15",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2025-12-30T15:11:28.000Z"
     }
   ]
 }
