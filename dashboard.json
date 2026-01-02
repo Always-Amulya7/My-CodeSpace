@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 8,
-    "lastUpdated": "2026-01-01T09:44:09.294Z",
+    "totalProblems": 9,
+    "lastUpdated": "2026-01-02T12:14:16.382Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,8 +16,8 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 4,
-        "Easy": 1,
+        "total": 5,
+        "Easy": 2,
         "Medium": 2,
         "Hard": 1
       },
@@ -93,6 +93,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2025-12-29T08:09:06.000Z"
+    },
+    {
+      "id": "leetcode-easy-n-repeated-element-in-size-2n-array",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "N-Repeated Element in Size 2N Array",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int repeatedNTimes(int[] nums) {\n        int n = nums.length - 1;\n        if(nums[0] == nums[n]) return nums[0];\n        for(int i = 0; i < n; i++) {\n            if(nums[i] == nums[i + 1] || nums[i] == nums[i + 2]) return nums[i];\n        }\n        return nums[0];\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-02T12:14:05.000Z"
     },
     {
       "id": "leetcode-easy-plus-one",
