@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 11,
-    "lastUpdated": "2026-01-05T17:25:26.507Z",
+    "totalProblems": 12,
+    "lastUpdated": "2026-01-05T17:27:33.019Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,8 +16,8 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 7,
-        "Easy": 2,
+        "total": 8,
+        "Easy": 3,
         "Medium": 4,
         "Hard": 1
       },
@@ -93,6 +93,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2025-12-29T08:09:06.000Z"
+    },
+    {
+      "id": "leetcode-easy-longest-common-prefix",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Longest Common Prefix",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public String longestCommonPrefix(String[] v) {\n        StringBuilder ans = new StringBuilder();\n        Arrays.sort(v);\n        String first = v[0];\n        String last = v[v.length-1];\n        for (int i=0; i<Math.min(first.length(), last.length()); i++) {\n            if (first.charAt(i) != last.charAt(i)) {\n                return ans.toString();\n            }\n            ans.append(first.charAt(i));\n        }\n        return ans.toString();\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-05T17:27:22.000Z"
     },
     {
       "id": "leetcode-easy-n-repeated-element-in-size-2n-array",
