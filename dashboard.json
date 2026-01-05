@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 10,
-    "lastUpdated": "2026-01-04T13:45:19.337Z",
+    "totalProblems": 11,
+    "lastUpdated": "2026-01-05T11:39:52.821Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,9 +16,9 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 6,
+        "total": 7,
         "Easy": 2,
-        "Medium": 3,
+        "Medium": 4,
         "Hard": 1
       },
       "Hackerrank": {
@@ -173,6 +173,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2025-12-30T15:11:28.000Z"
+    },
+    {
+      "id": "leetcode-medium-maximum-matrix-sum",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Maximum Matrix Sum",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public long maxMatrixSum(int[][] matrix) {\n        long sum = 0 ;\n\n        int n = matrix.length ;\n\n        int min = 100001 ;\n\n        int negCount = 0 ;\n\n        for (int[] row : matrix)\n        {\n            for (int val : row)\n            {\n                if (val < 0)\n                {\n                    negCount++ ;\n                    val = -val ;\n                }\n\n                if (val < min) min = val ;\n\n                sum += val ;\n            }\n        }\n\n        return negCount % 2 == 0 ? sum : sum - 2L * min ;\n    }\n}",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,173,Days,Consistencyiskey,seeyoutomorrow!\n\nYou are given an n x n integer matrix. You can do the following operation any number of times:\n\n\n\tChoose any two adjacent elements of matrix and multiply each of them by -1.\n\n\nTwo elements are considered adjacent if and only if they share a border.\n\nYour goal is to maximize the summation of the matrix's elements. Return the maximum sum of the matrix's elements using the operation mentioned above.\n\n \nExample 1:\n\nInput: matrix = [[1,-1],[-1,1]]\nOutput: 4\nExplanation: We can follow the following steps to reach sum equals 4:\n- Multiply the 2 elements in the first row by -1.\n- Multiply the 2 elements in the first column by -1.\n\n\nExample 2:\n\nInput: matrix = [[1,2,3],[-1,-2,-3],[1,2,3]]\nOutput: 16\nExplanation: We can follow the following step to reach sum equals 16:\n- Multiply the 2 last elements in the second row by -1.\n\n\n \nConstraints:\n\n\n\tn == matrix.length == matrix[i].length\n\t2 <= n <= 250\n\t-105 <= matrix[i][j] <= 105",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-05T11:39:42.000Z"
     },
     {
       "id": "leetcode-hard-last-day-where-you-can-still-cross",
