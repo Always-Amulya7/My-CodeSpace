@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 12,
-    "lastUpdated": "2026-01-05T17:27:33.019Z",
+    "totalProblems": 13,
+    "lastUpdated": "2026-01-08T05:37:58.670Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,9 +16,9 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 8,
+        "total": 9,
         "Easy": 3,
-        "Medium": 4,
+        "Medium": 5,
         "Hard": 1
       },
       "Hackerrank": {
@@ -102,13 +102,13 @@
       "language": "java",
       "files": {
         "code": "class Solution {\n    public String longestCommonPrefix(String[] v) {\n        StringBuilder ans = new StringBuilder();\n        Arrays.sort(v);\n        String first = v[0];\n        String last = v[v.length-1];\n        for (int i=0; i<Math.min(first.length(), last.length()); i++) {\n            if (first.charAt(i) != last.charAt(i)) {\n                return ans.toString();\n            }\n            ans.append(first.charAt(i));\n        }\n        return ans.toString();\n    }\n}",
-        "readme": "",
+        "readme": "ArrayStringTrie\n\nWrite a function to find the longest common prefix string amongst an array of strings.\n\nIf there is no common prefix, return an empty string \"\".\n\n \nExample 1:\n\nInput: strs = [\"flower\",\"flow\",\"flight\"]\nOutput: \"fl\"\n\n\nExample 2:\n\nInput: strs = [\"dog\",\"racecar\",\"car\"]\nOutput: \"\"\nExplanation: There is no common prefix among the input strings.\n\n\n \nConstraints:\n\n\n\t1 <= strs.length <= 200\n\t0 <= strs[i].length <= 200\n\tstrs[i] consists of only lowercase English letters if it is non-empty.",
         "notes": ""
       },
       "hasCode": true,
-      "hasReadme": false,
+      "hasReadme": true,
       "hasNotes": false,
-      "lastUpdated": "2026-01-05T17:27:22.000Z"
+      "lastUpdated": "2026-01-05T17:27:23.000Z"
     },
     {
       "id": "leetcode-easy-n-repeated-element-in-size-2n-array",
@@ -205,6 +205,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-01-05T11:39:42.000Z"
+    },
+    {
+      "id": "leetcode-medium-maximum-product-of-splitted-binary-tree",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Maximum Product of Splitted Binary Tree",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    static final int MOD = 1_000_000_007;\n    long totalSum = 0;\n    long maxProduct = 0;\n\n    // First DFS: compute total tree sum\n    long getTotalSum(TreeNode root) {\n        if (root == null) return 0;\n        return root.val \n             + getTotalSum(root.left) \n             + getTotalSum(root.right);\n    }\n\n    // Second DFS (postorder): compute subtree sums\n    long dfs(TreeNode root) {\n        if (root == null) return 0;\n\n        // Get sums of left and right subtrees\n        long left = dfs(root.left);\n        long right = dfs(root.right);\n\n        // Current subtree sum\n        long subSum = root.val + left + right;\n\n        // Try splitting above this node\n        long product = subSum * (totalSum - subSum);\n        maxProduct = Math.max(maxProduct, product);\n\n        return subSum;\n    }\n\n    public int maxProduct(TreeNode root) {\n        totalSum = getTotalSum(root); // O(n)\n        dfs(root);                    // O(n)\n        return (int)(maxProduct % MOD);\n    }\n}",
+        "readme": "🗓️Make-upnotice,ThisistheDailyCodingChallengeforJanuary7th2026.Thereare2incompletechallengesforJanuary2026andyouhave1ticketleftforthismonth.Areyousureyouwanttouseatickettomakeupthissubmission?,No,Yes\n\nGiven the root of a binary tree, split the binary tree into two subtrees by removing one edge such that the product of the sums of the subtrees is maximized.\n\nReturn the maximum product of the sums of the two subtrees. Since the answer may be too large, return it modulo 109 + 7.\n\nNote that you need to maximize the answer before taking the mod and not after taking it.\n\n \nExample 1:\n\nInput: root = [1,2,3,4,5,6]\nOutput: 110\nExplanation: Remove the red edge and get 2 binary trees with sum 11 and 10. Their product is 110 (11*10)\n\n\nExample 2:\n\nInput: root = [1,null,2,3,4,null,null,5,6]\nOutput: 90\nExplanation: Remove the red edge and get 2 binary trees with sum 15 and 6.Their product is 90 (15*6)\n\n\n \nConstraints:\n\n\n\tThe number of nodes in the tree is in the range [2, 5 * 104].\n\t1 <= Node.val <= 104",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-08T05:37:48.000Z"
     },
     {
       "id": "leetcode-hard-last-day-where-you-can-still-cross",
