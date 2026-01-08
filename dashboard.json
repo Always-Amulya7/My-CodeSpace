@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 13,
-    "lastUpdated": "2026-01-08T05:37:58.670Z",
+    "totalProblems": 14,
+    "lastUpdated": "2026-01-08T05:38:36.643Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,10 +16,10 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 9,
+        "total": 10,
         "Easy": 3,
         "Medium": 5,
-        "Hard": 1
+        "Hard": 2
       },
       "Hackerrank": {
         "total": 3,
@@ -237,6 +237,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2025-12-31T14:04:33.000Z"
+    },
+    {
+      "id": "leetcode-hard-max-dot-product-of-two-subsequences",
+      "platform": "Leetcode",
+      "difficulty": "Hard",
+      "problemName": "Max Dot Product of Two Subsequences",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n\n    // dp[i][j] stores the maximum dot product for nums1[0..i] and nums2[0..j]\n    Integer[][] dp;\n\n    public int maxDotProduct(int[] nums1, int[] nums2) {\n        dp = new Integer[nums1.length][nums2.length];\n        return solve(nums1, nums2, nums1.length - 1, nums2.length - 1);\n    }\n\n    private int solve(int[] nums1, int[] nums2, int i, int j) {\n\n        // Base case: if either array is exhausted\n        if (i < 0 || j < 0) {\n            return Integer.MIN_VALUE; // invalid (non-empty constraint)\n        }\n\n        // If already computed, reuse it\n        if (dp[i][j] != null) {\n            return dp[i][j];\n        }\n\n        // Option 1: take current pair\n        int product = nums1[i] * nums2[j];\n\n        // Option 2: extend a previous subsequence\n        int extend = solve(nums1, nums2, i - 1, j - 1);\n        int take = product;\n        if (extend != Integer.MIN_VALUE) {\n            take = Math.max(take, product + extend);\n        }\n\n        // Option 3: skip one element\n        int skip = Math.max(\n            solve(nums1, nums2, i - 1, j),\n            solve(nums1, nums2, i, j - 1)\n        );\n\n        // Store and return the best result\n        return dp[i][j] = Math.max(take, skip);\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-08T05:38:26.000Z"
     }
   ]
 }
