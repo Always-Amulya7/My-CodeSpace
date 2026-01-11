@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 14,
-    "lastUpdated": "2026-01-08T05:38:36.643Z",
+    "totalProblems": 15,
+    "lastUpdated": "2026-01-11T14:18:28.491Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,10 +16,10 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 10,
+        "total": 11,
         "Easy": 3,
         "Medium": 5,
-        "Hard": 2
+        "Hard": 3
       },
       "Hackerrank": {
         "total": 3,
@@ -246,13 +246,29 @@
       "language": "java",
       "files": {
         "code": "class Solution {\n\n    // dp[i][j] stores the maximum dot product for nums1[0..i] and nums2[0..j]\n    Integer[][] dp;\n\n    public int maxDotProduct(int[] nums1, int[] nums2) {\n        dp = new Integer[nums1.length][nums2.length];\n        return solve(nums1, nums2, nums1.length - 1, nums2.length - 1);\n    }\n\n    private int solve(int[] nums1, int[] nums2, int i, int j) {\n\n        // Base case: if either array is exhausted\n        if (i < 0 || j < 0) {\n            return Integer.MIN_VALUE; // invalid (non-empty constraint)\n        }\n\n        // If already computed, reuse it\n        if (dp[i][j] != null) {\n            return dp[i][j];\n        }\n\n        // Option 1: take current pair\n        int product = nums1[i] * nums2[j];\n\n        // Option 2: extend a previous subsequence\n        int extend = solve(nums1, nums2, i - 1, j - 1);\n        int take = product;\n        if (extend != Integer.MIN_VALUE) {\n            take = Math.max(take, product + extend);\n        }\n\n        // Option 3: skip one element\n        int skip = Math.max(\n            solve(nums1, nums2, i - 1, j),\n            solve(nums1, nums2, i, j - 1)\n        );\n\n        // Store and return the best result\n        return dp[i][j] = Math.max(take, skip);\n    }\n}",
-        "readme": "",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,176,Days,Consistencyiskey,seeyoutomorrow!\n\nGiven two arrays nums1 and nums2.\n\nReturn the maximum dot product between non-empty subsequences of nums1 and nums2 with the same length.\n\nA subsequence of a array is a new array which is formed from the original array by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, [2,3,5] is a subsequence of [1,2,3,4,5] while [1,5,3] is not).\n\n \nExample 1:\n\nInput: nums1 = [2,1,-2,5], nums2 = [3,0,-6]\nOutput: 18\nExplanation: Take subsequence [2,-2] from nums1 and subsequence [3,-6] from nums2.\nTheir dot product is (2*3 + (-2)*(-6)) = 18.\n\nExample 2:\n\nInput: nums1 = [3,-2], nums2 = [2,-6,7]\nOutput: 21\nExplanation: Take subsequence [3] from nums1 and subsequence [7] from nums2.\nTheir dot product is (3*7) = 21.\n\nExample 3:\n\nInput: nums1 = [-1,-1], nums2 = [1,1]\nOutput: -1\nExplanation: Take subsequence [-1] from nums1 and subsequence [1] from nums2.\nTheir dot product is -1.\n\n \nConstraints:\n\n\n\t1 <= nums1.length, nums2.length <= 500\n\t-1000 <= nums1[i], nums2[i] <= 1000",
         "notes": ""
       },
       "hasCode": true,
-      "hasReadme": false,
+      "hasReadme": true,
       "hasNotes": false,
-      "lastUpdated": "2026-01-08T05:38:26.000Z"
+      "lastUpdated": "2026-01-08T05:38:27.000Z"
+    },
+    {
+      "id": "leetcode-hard-maximal-rectangle",
+      "platform": "Leetcode",
+      "difficulty": "Hard",
+      "problemName": "Maximal Rectangle",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int maximalRectangle(char[][] matrix) {\n        int m = matrix.length, n = matrix[0].length, ans = 0;\n        int[]hist = new int[n];\n\n        for(int i=0;i<m;i++){\n            for(int j=0;j<n;j++){\n                if(matrix[i][j]!='0')hist[j]+=1;\n                else hist[j] = 0;\n            }\n            int area = area(hist);\n            ans = Math.max(ans, area);\n        }\n\n        return ans;\n       \n    }\n\n    public static int area(int[] heights) {\n        int n = heights.length;\n        int maxArea = 0;\n        Stack<Integer> stack = new Stack<>();\n\n        for (int i = 0; i <= n; i++) {\n            int h = (i == n) ? 0 : heights[i];\n            while (!stack.isEmpty() && h < heights[stack.peek()]) {\n                int height = heights[stack.pop()];\n                int width = stack.isEmpty() ? i : i - stack.peek() - 1;\n                maxArea = Math.max(maxArea, height * width);\n            }\n            stack.push(i);\n        }\n\n        return maxArea;\n    }\n}",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,179,Days,Consistencyiskey,seeyoutomorrow!\n\nGiven a rows x cols binary matrix filled with 0's and 1's, find the largest rectangle containing only 1's and return its area.\n\n \nExample 1:\n\nInput: matrix = [[\"1\",\"0\",\"1\",\"0\",\"0\"],[\"1\",\"0\",\"1\",\"1\",\"1\"],[\"1\",\"1\",\"1\",\"1\",\"1\"],[\"1\",\"0\",\"0\",\"1\",\"0\"]]\nOutput: 6\nExplanation: The maximal rectangle is shown in the above picture.\n\n\nExample 2:\n\nInput: matrix = [[\"0\"]]\nOutput: 0\n\n\nExample 3:\n\nInput: matrix = [[\"1\"]]\nOutput: 1\n\n\n \nConstraints:\n\n\n\trows == matrix.length\n\tcols == matrix[i].length\n\t1 <= rows, cols <= 200\n\tmatrix[i][j] is '0' or '1'.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-11T14:18:18.000Z"
     }
   ]
 }
