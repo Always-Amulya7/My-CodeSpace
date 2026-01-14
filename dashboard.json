@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 17,
-    "lastUpdated": "2026-01-13T15:46:07.363Z",
+    "totalProblems": 18,
+    "lastUpdated": "2026-01-14T17:54:42.244Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,10 +16,10 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 13,
+        "total": 14,
         "Easy": 4,
         "Medium": 6,
-        "Hard": 3
+        "Hard": 4
       },
       "Hackerrank": {
         "total": 3,
@@ -301,6 +301,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-01-11T14:18:18.000Z"
+    },
+    {
+      "id": "leetcode-hard-separate-squares-ii",
+      "platform": "Leetcode",
+      "difficulty": "Hard",
+      "problemName": "Separate Squares II",
+      "language": "java",
+      "files": {
+        "code": "import java.util.*;\n\nclass Solution {\n    // Helper class to represent active X-intervals\n    private static class Interval implements Comparable<Interval> {\n        int start, end;\n        \n        Interval(int start, int end) {\n            this.start = start;\n            this.end = end;\n        }\n        \n        // Needed for sort\n        public int compareTo(Interval other) {\n            if (this.start != other.start) return Integer.compare(this.start, other.start);\n            return Integer.compare(this.end, other.end);\n        }\n\n        // Needed for removing specific objects from ArrayList\n        public boolean equals(Object o) {\n            if (this == o) return true;\n            if (o == null || getClass() != o.getClass()) return false;\n            Interval interval = (Interval) o;\n            return start == interval.start && end == interval.end;\n        }\n    }\n\n    // Helper class for Sweep Line events\n    private static class Event implements Comparable<Event> {\n        int y;\n        int type; // 1 for start, -1 for end\n        int xStart, xEnd;\n\n        Event(int y, int type, int xStart, int xEnd) {\n            this.y = y;\n            this.type = type;\n            this.xStart = xStart;\n            this.xEnd = xEnd;\n        }\n\n        public int compareTo(Event other) {\n            return Integer.compare(this.y, other.y);\n        }\n    }\n\n    public double separateSquares(int[][] squares) {\n        List<Event> sweepEvents = new ArrayList<>();\n        for (int[] sq : squares) {\n            int x = sq[0];\n            int y = sq[1];\n            int l = sq[2];\n            sweepEvents.add(new Event(y, 1, x, x + l));\n            sweepEvents.add(new Event(y + l, -1, x, x + l));\n        }\n\n        Collections.sort(sweepEvents);\n\n        List<Interval> activeIntervals = new ArrayList<>();\n        // Store strips as: [y_bottom, height, union_width]\n        List<double[]> processedStrips = new ArrayList<>();\n        \n        double totalArea = 0;\n        int prevY = sweepEvents.get(0).y;\n\n        for (Event event : sweepEvents) {\n            // Process the gap (strip) between the previous event and this one\n            if (event.y > prevY) {\n                double unionWidth = getUnionWidth(activeIntervals);\n                double height = (double) event.y - prevY;\n                \n                if (unionWidth > 0) {\n                    processedStrips.add(new double[]{prevY, height, unionWidth});\n                    totalArea += height * unionWidth;\n                }\n            }\n\n            // Update active intervals list\n            Interval currentInterval = new Interval(event.xStart, event.xEnd);\n            if (event.type == 1) {\n                activeIntervals.add(currentInterval);\n            } else {\n                activeIntervals.remove(currentInterval);\n            }\n            \n            prevY = event.y;\n        }\n\n        // Second Pass: Find the split point\n        double targetArea = totalArea / 2.0;\n        double accumulatedArea = 0;\n\n        for (double[] strip : processedStrips) {\n            double bottomY = strip[0];\n            double height = strip[1];\n            double width = strip[2];\n            double stripArea = height * width;\n\n            if (accumulatedArea + stripArea >= targetArea) {\n                double missingArea = targetArea - accumulatedArea;\n                return bottomY + (missingArea / width);\n            }\n            accumulatedArea += stripArea;\n        }\n\n        return 0.0;\n    }\n\n    // Brute force union width calculation: O(K log K) where K is active squares\n    private double getUnionWidth(List<Interval> intervals) {\n        if (intervals.isEmpty()) return 0;\n\n        // Create a copy to sort, so we don't mess up the main list order unnecessarily\n        List<Interval> sorted = new ArrayList<>(intervals);\n        Collections.sort(sorted);\n\n        double unionLength = 0;\n        double currentEnd = -1e18; // Negative infinity\n\n        for (Interval iv : sorted) {\n            if (iv.start >= currentEnd) {\n                // Disjoint interval\n                unionLength += (iv.end - iv.start);\n                currentEnd = iv.end;\n            } else if (iv.end > currentEnd) {\n                // Overlapping interval\n                unionLength += (iv.end - currentEnd);\n                currentEnd = iv.end;\n            }\n        }\n        return unionLength;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-14T17:54:29.000Z"
     }
   ]
 }
