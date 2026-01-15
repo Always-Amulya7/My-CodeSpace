@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 18,
-    "lastUpdated": "2026-01-14T17:54:42.244Z",
+    "totalProblems": 19,
+    "lastUpdated": "2026-01-15T13:31:08.957Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,9 +16,9 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 14,
+        "total": 15,
         "Easy": 4,
-        "Medium": 6,
+        "Medium": 7,
         "Hard": 4
       },
       "Hackerrank": {
@@ -205,6 +205,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2025-12-30T15:11:28.000Z"
+    },
+    {
+      "id": "leetcode-medium-maximize-area-of-square-hole-in-grid",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Maximize Area of Square Hole in Grid",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    private int maxLen(int[] Bars) {\n        int count = 2, length = 2;\n        for(int i = 1; i < Bars.length; i++) {\n            if(Bars[i] - Bars[i-1] == 1) count++;\n            else count = 2;\n            length = Math.max(length, count);\n        }\n        return length;\n    }\n    public int maximizeSquareHoleArea(int n, int m, int[] hBars, int[] vBars) {\n        Arrays.sort(hBars);\n        Arrays.sort(vBars);\n        int side = Math.min(maxLen(hBars), maxLen(vBars));\n        return side * side; \n    }\n}",
+        "readme": "ArraySortingBiweeklyContest118\n\nYou are given the two integers, n and m and two integer arrays, hBars and vBars. The grid has n + 2 horizontal and m + 2 vertical bars, creating 1 x 1 unit cells. The bars are indexed starting from 1.\n\nYou can remove some of the bars in hBars from horizontal bars and some of the bars in vBars from vertical bars. Note that other bars are fixed and cannot be removed.\n\nReturn an integer denoting the maximum area of a square-shaped hole in the grid, after removing some bars (possibly none).\n\n \nExample 1:\n\n\n\n\nInput: n = 2, m = 1, hBars = [2,3], vBars = [2]\n\nOutput: 4\n\nExplanation:\n\nThe left image shows the initial grid formed by the bars. The horizontal bars are [1,2,3,4], and the vertical bars are [1,2,3].\n\nOne way to get the maximum square-shaped hole is by removing horizontal bar 2 and vertical bar 2.\n\n\nExample 2:\n\n\n\n\nInput: n = 1, m = 1, hBars = [2], vBars = [2]\n\nOutput: 4\n\nExplanation:\n\nTo get the maximum square-shaped hole, we remove horizontal bar 2 and vertical bar 2.\n\n\nExample 3:\n\n\n\n\nInput: n = 2, m = 3, hBars = [2,3], vBars = [2,4]\n\nOutput: 4\n\nExplanation:\n\nOne way to get the maximum square-shaped hole is by removing horizontal bar 3, and vertical bar 4.\n\n\n \nConstraints:\n\n\n\t1 <= n <= 109\n\t1 <= m <= 109\n\t1 <= hBars.length <= 100\n\t2 <= hBars[i] <= n + 1\n\t1 <= vBars.length <= 100\n\t2 <= vBars[i] <= m + 1\n\tAll values in hBars are distinct.\n\tAll values in vBars are distinct.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-15T13:30:58.000Z"
     },
     {
       "id": "leetcode-medium-maximum-matrix-sum",
