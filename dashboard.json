@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 19,
-    "lastUpdated": "2026-01-15T13:31:08.957Z",
+    "totalProblems": 20,
+    "lastUpdated": "2026-01-16T16:33:46.965Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,9 +16,9 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 15,
+        "total": 16,
         "Easy": 4,
-        "Medium": 7,
+        "Medium": 8,
         "Hard": 4
       },
       "Hackerrank": {
@@ -253,6 +253,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-01-08T05:37:48.000Z"
+    },
+    {
+      "id": "leetcode-medium-maximum-square-area-by-removing-fences-from-a-field",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Maximum Square Area by Removing Fences From a Field",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int maximizeSquareArea(int m, int n, int[] hFences, int[] vFences) {\n        // 1. Add implicit boundary fences to new lists\n        // We use Arrays to facilitate sorting and resizing\n        int[] h = Arrays.copyOf(hFences, hFences.length + 2);\n        h[hFences.length] = 1;\n        h[hFences.length + 1] = m;\n        \n        int[] v = Arrays.copyOf(vFences, vFences.length + 2);\n        v[vFences.length] = 1;\n        v[vFences.length + 1] = n;\n\n        // 2. Sort arrays\n        Arrays.sort(h);\n        Arrays.sort(v);\n\n        // 3. Store all possible horizontal gaps\n        Set<Integer> hGaps = new HashSet<>();\n        for (int i = 0; i < h.length; i++) {\n            for (int j = i + 1; j < h.length; j++) {\n                hGaps.add(h[j] - h[i]);\n            }\n        }\n\n        // 4. Check vertical gaps\n        long maxSide = -1;\n        for (int i = 0; i < v.length; i++) {\n            for (int j = i + 1; j < v.length; j++) {\n                int currentGap = v[j] - v[i];\n                if (hGaps.contains(currentGap)) {\n                    maxSide = Math.max(maxSide, currentGap);\n                }\n            }\n        }\n\n        if (maxSide == -1) return -1;\n\n        // 5. Return result modulo 10^9 + 7\n        long MOD = 1_000_000_007;\n        return (int) ((maxSide * maxSide) % MOD);\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-16T16:33:35.000Z"
     },
     {
       "id": "leetcode-medium-separate-squares-i",
