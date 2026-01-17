@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 20,
-    "lastUpdated": "2026-01-16T16:33:46.965Z",
+    "totalProblems": 21,
+    "lastUpdated": "2026-01-17T11:05:43.248Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,9 +16,9 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 16,
+        "total": 17,
         "Easy": 4,
-        "Medium": 8,
+        "Medium": 9,
         "Hard": 4
       },
       "Hackerrank": {
@@ -159,6 +159,22 @@
       "lastUpdated": "2026-01-01T09:43:58.000Z"
     },
     {
+      "id": "leetcode-medium-find-the-largest-area-of-square-inside-two-rectangles",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Find the Largest Area of Square Inside Two Rectangles",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public long largestSquareArea(int[][] bottomLeft, int[][] topRight) {\n        long maxSide = 0;\n        int n = bottomLeft.length;\n\n        for (int i = 0; i < n; i++) {\n            for (int j = i + 1; j < n; j++) {\n                // Find intersection boundaries\n                // Use Math.max for lower bounds (left, bottom)\n                // Use Math.min for upper bounds (right, top)\n                int x1 = Math.max(bottomLeft[i][0], bottomLeft[j][0]);\n                int y1 = Math.max(bottomLeft[i][1], bottomLeft[j][1]);\n                int x2 = Math.min(topRight[i][0], topRight[j][0]);\n                int y2 = Math.min(topRight[i][1], topRight[j][1]);\n\n                // Width and Height of the intersection rectangle\n                long width = x2 - x1;\n                long height = y2 - y1;\n\n                // If valid intersection (width and height > 0)\n                if (width > 0 && height > 0) {\n                    long side = Math.min(width, height);\n                    maxSide = Math.max(maxSide, side);\n                }\n            }\n        }\n\n        return maxSide * maxSide;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-17T11:05:33.000Z"
+    },
+    {
       "id": "leetcode-medium-four-divisors",
       "platform": "Leetcode",
       "difficulty": "Medium",
@@ -262,13 +278,13 @@
       "language": "java",
       "files": {
         "code": "class Solution {\n    public int maximizeSquareArea(int m, int n, int[] hFences, int[] vFences) {\n        // 1. Add implicit boundary fences to new lists\n        // We use Arrays to facilitate sorting and resizing\n        int[] h = Arrays.copyOf(hFences, hFences.length + 2);\n        h[hFences.length] = 1;\n        h[hFences.length + 1] = m;\n        \n        int[] v = Arrays.copyOf(vFences, vFences.length + 2);\n        v[vFences.length] = 1;\n        v[vFences.length + 1] = n;\n\n        // 2. Sort arrays\n        Arrays.sort(h);\n        Arrays.sort(v);\n\n        // 3. Store all possible horizontal gaps\n        Set<Integer> hGaps = new HashSet<>();\n        for (int i = 0; i < h.length; i++) {\n            for (int j = i + 1; j < h.length; j++) {\n                hGaps.add(h[j] - h[i]);\n            }\n        }\n\n        // 4. Check vertical gaps\n        long maxSide = -1;\n        for (int i = 0; i < v.length; i++) {\n            for (int j = i + 1; j < v.length; j++) {\n                int currentGap = v[j] - v[i];\n                if (hGaps.contains(currentGap)) {\n                    maxSide = Math.max(maxSide, currentGap);\n                }\n            }\n        }\n\n        if (maxSide == -1) return -1;\n\n        // 5. Return result modulo 10^9 + 7\n        long MOD = 1_000_000_007;\n        return (int) ((maxSide * maxSide) % MOD);\n    }\n}",
-        "readme": "",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,184,Days,Consistencyiskey,seeyoutomorrow!\n\nThere is a large (m - 1) x (n - 1) rectangular field with corners at (1, 1) and (m, n) containing some horizontal and vertical fences given in arrays hFences and vFences respectively.\n\nHorizontal fences are from the coordinates (hFences[i], 1) to (hFences[i], n) and vertical fences are from the coordinates (1, vFences[i]) to (m, vFences[i]).\n\nReturn the maximum area of a square field that can be formed by removing some fences (possibly none) or -1 if it is impossible to make a square field.\n\nSince the answer may be large, return it modulo 109 + 7.\n\nNote: The field is surrounded by two horizontal fences from the coordinates (1, 1) to (1, n) and (m, 1) to (m, n) and two vertical fences from the coordinates (1, 1) to (m, 1) and (1, n) to (m, n). These fences cannot be removed.\n\n \nExample 1:\n\n\n\nInput: m = 4, n = 3, hFences = [2,3], vFences = [2]\nOutput: 4\nExplanation: Removing the horizontal fence at 2 and the vertical fence at 2 will give a square field of area 4.\n\n\nExample 2:\n\n\n\nInput: m = 6, n = 7, hFences = [2], vFences = [4]\nOutput: -1\nExplanation: It can be proved that there is no way to create a square field by removing fences.\n\n\n \nConstraints:\n\n\n\t3 <= m, n <= 109\n\t1 <= hFences.length, vFences.length <= 600\n\t1 < hFences[i] < m\n\t1 < vFences[i] < n\n\thFences and vFences are unique.",
         "notes": ""
       },
       "hasCode": true,
-      "hasReadme": false,
+      "hasReadme": true,
       "hasNotes": false,
-      "lastUpdated": "2026-01-16T16:33:35.000Z"
+      "lastUpdated": "2026-01-16T16:33:37.000Z"
     },
     {
       "id": "leetcode-medium-separate-squares-i",
