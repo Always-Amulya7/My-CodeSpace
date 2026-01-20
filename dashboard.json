@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 22,
-    "lastUpdated": "2026-01-18T03:41:38.734Z",
+    "totalProblems": 23,
+    "lastUpdated": "2026-01-20T03:40:07.859Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,9 +16,9 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 18,
+        "total": 19,
         "Easy": 4,
-        "Medium": 10,
+        "Medium": 11,
         "Hard": 4
       },
       "Hackerrank": {
@@ -285,6 +285,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-01-08T05:37:48.000Z"
+    },
+    {
+      "id": "leetcode-medium-maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Maximum Side Length of a Square with Sum Less than or Equal to Threshold",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int maxSideLength(int[][] mat, int threshold) {\n        int m = mat.length, n = mat[0].length;\n        int maxSide = Math.min(m,n);\n\n        int[][] pref = new int[m+1][n+1];\n        for (int i = 1; i <= m; i++) {\n            for (int j = 1; j <= n; j++) {\n                pref[i][j] =\n                    mat[i-1][j-1]\n                  + pref[i-1][j]\n                  + pref[i][j-1]\n                  - pref[i-1][j-1];\n            }\n        }\n\n        while (maxSide > 0) {\n            for (int i = 0; i + maxSide <= m; i++) {\n                for (int j = 0; j + maxSide <= n; j++) {\n                    if (helper(pref, threshold, i, j, maxSide))\n                        return maxSide;\n                }\n            }\n            maxSide--;\n        }\n\n        return 0;\n    }\n\n    private boolean helper(int[][] pref, int t, int x, int y, int side) {\n        int x2 = x + side;\n        int y2 = y + side;\n\n        int sum =\n            pref[x2][y2]\n        - pref[x][y2]\n        - pref[x2][y]\n        + pref[x][y];\n\n        return sum <= t;\n    }\n\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-20T03:39:57.000Z"
     },
     {
       "id": "leetcode-medium-maximum-square-area-by-removing-fences-from-a-field",
