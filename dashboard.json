@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 27,
-    "lastUpdated": "2026-01-23T16:21:59.979Z",
+    "totalProblems": 28,
+    "lastUpdated": "2026-01-24T17:23:37.922Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,9 +16,9 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 23,
+        "total": 24,
         "Easy": 6,
-        "Medium": 12,
+        "Medium": 13,
         "Hard": 5
       },
       "Hackerrank": {
@@ -365,6 +365,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-01-16T16:33:37.000Z"
+    },
+    {
+      "id": "leetcode-medium-minimize-maximum-pair-sum-in-array",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Minimize Maximum Pair Sum in Array",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int minPairSum(int[] nums) {\n        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;\n        int[] freq = new int[100001];\n        for(int i = 0; i < nums.length; i++) {\n            if(nums[i] < min) min = nums[i];\n            if(nums[i] > max) max = nums[i];\n            freq[nums[i]]++;\n        }\n        int max_sum = 0, l = min, r = max;\n        while(l <= r) {\n            if(freq[l] == 0) l++;\n            else if(freq[r] == 0) r--;\n            else {\n                max_sum = Math.max(max_sum, l + r);\n                freq[l]--;\n                freq[r]--;\n            }\n        }\n        return max_sum;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-24T17:23:26.000Z"
     },
     {
       "id": "leetcode-medium-separate-squares-i",
