@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 28,
-    "lastUpdated": "2026-01-24T17:23:37.922Z",
+    "totalProblems": 29,
+    "lastUpdated": "2026-01-25T04:17:15.144Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,8 +16,8 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 24,
-        "Easy": 6,
+        "total": 25,
+        "Easy": 7,
         "Medium": 13,
         "Hard": 5
       },
@@ -125,6 +125,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-01-05T17:27:23.000Z"
+    },
+    {
+      "id": "leetcode-easy-minimum-difference-between-highest-and-lowest-of-k-scores",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Minimum Difference Between Highest and Lowest of K Scores",
+      "language": "java",
+      "files": {
+        "code": "import java.util.Arrays;\n\nclass Solution {\n    public int minimumDifference(int[] nums, int k) {\n        if (k == 1) return 0;\n        Arrays.sort(nums);\n        int minDiff = Integer.MAX_VALUE;\n        for (int i = 0; i <= nums.length - k; i++) {\n            int currentDiff = nums[i + k - 1] - nums[i];\n            minDiff = Math.min(minDiff, currentDiff);\n        }\n        return minDiff;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-25T04:17:04.000Z"
     },
     {
       "id": "leetcode-easy-minimum-pair-removal-to-sort-array-i",
@@ -374,13 +390,13 @@
       "language": "java",
       "files": {
         "code": "class Solution {\n    public int minPairSum(int[] nums) {\n        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;\n        int[] freq = new int[100001];\n        for(int i = 0; i < nums.length; i++) {\n            if(nums[i] < min) min = nums[i];\n            if(nums[i] > max) max = nums[i];\n            freq[nums[i]]++;\n        }\n        int max_sum = 0, l = min, r = max;\n        while(l <= r) {\n            if(freq[l] == 0) l++;\n            else if(freq[r] == 0) r--;\n            else {\n                max_sum = Math.max(max_sum, l + r);\n                freq[l]--;\n                freq[r]--;\n            }\n        }\n        return max_sum;\n    }\n}",
-        "readme": "",
+        "readme": "ArrayTwoPointersGreedySortingBiweeklyContest53\n\nThe pair sum of a pair (a,b) is equal to a + b. The maximum pair sum is the largest pair sum in a list of pairs.\n\n\n\tFor example, if we have pairs (1,5), (2,3), and (4,4), the maximum pair sum would be max(1+5, 2+3, 4+4) = max(6, 5, 8) = 8.\n\n\nGiven an array nums of even length n, pair up the elements of nums into n / 2 pairs such that:\n\n\n\tEach element of nums is in exactly one pair, and\n\tThe maximum pair sum is minimized.\n\n\nReturn the minimized maximum pair sum after optimally pairing up the elements.\n\n \nExample 1:\n\nInput: nums = [3,5,2,3]\nOutput: 7\nExplanation: The elements can be paired up into pairs (3,3) and (5,2).\nThe maximum pair sum is max(3+3, 5+2) = max(6, 7) = 7.\n\n\nExample 2:\n\nInput: nums = [3,5,4,2,4,6]\nOutput: 8\nExplanation: The elements can be paired up into pairs (3,5), (4,4), and (6,2).\nThe maximum pair sum is max(3+5, 4+4, 6+2) = max(8, 8, 8) = 8.\n\n\n \nConstraints:\n\n\n\tn == nums.length\n\t2 <= n <= 105\n\tn is even.\n\t1 <= nums[i] <= 105",
         "notes": ""
       },
       "hasCode": true,
-      "hasReadme": false,
+      "hasReadme": true,
       "hasNotes": false,
-      "lastUpdated": "2026-01-24T17:23:26.000Z"
+      "lastUpdated": "2026-01-24T17:23:27.000Z"
     },
     {
       "id": "leetcode-medium-separate-squares-i",
