@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 29,
-    "lastUpdated": "2026-01-25T04:17:15.144Z",
+    "totalProblems": 30,
+    "lastUpdated": "2026-01-26T09:43:37.431Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,8 +16,8 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 25,
-        "Easy": 7,
+        "total": 26,
+        "Easy": 8,
         "Medium": 13,
         "Hard": 5
       },
@@ -127,6 +127,22 @@
       "lastUpdated": "2026-01-05T17:27:23.000Z"
     },
     {
+      "id": "leetcode-easy-minimum-absolute-difference",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Minimum Absolute Difference",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public List<List<Integer>> minimumAbsDifference(int[] arr) {\n        Arrays.sort(arr);\n        int minDiff = Integer.MAX_VALUE;\n        for(int i = 0; i < arr.length - 1; i ++) {\n            minDiff = Math.min(minDiff, arr[i + 1] - arr[i]);\n        }\n        List<List<Integer>> res = new ArrayList<>();\n        for(int i = 0; i < arr.length - 1; i ++){\n            if (arr[i + 1] - arr[i] == minDiff) {\n                res.add(Arrays.asList(arr[i], arr[i + 1]));\n            }\n        }\n        return res;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-26T09:43:25.000Z"
+    },
+    {
       "id": "leetcode-easy-minimum-difference-between-highest-and-lowest-of-k-scores",
       "platform": "Leetcode",
       "difficulty": "Easy",
@@ -134,13 +150,13 @@
       "language": "java",
       "files": {
         "code": "import java.util.Arrays;\n\nclass Solution {\n    public int minimumDifference(int[] nums, int k) {\n        if (k == 1) return 0;\n        Arrays.sort(nums);\n        int minDiff = Integer.MAX_VALUE;\n        for (int i = 0; i <= nums.length - k; i++) {\n            int currentDiff = nums[i + k - 1] - nums[i];\n            minDiff = Math.min(minDiff, currentDiff);\n        }\n        return minDiff;\n    }\n}",
-        "readme": "",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,193,Days,Consistencyiskey,seeyoutomorrow!\n\nYou are given a 0-indexed integer array nums, where nums[i] represents the score of the ith student. You are also given an integer k.\n\nPick the scores of any k students from the array so that the difference between the highest and the lowest of the k scores is minimized.\n\nReturn the minimum possible difference.\n\n \nExample 1:\n\nInput: nums = [90], k = 1\nOutput: 0\nExplanation: There is one way to pick score(s) of one student:\n- [90]. The difference between the highest and lowest score is 90 - 90 = 0.\nThe minimum possible difference is 0.\n\n\nExample 2:\n\nInput: nums = [9,4,1,7], k = 2\nOutput: 2\nExplanation: There are six ways to pick score(s) of two students:\n- [9,4,1,7]. The difference between the highest and lowest score is 9 - 4 = 5.\n- [9,4,1,7]. The difference between the highest and lowest score is 9 - 1 = 8.\n- [9,4,1,7]. The difference between the highest and lowest score is 9 - 7 = 2.\n- [9,4,1,7]. The difference between the highest and lowest score is 4 - 1 = 3.\n- [9,4,1,7]. The difference between the highest and lowest score is 7 - 4 = 3.\n- [9,4,1,7]. The difference between the highest and lowest score is 7 - 1 = 6.\nThe minimum possible difference is 2.\n\n \nConstraints:\n\n\n\t1 <= k <= nums.length <= 1000\n\t0 <= nums[i] <= 105",
         "notes": ""
       },
       "hasCode": true,
-      "hasReadme": false,
+      "hasReadme": true,
       "hasNotes": false,
-      "lastUpdated": "2026-01-25T04:17:04.000Z"
+      "lastUpdated": "2026-01-25T04:17:05.000Z"
     },
     {
       "id": "leetcode-easy-minimum-pair-removal-to-sort-array-i",
