@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 31,
-    "lastUpdated": "2026-01-27T02:54:05.945Z",
+    "totalProblems": 32,
+    "lastUpdated": "2026-01-28T07:33:31.678Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,10 +16,10 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 27,
+        "total": 28,
         "Easy": 8,
         "Medium": 14,
-        "Hard": 5
+        "Hard": 6
       },
       "Hackerrank": {
         "total": 3,
@@ -493,6 +493,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-01-11T14:18:18.000Z"
+    },
+    {
+      "id": "leetcode-hard-minimum-cost-path-with-teleportations",
+      "platform": "Leetcode",
+      "difficulty": "Hard",
+      "problemName": "Minimum Cost Path with Teleportations",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int minCost(int[][] grid, int k) {\n        int n = grid.length, m = grid[0].length;\n        \n        // 1. Find the Maximum Value in the grid to size our helper arrays\n        int maxVal = 0;\n        for(int[] row : grid) {\n            for(int val : row) maxVal = Math.max(maxVal, val);\n        }\n\n        // dp[i][j] = Min cost to reach (n-1, m-1) from (i, j)\n        int[][] dp = new int[n][m];\n        \n        // temp[v] = Min cost starting from ANY cell with value 'v'\n        int[] temp = new int[maxVal + 1];\n        int[] best = new int[maxVal + 1];\n        \n        Arrays.fill(temp, Integer.MAX_VALUE);\n        \n        // Base Case: Cost from target to target is 0. \n        // Note: The cost is incurred when ENTERING a cell. \n        // We consider the target reached, so starting at target has 0 *additional* cost.\n        temp[grid[n - 1][m - 1]] = 0;\n\n        // --- INITIALIZATION (K=0) ---\n        // Fill DP table using standard walking rules (Right/Down)\n        for(int i = n - 1; i >= 0; i--) {\n            for(int j = m - 1; j >= 0; j--) {\n                if(i == n - 1 && j == m - 1) continue; // Skip target\n                \n                int down = (i + 1 < n) ? dp[i + 1][j] + grid[i + 1][j] : Integer.MAX_VALUE;\n                int right = (j + 1 < m) ? dp[i][j + 1] + grid[i][j + 1] : Integer.MAX_VALUE;\n                \n                dp[i][j] = Math.min(down, right);\n                \n                // Update the best known cost for this cell's value\n                if (dp[i][j] != Integer.MAX_VALUE) {\n                    temp[grid[i][j]] = Math.min(temp[grid[i][j]], dp[i][j]);\n                }\n            }\n        }\n\n        // --- LAYERS (K > 0) ---\n        // For each allowed teleport, we try to relax the grid costs\n        for(int x = 0; x < k; x++) {\n            \n            // 1. Build Prefix Minimum Array\n            // best[v] = min cost obtainable from any cell with value <= v\n            best[0] = temp[0];\n            for(int v = 1; v <= maxVal; v++) {\n                best[v] = Math.min(best[v - 1], temp[v]);\n            }\n            \n            // 2. Update DP Table with Teleport Options\n            for(int i = n - 1; i >= 0; i--) {\n                for(int j = m - 1; j >= 0; j--) {\n                    if(i == n - 1 && j == m - 1) continue;\n                    \n                    int down = (i + 1 < n) ? dp[i + 1][j] + grid[i + 1][j] : Integer.MAX_VALUE;\n                    int right = (j + 1 < m) ? dp[i][j + 1] + grid[i][j + 1] : Integer.MAX_VALUE;\n                    int walkCost = Math.min(down, right);\n                    \n                    // Teleport Option: Jump to the best state with value <= grid[i][j]\n                    int teleportCost = best[grid[i][j]];\n                    \n                    dp[i][j] = Math.min(walkCost, teleportCost);\n                    \n                    // Update temp for the NEXT iteration\n                    if (dp[i][j] != Integer.MAX_VALUE) {\n                        temp[grid[i][j]] = Math.min(temp[grid[i][j]], dp[i][j]);\n                    }\n                }\n            }\n        }\n        \n        return dp[0][0];\n    }\n}",
+        "readme": "ArrayDynamicProgrammingMatrixBiweeklyContest163\n\nYou are given a m x n 2D integer array grid and an integer k. You start at the top-left cell (0, 0) and your goal is to reach the bottom‐right cell (m - 1, n - 1).\n\nThere are two types of moves available:\n\n\n\t\n\tNormal move: You can move right or down from your current cell (i, j), i.e. you can move to (i, j + 1) (right) or (i + 1, j) (down). The cost is the value of the destination cell.\n\t\n\t\n\tTeleportation: You can teleport from any cell (i, j), to any cell (x, y) such that grid[x][y] <= grid[i][j]; the cost of this move is 0. You may teleport at most k times.\n\t\n\n\nReturn the minimum total cost to reach cell (m - 1, n - 1) from (0, 0).\n\n \nExample 1:\n\n\nInput: grid = [[1,3,3],[2,5,4],[4,3,5]], k = 2\n\nOutput: 7\n\nExplanation:\n\nInitially we are at (0, 0) and cost is 0.\n\nCurrent PositionMoveNew PositionTotal Cost(0, 0)Move Down(1, 0)0 + 2 = 2(1, 0)Move Right(1, 1)2 + 5 = 7(1, 1)Teleport to (2, 2)(2, 2)7 + 0 = 7\n\nThe minimum cost to reach bottom-right cell is 7.\n\n\nExample 2:\n\n\nInput: grid = [[1,2],[2,3],[3,4]], k = 1\n\nOutput: 9\n\nExplanation: \n\nInitially we are at (0, 0) and cost is 0.\n\nCurrent PositionMoveNew PositionTotal Cost(0, 0)Move Down(1, 0)0 + 2 = 2(1, 0)Move Right(1, 1)2 + 3 = 5(1, 1)Move Down(2, 1)5 + 4 = 9\n\nThe minimum cost to reach bottom-right cell is 9.\n\n\n \nConstraints:\n\n\n\t2 <= m, n <= 80\n\tm == grid.length\n\tn == grid[i].length\n\t0 <= grid[i][j] <= 104\n\t0 <= k <= 10",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-28T07:33:21.000Z"
     },
     {
       "id": "leetcode-hard-minimum-pair-removal-to-sort-array-ii",
