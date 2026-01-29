@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 32,
-    "lastUpdated": "2026-01-28T07:33:31.678Z",
+    "totalProblems": 33,
+    "lastUpdated": "2026-01-29T09:19:09.346Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,9 +16,9 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 28,
+        "total": 29,
         "Easy": 8,
-        "Medium": 14,
+        "Medium": 15,
         "Hard": 6
       },
       "Hackerrank": {
@@ -429,6 +429,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-01-27T02:53:55.000Z"
+    },
+    {
+      "id": "leetcode-medium-minimum-cost-to-convert-string-i",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Minimum Cost to Convert String I",
+      "language": "java",
+      "files": {
+        "code": "import java.util.*;\n\nclass Solution {\n    private void dijkstra(int src, List<int[]>[] adj, int[] dist) {\n        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));\n        dist[src] = 0;\n        pq.offer(new int[]{0, src});\n\n        while (!pq.isEmpty()) {\n            int[] cur = pq.poll();\n            int d = cur[0], u = cur[1];\n\n            if (d > dist[u]) continue;\n\n            for (int[] edge : adj[u]) {\n                int v = edge[0], w = edge[1];\n                if (dist[v] > d + w) {\n                    dist[v] = d + w;\n                    pq.offer(new int[]{dist[v], v});\n                }\n            }\n        }\n    }\n\n    public long minimumCost(String source, String target, char[] original, char[] changed, int[] cost) {\n        if (source.length() != target.length()) return -1;\n\n        List<int[]>[] adj = new ArrayList[26];\n        for (int i = 0; i < 26; i++) adj[i] = new ArrayList<>();\n\n        for (int i = 0; i < original.length; i++) {\n            adj[original[i] - 'a'].add(new int[]{changed[i] - 'a', cost[i]});\n        }\n\n        int[][] dist = new int[26][26];\n        for (int i = 0; i < 26; i++) {\n            Arrays.fill(dist[i], Integer.MAX_VALUE);\n            dijkstra(i, adj, dist[i]);\n        }\n\n        long ans = 0;\n        for (int i = 0; i < source.length(); i++) {\n            int u = source.charAt(i) - 'a';\n            int v = target.charAt(i) - 'a';\n            if (u == v) continue;\n            if (dist[u][v] == Integer.MAX_VALUE) return -1;\n            ans += dist[u][v];\n        }\n\n        return ans;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-29T09:18:57.000Z"
     },
     {
       "id": "leetcode-medium-separate-squares-i",
