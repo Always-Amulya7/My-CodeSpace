@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 34,
-    "lastUpdated": "2026-01-30T07:58:34.763Z",
+    "totalProblems": 35,
+    "lastUpdated": "2026-01-31T18:03:42.604Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,8 +16,8 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 30,
-        "Easy": 8,
+        "total": 31,
+        "Easy": 9,
         "Medium": 15,
         "Hard": 7
       },
@@ -109,6 +109,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-01-20T03:40:47.000Z"
+    },
+    {
+      "id": "leetcode-easy-find-smallest-letter-greater-than-target",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Find Smallest Letter Greater Than Target",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public char nextGreatestLetter(char[] letters, char target) {\n        for (int i = 0; i < letters.length; i++) {\n            if (letters[i] > target) {\n                return letters[i];\n            }\n        }\n        return letters[0];\n    }\n}",
+        "readme": "ArrayBinarySearchWeeklyContest62\n\nYou are given an array of characters letters that is sorted in non-decreasing order, and a character target. There are at least two different characters in letters.\n\nReturn the smallest character in letters that is lexicographically greater than target. If such a character does not exist, return the first character in letters.\n\n \nExample 1:\n\nInput: letters = [\"c\",\"f\",\"j\"], target = \"a\"\nOutput: \"c\"\nExplanation: The smallest character that is lexicographically greater than 'a' in letters is 'c'.\n\n\nExample 2:\n\nInput: letters = [\"c\",\"f\",\"j\"], target = \"c\"\nOutput: \"f\"\nExplanation: The smallest character that is lexicographically greater than 'c' in letters is 'f'.\n\n\nExample 3:\n\nInput: letters = [\"x\",\"x\",\"y\",\"y\"], target = \"z\"\nOutput: \"x\"\nExplanation: There are no characters in letters that is lexicographically greater than 'z' so we return letters[0].\n\n\n \nConstraints:\n\n\n\t2 <= letters.length <= 104\n\tletters[i] is a lowercase English letter.\n\tletters is sorted in non-decreasing order.\n\tletters contains at least two different characters.\n\ttarget is a lowercase English letter.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-31T18:03:30.000Z"
     },
     {
       "id": "leetcode-easy-longest-common-prefix",
@@ -534,13 +550,13 @@
       "language": "java",
       "files": {
         "code": "import java.util.*;\n\nclass Solution {\n    public long minimumCost(String source, String target, String[] original, String[] changed, int[] cost) {\n        int n = source.length();\n        Map<String, Integer> strToId = new HashMap<>();\n        int idCounter = 0;\n\n        for (String s : original) if (!strToId.containsKey(s)) strToId.put(s, idCounter++);\n        for (String s : changed) if (!strToId.containsKey(s)) strToId.put(s, idCounter++);\n\n        long INF = 1_000_000_000_000_000L;\n        long[][] dist = new long[idCounter][idCounter];\n        for (int i = 0; i < idCounter; i++) {\n            Arrays.fill(dist[i], INF);\n            dist[i][i] = 0;\n        }\n\n        for (int i = 0; i < original.length; i++) {\n            int u = strToId.get(original[i]);\n            int v = strToId.get(changed[i]);\n            dist[u][v] = Math.min(dist[u][v], (long) cost[i]);\n        }\n\n        // Floyd-Warshall\n        for (int k = 0; k < idCounter; k++) {\n            for (int i = 0; i < idCounter; i++) {\n                for (int j = 0; j < idCounter; j++) {\n                    if (dist[i][k] < INF && dist[k][j] < INF) {\n                        dist[i][j] = Math.min(dist[i][j], dist[i][k] + dist[k][j]);\n                    }\n                }\n            }\n        }\n\n        long[] dp = new long[n + 1];\n        Arrays.fill(dp, INF);\n        dp[0] = 0;\n\n        Set<Integer> uniqueLens = new HashSet<>();\n        for (String s : original) uniqueLens.add(s.length());\n        Integer[] lens = uniqueLens.toArray(new Integer[0]);\n\n        for (int i = 0; i < n; i++) {\n            if (dp[i] == INF) continue;\n\n            if (source.charAt(i) == target.charAt(i)) {\n                dp[i + 1] = Math.min(dp[i + 1], dp[i]);\n            }\n\n            for (int len : lens) {\n                if (i + len <= n) {\n                    String subS = source.substring(i, i + len);\n                    String subT = target.substring(i, i + len);\n\n                    if (subS.equals(subT)) {\n                        dp[i + len] = Math.min(dp[i + len], dp[i]);\n                    } else if (strToId.containsKey(subS) && strToId.containsKey(subT)) {\n                        int u = strToId.get(subS);\n                        int v = strToId.get(subT);\n                        if (dist[u][v] < INF) {\n                            dp[i + len] = Math.min(dp[i + len], dp[i] + dist[u][v]);\n                        }\n                    }\n                }\n            }\n        }\n\n        return dp[n] >= INF ? -1 : dp[n];\n    }\n}",
-        "readme": "",
+        "readme": "ArrayStringDynamicProgrammingGraphTheoryTrieShortestPathWeeklyContest377\n\nYou are given two 0-indexed strings source and target, both of length n and consisting of lowercase English characters. You are also given two 0-indexed string arrays original and changed, and an integer array cost, where cost[i] represents the cost of converting the string original[i] to the string changed[i].\n\nYou start with the string source. In one operation, you can pick a substring x from the string, and change it to y at a cost of z if there exists any index j such that cost[j] == z, original[j] == x, and changed[j] == y. You are allowed to do any number of operations, but any pair of operations must satisfy either of these two conditions:\n\n\n\tThe substrings picked in the operations are source[a..b] and source[c..d] with either b < c or d < a. In other words, the indices picked in both operations are disjoint.\n\tThe substrings picked in the operations are source[a..b] and source[c..d] with a == c and b == d. In other words, the indices picked in both operations are identical.\n\n\nReturn the minimum cost to convert the string source to the string target using any number of operations. If it is impossible to convert source to target, return -1.\n\nNote that there may exist indices i, j such that original[j] == original[i] and changed[j] == changed[i].\n\n \nExample 1:\n\nInput: source = \"abcd\", target = \"acbe\", original = [\"a\",\"b\",\"c\",\"c\",\"e\",\"d\"], changed = [\"b\",\"c\",\"b\",\"e\",\"b\",\"e\"], cost = [2,5,5,1,2,20]\nOutput: 28\nExplanation: To convert \"abcd\" to \"acbe\", do the following operations:\n- Change substring source[1..1] from \"b\" to \"c\" at a cost of 5.\n- Change substring source[2..2] from \"c\" to \"e\" at a cost of 1.\n- Change substring source[2..2] from \"e\" to \"b\" at a cost of 2.\n- Change substring source[3..3] from \"d\" to \"e\" at a cost of 20.\nThe total cost incurred is 5 + 1 + 2 + 20 = 28. \nIt can be shown that this is the minimum possible cost.\n\n\nExample 2:\n\nInput: source = \"abcdefgh\", target = \"acdeeghh\", original = [\"bcd\",\"fgh\",\"thh\"], changed = [\"cde\",\"thh\",\"ghh\"], cost = [1,3,5]\nOutput: 9\nExplanation: To convert \"abcdefgh\" to \"acdeeghh\", do the following operations:\n- Change substring source[1..3] from \"bcd\" to \"cde\" at a cost of 1.\n- Change substring source[5..7] from \"fgh\" to \"thh\" at a cost of 3. We can do this operation because indices [5,7] are disjoint with indices picked in the first operation.\n- Change substring source[5..7] from \"thh\" to \"ghh\" at a cost of 5. We can do this operation because indices [5,7] are disjoint with indices picked in the first operation, and identical with indices picked in the second operation.\nThe total cost incurred is 1 + 3 + 5 = 9.\nIt can be shown that this is the minimum possible cost.\n\n\nExample 3:\n\nInput: source = \"abcdefgh\", target = \"addddddd\", original = [\"bcd\",\"defgh\"], changed = [\"ddd\",\"ddddd\"], cost = [100,1578]\nOutput: -1\nExplanation: It is impossible to convert \"abcdefgh\" to \"addddddd\".\nIf you select substring source[1..3] as the first operation to change \"abcdefgh\" to \"adddefgh\", you cannot select substring source[3..7] as the second operation because it has a common index, 3, with the first operation.\nIf you select substring source[3..7] as the first operation to change \"abcdefgh\" to \"abcddddd\", you cannot select substring source[1..3] as the second operation because it has a common index, 3, with the first operation.\n\n\n \nConstraints:\n\n\n\t1 <= source.length == target.length <= 1000\n\tsource, target consist only of lowercase English characters.\n\t1 <= cost.length == original.length == changed.length <= 100\n\t1 <= original[i].length == changed[i].length <= source.length\n\toriginal[i], changed[i] consist only of lowercase English characters.\n\toriginal[i] != changed[i]\n\t1 <= cost[i] <= 106",
         "notes": ""
       },
       "hasCode": true,
-      "hasReadme": false,
+      "hasReadme": true,
       "hasNotes": false,
-      "lastUpdated": "2026-01-30T07:58:22.000Z"
+      "lastUpdated": "2026-01-30T07:58:23.000Z"
     },
     {
       "id": "leetcode-hard-minimum-pair-removal-to-sort-array-ii",
