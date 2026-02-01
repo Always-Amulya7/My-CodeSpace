@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 35,
-    "lastUpdated": "2026-01-31T18:03:42.604Z",
+    "totalProblems": 36,
+    "lastUpdated": "2026-02-01T18:58:56.621Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,8 +16,8 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 31,
-        "Easy": 9,
+        "total": 32,
+        "Easy": 10,
         "Medium": 15,
         "Hard": 7
       },
@@ -109,6 +109,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-01-20T03:40:47.000Z"
+    },
+    {
+      "id": "leetcode-easy-divide-an-array-into-subarrays-with-minimum-cost-i",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Divide an Array Into Subarrays With Minimum Cost I",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int minimumCost(int[] A) {\n        int a = 51, b = 51;\n\n        for (int i = 1; i < A.length; i++) {\n            if (A[i] < a) {\n                b = a;\n                a = A[i];\n            } else if (A[i] < b)\n                b = A[i];\n\n            if (a == 1 && b == 1) break;\n        }\n\n        return A[0] + a + b;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-01T18:58:44.000Z"
     },
     {
       "id": "leetcode-easy-find-smallest-letter-greater-than-target",
