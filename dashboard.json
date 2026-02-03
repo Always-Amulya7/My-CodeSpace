@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 37,
-    "lastUpdated": "2026-02-02T07:31:00.987Z",
+    "totalProblems": 38,
+    "lastUpdated": "2026-02-03T04:10:48.748Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,8 +16,8 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 33,
-        "Easy": 10,
+        "total": 34,
+        "Easy": 11,
         "Medium": 15,
         "Hard": 8
       },
@@ -253,6 +253,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-01-01T09:43:58.000Z"
+    },
+    {
+      "id": "leetcode-easy-trionic-array-i",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Trionic Array I",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public boolean isTrionic(int[] nums) {\n        int n = nums.length;\n        if (n < 4) return false;\n\n        int state = 0; \n        for (int i = 0; i < n - 1; i++) {\n            if (state == 0) {\n                if (nums[i] < nums[i + 1]) {\n                    // Increasing\n                } else if (i > 0 && nums[i] > nums[i + 1]) {\n                    state = 1; // Reached peak\n                } else {\n                    return false;\n                }\n            } else if (state == 1) {\n                if (nums[i] > nums[i + 1]) {\n                    // Decreasing\n                } else if (nums[i] < nums[i + 1]) {\n                    state = 2; // Reached valley\n                } else {\n                    return false;\n                }\n            } else if (state == 2) {\n                if (nums[i] < nums[i + 1]) {\n                    // Increasing again\n                } else {\n                    return false;\n                }\n            }\n        }\n        return state == 2;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-03T04:10:35.000Z"
     },
     {
       "id": "leetcode-medium-construct-the-minimum-bitwise-array-ii",
