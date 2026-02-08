@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 40,
-    "lastUpdated": "2026-02-06T07:53:22.575Z",
+    "totalProblems": 41,
+    "lastUpdated": "2026-02-08T16:19:48.675Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,8 +16,8 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 36,
-        "Easy": 11,
+        "total": 37,
+        "Easy": 12,
         "Medium": 16,
         "Hard": 9
       },
@@ -93,6 +93,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2025-12-29T08:09:06.000Z"
+    },
+    {
+      "id": "leetcode-easy-balanced-binary-tree",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Balanced Binary Tree",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    private int dfs(TreeNode root) {\n        if (root == null) {\n            return 0;\n        }\n        int leftHeight = dfs(root.left);\n        if (leftHeight == -1) {\n            return -1;\n        }\n        int rightHeight = dfs(root.right);\n        if (rightHeight == -1) {\n            return -1;\n        }\n        if (Math.abs(leftHeight - rightHeight) > 1) {\n            return -1;\n        }\n        return 1 + Math.max(leftHeight, rightHeight);\n    }\n\n    public boolean isBalanced(TreeNode root) {\n        return dfs(root) != -1;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-08T16:19:37.000Z"
     },
     {
       "id": "leetcode-easy-construct-the-minimum-bitwise-array-i",
@@ -502,13 +518,13 @@
       "language": "java",
       "files": {
         "code": "class Solution {\n    public int minRemoval(int[] nums, int k) {\n        int n = nums.length;\n        Arrays.sort(nums);\n        int ans = 0;\n        for(int i = 0, j = 0; i < n; i ++){\n            while(j + 1 < n && (long) nums[i] * (long) k >= nums[j + 1]){\n                j++;\n            }\n            ans = Math.max(ans, j - i + 1);\n        }\n        return n - ans;\n    }\n}",
-        "readme": "",
+        "readme": "SeniorArraySlidingWindowSortingBiweeklyContest162\n\nYou are given an integer array nums and an integer k.\n\nAn array is considered balanced if the value of its maximum element is at most k times the minimum element.\n\nYou may remove any number of elements from nums​​​​​​​ without making it empty.\n\nReturn the minimum number of elements to remove so that the remaining array is balanced.\n\nNote: An array of size 1 is considered balanced as its maximum and minimum are equal, and the condition always holds true.\n\n \nExample 1:\n\n\nInput: nums = [2,1,5], k = 2\n\nOutput: 1\n\nExplanation:\n\n\n\tRemove nums[2] = 5 to get nums = [2, 1].\n\tNow max = 2, min = 1 and max <= min * k as 2 <= 1 * 2. Thus, the answer is 1.\n\n\n\nExample 2:\n\n\nInput: nums = [1,6,2,9], k = 3\n\nOutput: 2\n\nExplanation:\n\n\n\tRemove nums[0] = 1 and nums[3] = 9 to get nums = [6, 2].\n\tNow max = 6, min = 2 and max <= min * k as 6 <= 2 * 3. Thus, the answer is 2.\n\n\n\nExample 3:\n\n\nInput: nums = [4,6], k = 2\n\nOutput: 0\n\nExplanation:\n\n\n\tSince nums is already balanced as 6 <= 4 * 2, no elements need to be removed.\n\n\n\n \nConstraints:\n\n\n\t1 <= nums.length <= 105\n\t1 <= nums[i] <= 109\n\t1 <= k <= 105",
         "notes": ""
       },
       "hasCode": true,
-      "hasReadme": false,
+      "hasReadme": true,
       "hasNotes": false,
-      "lastUpdated": "2026-02-06T07:53:11.000Z"
+      "lastUpdated": "2026-02-06T07:53:13.000Z"
     },
     {
       "id": "leetcode-medium-separate-squares-i",
