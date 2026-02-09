@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 41,
-    "lastUpdated": "2026-02-08T16:19:48.675Z",
+    "totalProblems": 42,
+    "lastUpdated": "2026-02-09T15:40:37.034Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,9 +16,9 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 37,
+        "total": 38,
         "Easy": 12,
-        "Medium": 16,
+        "Medium": 17,
         "Hard": 9
       },
       "Hackerrank": {
@@ -102,13 +102,13 @@
       "language": "java",
       "files": {
         "code": "class Solution {\n    private int dfs(TreeNode root) {\n        if (root == null) {\n            return 0;\n        }\n        int leftHeight = dfs(root.left);\n        if (leftHeight == -1) {\n            return -1;\n        }\n        int rightHeight = dfs(root.right);\n        if (rightHeight == -1) {\n            return -1;\n        }\n        if (Math.abs(leftHeight - rightHeight) > 1) {\n            return -1;\n        }\n        return 1 + Math.max(leftHeight, rightHeight);\n    }\n\n    public boolean isBalanced(TreeNode root) {\n        return dfs(root) != -1;\n    }\n}",
-        "readme": "",
+        "readme": "TreeDepth-FirstSearchBinaryTree\n\nGiven a binary tree, determine if it is height-balanced.\n\n \nExample 1:\n\nInput: root = [3,9,20,null,null,15,7]\nOutput: true\n\n\nExample 2:\n\nInput: root = [1,2,2,3,3,null,null,4,4]\nOutput: false\n\n\nExample 3:\n\nInput: root = []\nOutput: true\n\n\n \nConstraints:\n\n\n\tThe number of nodes in the tree is in the range [0, 5000].\n\t-104 <= Node.val <= 104",
         "notes": ""
       },
       "hasCode": true,
-      "hasReadme": false,
+      "hasReadme": true,
       "hasNotes": false,
-      "lastUpdated": "2026-02-08T16:19:37.000Z"
+      "lastUpdated": "2026-02-08T16:19:38.000Z"
     },
     {
       "id": "leetcode-easy-construct-the-minimum-bitwise-array-i",
@@ -285,6 +285,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-02-03T04:10:37.000Z"
+    },
+    {
+      "id": "leetcode-medium-balance-a-binary-search-tree",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Balance a Binary Search Tree",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    List<Integer> nums;\n    public TreeNode balanceBST(TreeNode root) {\n        nums = new ArrayList<Integer>();\n        getNumbers(root);\n        TreeNode res = balanceTree(0,nums.size()-1);\n        return res;\n    }\n    private void getNumbers(TreeNode node){\n        if(node==null) return;\n        getNumbers(node.left);\n        nums.add(node.val);\n        getNumbers(node.right);\n    }\n    private TreeNode balanceTree(int l, int r){\n        if(l>r)return null;\n        int middleIdx = l+ ((r-l)/2);\n        TreeNode res = new TreeNode(nums.get(middleIdx));\n        res.left = balanceTree(l,middleIdx-1);\n        res.right = balanceTree(middleIdx+1,r);\n        return res;\n    }              \n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-09T15:40:24.000Z"
     },
     {
       "id": "leetcode-medium-construct-the-minimum-bitwise-array-ii",
