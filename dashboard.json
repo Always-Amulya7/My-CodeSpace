@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 42,
-    "lastUpdated": "2026-02-09T15:40:37.034Z",
+    "totalProblems": 43,
+    "lastUpdated": "2026-02-10T07:43:38.245Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,9 +16,9 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 38,
+        "total": 39,
         "Easy": 12,
-        "Medium": 17,
+        "Medium": 18,
         "Hard": 9
       },
       "Hackerrank": {
@@ -294,13 +294,13 @@
       "language": "java",
       "files": {
         "code": "class Solution {\n    List<Integer> nums;\n    public TreeNode balanceBST(TreeNode root) {\n        nums = new ArrayList<Integer>();\n        getNumbers(root);\n        TreeNode res = balanceTree(0,nums.size()-1);\n        return res;\n    }\n    private void getNumbers(TreeNode node){\n        if(node==null) return;\n        getNumbers(node.left);\n        nums.add(node.val);\n        getNumbers(node.right);\n    }\n    private TreeNode balanceTree(int l, int r){\n        if(l>r)return null;\n        int middleIdx = l+ ((r-l)/2);\n        TreeNode res = new TreeNode(nums.get(middleIdx));\n        res.left = balanceTree(l,middleIdx-1);\n        res.right = balanceTree(middleIdx+1,r);\n        return res;\n    }              \n}",
-        "readme": "",
+        "readme": "SeniorDivideandConquerGreedyTreeDepth-FirstSearchBinarySearchTreeBinaryTreeWeeklyContest180\n\nGiven the root of a binary search tree, return a balanced binary search tree with the same node values. If there is more than one answer, return any of them.\n\nA binary search tree is balanced if the depth of the two subtrees of every node never differs by more than 1.\n\n \nExample 1:\n\nInput: root = [1,null,2,null,3,null,4,null,null]\nOutput: [2,1,3,null,null,null,4]\nExplanation: This is not the only correct answer, [3,1,4,null,2] is also correct.\n\n\nExample 2:\n\nInput: root = [2,1,3]\nOutput: [2,1,3]\n\n\n \nConstraints:\n\n\n\tThe number of nodes in the tree is in the range [1, 104].\n\t1 <= Node.val <= 105",
         "notes": ""
       },
       "hasCode": true,
-      "hasReadme": false,
+      "hasReadme": true,
       "hasNotes": false,
-      "lastUpdated": "2026-02-09T15:40:24.000Z"
+      "lastUpdated": "2026-02-09T15:40:26.000Z"
     },
     {
       "id": "leetcode-medium-construct-the-minimum-bitwise-array-ii",
@@ -381,6 +381,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-01-18T03:41:28.000Z"
+    },
+    {
+      "id": "leetcode-medium-longest-balanced-subarray-i",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Longest Balanced Subarray I",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int longestBalanced(int[] nums) {\n        int max = 0;\n\n        for (int i = 0; i < nums.length; i++) {\n            HashSet<Integer> even = new HashSet<>();\n            HashSet<Integer> odd = new HashSet<>();\n\n            for (int j = i; j < nums.length; j++) {\n                if (nums[j] % 2 == 0)\n                    even.add(nums[j]);\n                else\n                    odd.add(nums[j]);\n\n                if (even.size() == odd.size()) {\n                    max = Math.max(max, j - i + 1);\n                }\n            }\n        }\n        return max;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-10T07:43:26.000Z"
     },
     {
       "id": "leetcode-medium-magic-squares-in-grid",
