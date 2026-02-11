@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 43,
-    "lastUpdated": "2026-02-10T07:43:38.245Z",
+    "totalProblems": 44,
+    "lastUpdated": "2026-02-11T14:48:27.792Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,10 +16,10 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 39,
+        "total": 40,
         "Easy": 12,
         "Medium": 18,
-        "Hard": 9
+        "Hard": 10
       },
       "Hackerrank": {
         "total": 3,
@@ -390,13 +390,13 @@
       "language": "java",
       "files": {
         "code": "class Solution {\n    public int longestBalanced(int[] nums) {\n        int max = 0;\n\n        for (int i = 0; i < nums.length; i++) {\n            HashSet<Integer> even = new HashSet<>();\n            HashSet<Integer> odd = new HashSet<>();\n\n            for (int j = i; j < nums.length; j++) {\n                if (nums[j] % 2 == 0)\n                    even.add(nums[j]);\n                else\n                    odd.add(nums[j]);\n\n                if (even.size() == odd.size()) {\n                    max = Math.max(max, j - i + 1);\n                }\n            }\n        }\n        return max;\n    }\n}",
-        "readme": "",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,209,Days,Consistencyiskey,seeyoutomorrow!\n\nYou are given an integer array nums.\n\nA subarray is called balanced if the number of distinct even numbers in the subarray is equal to the number of distinct odd numbers.\n\nReturn the length of the longest balanced subarray.\n\n \nExample 1:\n\n\nInput: nums = [2,5,4,3]\n\nOutput: 4\n\nExplanation:\n\n\n\tThe longest balanced subarray is [2, 5, 4, 3].\n\tIt has 2 distinct even numbers [2, 4] and 2 distinct odd numbers [5, 3]. Thus, the answer is 4.\n\n\n\nExample 2:\n\n\nInput: nums = [3,2,2,5,4]\n\nOutput: 5\n\nExplanation:\n\n\n\tThe longest balanced subarray is [3, 2, 2, 5, 4].\n\tIt has 2 distinct even numbers [2, 4] and 2 distinct odd numbers [3, 5]. Thus, the answer is 5.\n\n\n\nExample 3:\n\n\nInput: nums = [1,2,3,2]\n\nOutput: 3\n\nExplanation:\n\n\n\tThe longest balanced subarray is [2, 3, 2].\n\tIt has 1 distinct even number [2] and 1 distinct odd number [3]. Thus, the answer is 3.\n\n\n\n \nConstraints:\n\n\n\t1 <= nums.length <= 1500\n\t1 <= nums[i] <= 105",
         "notes": ""
       },
       "hasCode": true,
-      "hasReadme": false,
+      "hasReadme": true,
       "hasNotes": false,
-      "lastUpdated": "2026-02-10T07:43:26.000Z"
+      "lastUpdated": "2026-02-10T07:43:28.000Z"
     },
     {
       "id": "leetcode-medium-magic-squares-in-grid",
@@ -605,6 +605,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2025-12-31T14:04:33.000Z"
+    },
+    {
+      "id": "leetcode-hard-longest-balanced-subarray-ii",
+      "platform": "Leetcode",
+      "difficulty": "Hard",
+      "problemName": "Longest Balanced Subarray II",
+      "language": "java",
+      "files": {
+        "code": "class LazyTag {\n\n    int toAdd;\n\n    LazyTag() {\n        this.toAdd = 0;\n    }\n\n    LazyTag add(LazyTag other) {\n        this.toAdd += other.toAdd;\n        return this;\n    }\n\n    boolean hasTag() {\n        return this.toAdd != 0;\n    }\n\n    void clear() {\n        this.toAdd = 0;\n    }\n}\n\nclass SegmentTreeNode {\n\n    int minValue;\n    int maxValue;\n    LazyTag lazyTag;\n\n    SegmentTreeNode() {\n        this.minValue = 0;\n        this.maxValue = 0;\n        this.lazyTag = new LazyTag();\n    }\n}\n\nclass SegmentTree {\n\n    private int n;\n    private SegmentTreeNode[] tree;\n\n    SegmentTree(int[] data) {\n        this.n = data.length;\n        this.tree = new SegmentTreeNode[this.n * 4 + 1];\n        for (int i = 0; i < tree.length; i++) {\n            tree[i] = new SegmentTreeNode();\n        }\n        build(data, 1, this.n, 1);\n    }\n\n    void add(int l, int r, int val) {\n        LazyTag tag = new LazyTag();\n        tag.toAdd = val;\n        update(l, r, tag, 1, this.n, 1);\n    }\n\n    int findLast(int start, int val) {\n        if (start > this.n) {\n            return -1;\n        }\n        return find(start, this.n, val, 1, this.n, 1);\n    }\n\n    private void applyTag(int i, LazyTag tag) {\n        tree[i].minValue += tag.toAdd;\n        tree[i].maxValue += tag.toAdd;\n        tree[i].lazyTag.add(tag);\n    }\n\n    private void pushdown(int i) {\n        if (tree[i].lazyTag.hasTag()) {\n            LazyTag tag = new LazyTag();\n            tag.toAdd = tree[i].lazyTag.toAdd;\n            applyTag(i << 1, tag);\n            applyTag((i << 1) | 1, tag);\n            tree[i].lazyTag.clear();\n        }\n    }\n\n    private void pushup(int i) {\n        tree[i].minValue = Math.min(\n            tree[i << 1].minValue,\n            tree[(i << 1) | 1].minValue\n        );\n        tree[i].maxValue = Math.max(\n            tree[i << 1].maxValue,\n            tree[(i << 1) | 1].maxValue\n        );\n    }\n\n    private void build(int[] data, int l, int r, int i) {\n        if (l == r) {\n            tree[i].minValue = tree[i].maxValue = data[l - 1];\n            return;\n        }\n\n        int mid = l + ((r - l) >> 1);\n        build(data, l, mid, i << 1);\n        build(data, mid + 1, r, (i << 1) | 1);\n        pushup(i);\n    }\n\n    private void update(\n        int targetL,\n        int targetR,\n        LazyTag tag,\n        int l,\n        int r,\n        int i\n    ) {\n        if (targetL <= l && r <= targetR) {\n            applyTag(i, tag);\n            return;\n        }\n\n        pushdown(i);\n        int mid = l + ((r - l) >> 1);\n        if (targetL <= mid) update(targetL, targetR, tag, l, mid, i << 1);\n        if (targetR > mid) update(\n            targetL,\n            targetR,\n            tag,\n            mid + 1,\n            r,\n            (i << 1) | 1\n        );\n        pushup(i);\n    }\n\n    private int find(int targetL, int targetR, int val, int l, int r, int i) {\n        if (tree[i].minValue > val || tree[i].maxValue < val) {\n            return -1;\n        }\n\n        if (l == r) {\n            return l;\n        }\n\n        pushdown(i);\n        int mid = l + ((r - l) >> 1);\n\n        if (targetR >= mid + 1) {\n            int res = find(targetL, targetR, val, mid + 1, r, (i << 1) | 1);\n            if (res != -1) return res;\n        }\n\n        if (l <= targetR && mid >= targetL) {\n            return find(targetL, targetR, val, l, mid, i << 1);\n        }\n\n        return -1;\n    }\n}\n\nclass Solution {\n\n    public int longestBalanced(int[] nums) {\n        Map<Integer, Queue<Integer>> occurrences = new HashMap<>();\n\n        int len = 0;\n        int[] prefixSum = new int[nums.length];\n        prefixSum[0] = sgn(nums[0]);\n        occurrences.computeIfAbsent(nums[0], k -> new LinkedList<>()).add(1);\n\n        for (int i = 1; i < nums.length; i++) {\n            prefixSum[i] = prefixSum[i - 1];\n            Queue<Integer> occ = occurrences.computeIfAbsent(nums[i], k ->\n                new LinkedList<>()\n            );\n            if (occ.isEmpty()) {\n                prefixSum[i] += sgn(nums[i]);\n            }\n            occ.add(i + 1);\n        }\n\n        SegmentTree seg = new SegmentTree(prefixSum);\n\n        for (int i = 0; i < nums.length; i++) {\n            len = Math.max(len, seg.findLast(i + len, 0) - i);\n\n            int nextPos = nums.length + 1;\n            occurrences.get(nums[i]).poll();\n            if (!occurrences.get(nums[i]).isEmpty()) {\n                nextPos = occurrences.get(nums[i]).peek();\n            }\n\n            seg.add(i + 1, nextPos - 1, -sgn(nums[i]));\n        }\n\n        return len;\n    }\n\n    private int sgn(int x) {\n        return (x % 2) == 0 ? 1 : -1;\n    }\n}",
+        "readme": "PrincipalArrayHashTableDivideandConquerSegmentTreePrefixSumWeeklyContest472\n\nYou are given an integer array nums.\n\nA subarray is called balanced if the number of distinct even numbers in the subarray is equal to the number of distinct odd numbers.\n\nReturn the length of the longest balanced subarray.\n\n \nExample 1:\n\n\nInput: nums = [2,5,4,3]\n\nOutput: 4\n\nExplanation:\n\n\n\tThe longest balanced subarray is [2, 5, 4, 3].\n\tIt has 2 distinct even numbers [2, 4] and 2 distinct odd numbers [5, 3]. Thus, the answer is 4.\n\n\n\nExample 2:\n\n\nInput: nums = [3,2,2,5,4]\n\nOutput: 5\n\nExplanation:\n\n\n\tThe longest balanced subarray is [3, 2, 2, 5, 4].\n\tIt has 2 distinct even numbers [2, 4] and 2 distinct odd numbers [3, 5]. Thus, the answer is 5.\n\n\n\nExample 3:\n\n\nInput: nums = [1,2,3,2]\n\nOutput: 3\n\nExplanation:\n\n\n\tThe longest balanced subarray is [2, 3, 2].\n\tIt has 1 distinct even number [2] and 1 distinct odd number [3]. Thus, the answer is 3.\n\n\n\n \nConstraints:\n\n\n\t1 <= nums.length <= 105\n\t1 <= nums[i] <= 105",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-11T14:48:16.000Z"
     },
     {
       "id": "leetcode-hard-max-dot-product-of-two-subsequences",
