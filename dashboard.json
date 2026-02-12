@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 44,
-    "lastUpdated": "2026-02-11T14:48:27.792Z",
+    "totalProblems": 45,
+    "lastUpdated": "2026-02-12T10:25:55.029Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,9 +16,9 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 40,
+        "total": 41,
         "Easy": 12,
-        "Medium": 18,
+        "Medium": 19,
         "Hard": 10
       },
       "Hackerrank": {
@@ -397,6 +397,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-02-10T07:43:28.000Z"
+    },
+    {
+      "id": "leetcode-medium-longest-balanced-substring-i",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Longest Balanced Substring I",
+      "language": "python",
+      "files": {
+        "code": "class Solution:\n    def longestBalanced(self, s: str) -> int:\n        cnt, n=1, len(s)\n        for l in range(n):\n            freq=[0]*26\n            uniq, maxF, cntMax=0, 0, 0\n            for r in range(l, n):\n                freq[ord(s[r])-97]+=1\n                f=freq[ord(s[r])-97]\n                uniq+=f==1\n                if f>maxF:\n                    maxF=f\n                    cntMax=1\n                elif f==maxF:\n                    cntMax+=1\n                if uniq==cntMax:\n                    cnt=max(cnt, r-l+1)\n        return cnt",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-12T10:25:39.000Z"
     },
     {
       "id": "leetcode-medium-magic-squares-in-grid",
