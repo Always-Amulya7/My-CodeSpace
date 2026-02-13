@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 45,
-    "lastUpdated": "2026-02-12T10:25:55.029Z",
+    "totalProblems": 46,
+    "lastUpdated": "2026-02-13T16:45:08.618Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,9 +16,9 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 41,
+        "total": 42,
         "Easy": 12,
-        "Medium": 19,
+        "Medium": 20,
         "Hard": 10
       },
       "Hackerrank": {
@@ -406,13 +406,29 @@
       "language": "python",
       "files": {
         "code": "class Solution:\n    def longestBalanced(self, s: str) -> int:\n        cnt, n=1, len(s)\n        for l in range(n):\n            freq=[0]*26\n            uniq, maxF, cntMax=0, 0, 0\n            for r in range(l, n):\n                freq[ord(s[r])-97]+=1\n                f=freq[ord(s[r])-97]\n                uniq+=f==1\n                if f>maxF:\n                    maxF=f\n                    cntMax=1\n                elif f==maxF:\n                    cntMax+=1\n                if uniq==cntMax:\n                    cnt=max(cnt, r-l+1)\n        return cnt",
-        "readme": "",
+        "readme": "SeniorHashTableStringCountingEnumerationWeeklyContest471\n\nYou are given a string s consisting of lowercase English letters.\n\nA substring of s is called balanced if all distinct characters in the substring appear the same number of times.\n\nReturn the length of the longest balanced substring of s.\n\n \nExample 1:\n\n\nInput: s = \"abbac\"\n\nOutput: 4\n\nExplanation:\n\nThe longest balanced substring is \"abba\" because both distinct characters 'a' and 'b' each appear exactly 2 times.\n\n\nExample 2:\n\n\nInput: s = \"zzabccy\"\n\nOutput: 4\n\nExplanation:\n\nThe longest balanced substring is \"zabc\" because the distinct characters 'z', 'a', 'b', and 'c' each appear exactly 1 time.​​​​​​​\n\n\nExample 3:\n\n\nInput: s = \"aba\"\n\nOutput: 2\n\nExplanation:\n\n​​​​​​​One of the longest balanced substrings is \"ab\" because both distinct characters 'a' and 'b' each appear exactly 1 time. Another longest balanced substring is \"ba\".\n\n\n \nConstraints:\n\n\n\t1 <= s.length <= 1000\n\ts consists of lowercase English letters.",
         "notes": ""
       },
       "hasCode": true,
-      "hasReadme": false,
+      "hasReadme": true,
       "hasNotes": false,
-      "lastUpdated": "2026-02-12T10:25:39.000Z"
+      "lastUpdated": "2026-02-12T10:25:42.000Z"
+    },
+    {
+      "id": "leetcode-medium-longest-balanced-substring-ii",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Longest Balanced Substring II",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int longestBalanced(String s) {\n        char[] c = s.toCharArray();\n        int n = c.length;\n        \n        int cur_a = 0, cur_b = 0, cur_c = 0;        \n        int max_a = 0, max_b = 0, max_c = 0;\n\n        for (int i = 0; i < n; i++) {\n            if (c[i] == 'a') {\n                cur_a = (i > 0 && c[i-1] == 'a') ? cur_a + 1 : 1;\n                max_a = Math.max(max_a, cur_a);\n            } else if (c[i] == 'b') {\n                cur_b = (i > 0 && c[i-1] == 'b') ? cur_b + 1 : 1;\n                max_b = Math.max(max_b, cur_b);\n            } else { \n                cur_c = (i > 0 && c[i-1] == 'c') ? cur_c + 1 : 1;\n                max_c = Math.max(max_c, cur_c);\n            }\n        }\n        \n        int res = Math.max(Math.max(max_a, max_b), max_c);\n        \n        res = Math.max(res, find2(c, 'a', 'b'));\n        res = Math.max(res, find2(c, 'a', 'c'));\n        res = Math.max(res, find2(c, 'b', 'c'));\n        \n        res = Math.max(res, find3(c));\n        \n        return res;\n    }\n    \n    private int find2(char[] c, char x, char y) {\n        int n = c.length, max_len = 0;\n        int[] first = new int[2 * n + 1];\n        Arrays.fill(first, -2);\n        \n        int clear_idx = -1, diff = n;\n        first[diff] = -1;\n        \n        for (int i = 0; i < n; i++) {\n            if (c[i] != x && c[i] != y) {\n                clear_idx = i;\n                diff = n;\n                first[diff] = clear_idx;\n            } else {\n                if (c[i] == x) diff++;\n                else diff--;\n                \n                if (first[diff] < clear_idx) {\n                    first[diff] = i;\n                } else {\n                    max_len = Math.max(max_len, i - first[diff]);\n                }\n            }\n        }\n        \n        return max_len;\n    }\n    \n    private int find3(char[] c) {\n        long state = Long.MAX_VALUE / 2;\n        Map<Long, Integer> first = new HashMap<>();\n        first.put(state, -1);\n    \n        int max_len = 0;\n    \n        for (int i = 0; i < c.length; i++) {\n            if (c[i] == 'a') state += 1_000_001;\n            else if (c[i] == 'b') state -= 1_000_000;\n            else state--;\n        \n            if (first.containsKey(state)) {\n                max_len = Math.max(max_len, i - first.get(state));\n            } else {\n                first.put(state, i);\n            }\n        }\n    \n        return max_len;\n    }\n}",
+        "readme": "StaffHashTableStringPrefixSumWeeklyContest471\n\nYou are given a string s consisting only of the characters 'a', 'b', and 'c'.\n\nA substring of s is called balanced if all distinct characters in the substring appear the same number of times.\n\nReturn the length of the longest balanced substring of s.\n\n \nExample 1:\n\n\nInput: s = \"abbac\"\n\nOutput: 4\n\nExplanation:\n\nThe longest balanced substring is \"abba\" because both distinct characters 'a' and 'b' each appear exactly 2 times.\n\n\nExample 2:\n\n\nInput: s = \"aabcc\"\n\nOutput: 3\n\nExplanation:\n\nThe longest balanced substring is \"abc\" because all distinct characters 'a', 'b' and 'c' each appear exactly 1 time.\n\n\nExample 3:\n\n\nInput: s = \"aba\"\n\nOutput: 2\n\nExplanation:\n\nOne of the longest balanced substrings is \"ab\" because both distinct characters 'a' and 'b' each appear exactly 1 time. Another longest balanced substring is \"ba\".\n\n\n \nConstraints:\n\n\n\t1 <= s.length <= 105\n\ts contains only the characters 'a', 'b', and 'c'.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-13T16:44:56.000Z"
     },
     {
       "id": "leetcode-medium-magic-squares-in-grid",
