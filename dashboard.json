@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 46,
-    "lastUpdated": "2026-02-13T16:45:08.618Z",
+    "totalProblems": 47,
+    "lastUpdated": "2026-02-14T13:23:40.013Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,9 +16,9 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 42,
+        "total": 43,
         "Easy": 12,
-        "Medium": 20,
+        "Medium": 21,
         "Hard": 10
       },
       "Hackerrank": {
@@ -301,6 +301,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-02-09T15:40:26.000Z"
+    },
+    {
+      "id": "leetcode-medium-champagne-tower",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Champagne Tower",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public double champagneTower(int poured, int query_row, int query_glass) {\n        double[][] tower = new double[102][102];\n        tower[0][0] = (double) poured;\n\n        for (int r = 0; r <= query_row; r++) {\n            for (int c = 0; c <= r; c++) {\n                if (tower[r][c] > 1.0) {\n                    double excess = (tower[r][c] - 1.0) / 2.0;\n                    tower[r][c] = 1.0;\n                    tower[r + 1][c] += excess;\n                    tower[r + 1][c + 1] += excess;\n                }\n            }\n        }\n        return tower[query_row][query_glass];\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-14T13:23:28.000Z"
     },
     {
       "id": "leetcode-medium-construct-the-minimum-bitwise-array-ii",
