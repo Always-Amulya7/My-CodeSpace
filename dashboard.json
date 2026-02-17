@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 48,
-    "lastUpdated": "2026-02-17T07:44:35.044Z",
+    "totalProblems": 49,
+    "lastUpdated": "2026-02-17T07:45:27.824Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,8 +16,8 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 44,
-        "Easy": 13,
+        "total": 45,
+        "Easy": 14,
         "Medium": 21,
         "Hard": 10
       },
@@ -102,13 +102,13 @@
       "language": "java",
       "files": {
         "code": "class Solution {\n    public String addBinary(String a, String b) {\n        StringBuilder result = new StringBuilder();\n        int i = a.length() - 1, j = b.length() - 1, carry = 0;\n\n        while (i >= 0 || j >= 0 || carry == 1) {\n            int sum = carry;\n            if (i >= 0) sum += a.charAt(i--) - '0';\n            if (j >= 0) sum += b.charAt(j--) - '0';\n\n            result.append(sum % 2);\n            carry = sum / 2;\n        }\n\n        return result.reverse().toString();\n    }\n}",
-        "readme": "",
+        "readme": "🗓️Make-upnotice,ThisistheDailyCodingChallengeforFebruary15th2026.Thereare3incompletechallengesforFebruary2026andyouhave1ticketleftforthismonth.Areyousureyouwanttouseatickettomakeupthissubmission?,No,Yes\n\nGiven two binary strings a and b, return their sum as a binary string.\n\n \nExample 1:\nInput: a = \"11\", b = \"1\"\nOutput: \"100\"\nExample 2:\nInput: a = \"1010\", b = \"1011\"\nOutput: \"10101\"\n\n \nConstraints:\n\n\n\t1 <= a.length, b.length <= 104\n\ta and b consist only of '0' or '1' characters.\n\tEach string does not contain leading zeros except for the zero itself.",
         "notes": ""
       },
       "hasCode": true,
-      "hasReadme": false,
+      "hasReadme": true,
       "hasNotes": false,
-      "lastUpdated": "2026-02-17T07:44:23.000Z"
+      "lastUpdated": "2026-02-17T07:44:25.000Z"
     },
     {
       "id": "leetcode-easy-balanced-binary-tree",
@@ -285,6 +285,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-01-01T09:43:58.000Z"
+    },
+    {
+      "id": "leetcode-easy-reverse-bits",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Reverse Bits",
+      "language": "java",
+      "files": {
+        "code": "public class Solution {\n    public int reverseBits(int n) {\n        int res = 0;\n        for (int i = 0; i < 32; i++) {\n            res <<= 1;\n            res |= (n & 1);\n            n >>>= 1;\n        }\n        return res;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-17T07:45:15.000Z"
     },
     {
       "id": "leetcode-easy-trionic-array-i",
