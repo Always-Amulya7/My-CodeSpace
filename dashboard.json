@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 47,
-    "lastUpdated": "2026-02-14T13:23:40.013Z",
+    "totalProblems": 48,
+    "lastUpdated": "2026-02-17T07:44:35.044Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,8 +16,8 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 43,
-        "Easy": 12,
+        "total": 44,
+        "Easy": 13,
         "Medium": 21,
         "Hard": 10
       },
@@ -93,6 +93,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2025-12-29T08:09:06.000Z"
+    },
+    {
+      "id": "leetcode-easy-add-binary",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Add Binary",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public String addBinary(String a, String b) {\n        StringBuilder result = new StringBuilder();\n        int i = a.length() - 1, j = b.length() - 1, carry = 0;\n\n        while (i >= 0 || j >= 0 || carry == 1) {\n            int sum = carry;\n            if (i >= 0) sum += a.charAt(i--) - '0';\n            if (j >= 0) sum += b.charAt(j--) - '0';\n\n            result.append(sum % 2);\n            carry = sum / 2;\n        }\n\n        return result.reverse().toString();\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-17T07:44:23.000Z"
     },
     {
       "id": "leetcode-easy-balanced-binary-tree",
@@ -310,13 +326,13 @@
       "language": "java",
       "files": {
         "code": "class Solution {\n    public double champagneTower(int poured, int query_row, int query_glass) {\n        double[][] tower = new double[102][102];\n        tower[0][0] = (double) poured;\n\n        for (int r = 0; r <= query_row; r++) {\n            for (int c = 0; c <= r; c++) {\n                if (tower[r][c] > 1.0) {\n                    double excess = (tower[r][c] - 1.0) / 2.0;\n                    tower[r][c] = 1.0;\n                    tower[r + 1][c] += excess;\n                    tower[r + 1][c + 1] += excess;\n                }\n            }\n        }\n        return tower[query_row][query_glass];\n    }\n}",
-        "readme": "",
+        "readme": "PrincipalDynamicProgrammingWeeklyContest75\n\nWe stack glasses in a pyramid, where the first row has 1 glass, the second row has 2 glasses, and so on until the 100th row.  Each glass holds one cup of champagne.\n\nThen, some champagne is poured into the first glass at the top.  When the topmost glass is full, any excess liquid poured will fall equally to the glass immediately to the left and right of it.  When those glasses become full, any excess champagne will fall equally to the left and right of those glasses, and so on.  (A glass at the bottom row has its excess champagne fall on the floor.)\n\nFor example, after one cup of champagne is poured, the top most glass is full.  After two cups of champagne are poured, the two glasses on the second row are half full.  After three cups of champagne are poured, those two cups become full - there are 3 full glasses total now.  After four cups of champagne are poured, the third row has the middle glass half full, and the two outside glasses are a quarter full, as pictured below.\n\n\n\nNow after pouring some non-negative integer cups of champagne, return how full the jth glass in the ith row is (both i and j are 0-indexed.)\n\n \nExample 1:\n\nInput: poured = 1, query_row = 1, query_glass = 1\nOutput: 0.00000\nExplanation: We poured 1 cup of champange to the top glass of the tower (which is indexed as (0, 0)). There will be no excess liquid so all the glasses under the top glass will remain empty.\n\n\nExample 2:\n\nInput: poured = 2, query_row = 1, query_glass = 1\nOutput: 0.50000\nExplanation: We poured 2 cups of champange to the top glass of the tower (which is indexed as (0, 0)). There is one cup of excess liquid. The glass indexed as (1, 0) and the glass indexed as (1, 1) will share the excess liquid equally, and each will get half cup of champange.\n\n\nExample 3:\n\nInput: poured = 100000009, query_row = 33, query_glass = 17\nOutput: 1.00000\n\n\n \nConstraints:\n\n\n\t0 <= poured <= 109\n\t0 <= query_glass <= query_row < 100",
         "notes": ""
       },
       "hasCode": true,
-      "hasReadme": false,
+      "hasReadme": true,
       "hasNotes": false,
-      "lastUpdated": "2026-02-14T13:23:28.000Z"
+      "lastUpdated": "2026-02-14T13:23:29.000Z"
     },
     {
       "id": "leetcode-medium-construct-the-minimum-bitwise-array-ii",
