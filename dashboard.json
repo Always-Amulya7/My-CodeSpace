@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 49,
-    "lastUpdated": "2026-02-17T07:45:27.824Z",
+    "totalProblems": 50,
+    "lastUpdated": "2026-02-17T07:45:59.702Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,8 +16,8 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 45,
-        "Easy": 14,
+        "total": 46,
+        "Easy": 15,
         "Medium": 21,
         "Hard": 10
       },
@@ -125,6 +125,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-02-08T16:19:38.000Z"
+    },
+    {
+      "id": "leetcode-easy-binary-watch",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Binary Watch",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public List<String> readBinaryWatch(int turnedOn) {\n        List<String> result = new ArrayList<>();\n        \n        for (int hour = 0; hour < 12; hour++) {\n            \n            for (int minute = 0; minute < 60; minute++) {\n                \n                int totalBits = Integer.bitCount(hour) + Integer.bitCount(minute);\n                \n                if (totalBits == turnedOn) {\n                    \n                    String time = hour + \":\" + \n                                  (minute < 10 ? \"0\" + minute : minute);\n                    \n                    result.add(time);\n                }\n            }\n        }\n        \n        return result;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-17T07:45:49.000Z"
     },
     {
       "id": "leetcode-easy-construct-the-minimum-bitwise-array-i",
@@ -294,13 +310,13 @@
       "language": "java",
       "files": {
         "code": "public class Solution {\n    public int reverseBits(int n) {\n        int res = 0;\n        for (int i = 0; i < 32; i++) {\n            res <<= 1;\n            res |= (n & 1);\n            n >>>= 1;\n        }\n        return res;\n    }\n}",
-        "readme": "",
+        "readme": "🗓️Make-upnotice,ThisistheDailyCodingChallengeforFebruary16th2026.Thereare2incompletechallengesforFebruary2026andyouhave1ticketleftforthismonth.Areyousureyouwanttouseatickettomakeupthissubmission?,No,Yes\n\nReverse bits of a given 32 bits signed integer.\n\n \nExample 1:\n\n\nInput: n = 43261596\n\nOutput: 964176192\n\nExplanation:\n\nIntegerBinary432615960000001010010100000111101001110096417619200111001011110000010100101000000\n\n\nExample 2:\n\n\nInput: n = 2147483644\n\nOutput: 1073741822\n\nExplanation:\n\nIntegerBinary214748364401111111111111111111111111111100107374182200111111111111111111111111111110\n\n\n \nConstraints:\n\n\n\t0 <= n <= 231 - 2\n\tn is even.\n\n\n \nFollow up: If this function is called many times, how would you optimize it?",
         "notes": ""
       },
       "hasCode": true,
-      "hasReadme": false,
+      "hasReadme": true,
       "hasNotes": false,
-      "lastUpdated": "2026-02-17T07:45:15.000Z"
+      "lastUpdated": "2026-02-17T07:45:16.000Z"
     },
     {
       "id": "leetcode-easy-trionic-array-i",
