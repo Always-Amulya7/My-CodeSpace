@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 50,
-    "lastUpdated": "2026-02-17T07:45:59.702Z",
+    "totalProblems": 51,
+    "lastUpdated": "2026-02-18T19:38:50.304Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,8 +16,8 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 46,
-        "Easy": 15,
+        "total": 47,
+        "Easy": 16,
         "Medium": 21,
         "Hard": 10
       },
@@ -127,6 +127,22 @@
       "lastUpdated": "2026-02-08T16:19:38.000Z"
     },
     {
+      "id": "leetcode-easy-binary-number-with-alternating-bits",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Binary Number with Alternating Bits",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public boolean hasAlternatingBits(int n) {\n        return (n & (n >> 1)) == 0 && (n & (n >> 2)) == (n >> 2);\n    }\n}",
+        "readme": "MidLevelBitManipulation\n\nGiven a positive integer, check whether it has alternating bits: namely, if two adjacent bits will always have different values.\n\n \nExample 1:\n\nInput: n = 5\nOutput: true\nExplanation: The binary representation of 5 is: 101\n\n\nExample 2:\n\nInput: n = 7\nOutput: false\nExplanation: The binary representation of 7 is: 111.\n\nExample 3:\n\nInput: n = 11\nOutput: false\nExplanation: The binary representation of 11 is: 1011.\n\n \nConstraints:\n\n\n\t1 <= n <= 231 - 1",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-18T19:38:31.000Z"
+    },
+    {
       "id": "leetcode-easy-binary-watch",
       "platform": "Leetcode",
       "difficulty": "Easy",
@@ -134,13 +150,13 @@
       "language": "java",
       "files": {
         "code": "class Solution {\n    public List<String> readBinaryWatch(int turnedOn) {\n        List<String> result = new ArrayList<>();\n        \n        for (int hour = 0; hour < 12; hour++) {\n            \n            for (int minute = 0; minute < 60; minute++) {\n                \n                int totalBits = Integer.bitCount(hour) + Integer.bitCount(minute);\n                \n                if (totalBits == turnedOn) {\n                    \n                    String time = hour + \":\" + \n                                  (minute < 10 ? \"0\" + minute : minute);\n                    \n                    result.add(time);\n                }\n            }\n        }\n        \n        return result;\n    }\n}",
-        "readme": "",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,216,Days,Consistencyiskey,seeyoutomorrow!\n\nA binary watch has 4 LEDs on the top to represent the hours (0-11), and 6 LEDs on the bottom to represent the minutes (0-59). Each LED represents a zero or one, with the least significant bit on the right.\n\n\n\tFor example, the below binary watch reads \"4:51\".\n\n\n\n\nGiven an integer turnedOn which represents the number of LEDs that are currently on (ignoring the PM), return all possible times the watch could represent. You may return the answer in any order.\n\nThe hour must not contain a leading zero.\n\n\n\tFor example, \"01:00\" is not valid. It should be \"1:00\".\n\n\nThe minute must consist of two digits and may contain a leading zero.\n\n\n\tFor example, \"10:2\" is not valid. It should be \"10:02\".\n\n\n \nExample 1:\nInput: turnedOn = 1\nOutput: [\"0:01\",\"0:02\",\"0:04\",\"0:08\",\"0:16\",\"0:32\",\"1:00\",\"2:00\",\"4:00\",\"8:00\"]\nExample 2:\nInput: turnedOn = 9\nOutput: []\n\n \nConstraints:\n\n\n\t0 <= turnedOn <= 10",
         "notes": ""
       },
       "hasCode": true,
-      "hasReadme": false,
+      "hasReadme": true,
       "hasNotes": false,
-      "lastUpdated": "2026-02-17T07:45:49.000Z"
+      "lastUpdated": "2026-02-17T07:45:51.000Z"
     },
     {
       "id": "leetcode-easy-construct-the-minimum-bitwise-array-i",
