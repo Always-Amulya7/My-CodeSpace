@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 51,
-    "lastUpdated": "2026-02-18T19:38:50.304Z",
+    "totalProblems": 52,
+    "lastUpdated": "2026-02-19T15:07:55.727Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,8 +16,8 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 47,
-        "Easy": 16,
+        "total": 48,
+        "Easy": 17,
         "Medium": 21,
         "Hard": 10
       },
@@ -173,6 +173,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-01-20T03:40:47.000Z"
+    },
+    {
+      "id": "leetcode-easy-count-binary-substrings",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Count Binary Substrings",
+      "language": "python",
+      "files": {
+        "code": "class Solution:\n    def countBinarySubstrings(self, s: str) -> int:\n        prev_group = 0\n        curr_group = 1\n        result = 0\n        for i in range(1, len(s)):\n            if s[i] == s[i - 1]:\n                curr_group += 1\n            else:\n                result += min(prev_group, curr_group)\n                prev_group = curr_group\n                curr_group = 1\n        result += min(prev_group, curr_group)\n        return result",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-19T15:07:43.000Z"
     },
     {
       "id": "leetcode-easy-divide-an-array-into-subarrays-with-minimum-cost-i",
