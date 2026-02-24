@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 54,
-    "lastUpdated": "2026-02-23T17:22:46.186Z",
+    "totalProblems": 55,
+    "lastUpdated": "2026-02-24T16:51:13.274Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,8 +16,8 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 50,
-        "Easy": 18,
+        "total": 51,
+        "Easy": 19,
         "Medium": 22,
         "Hard": 10
       },
@@ -365,6 +365,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-02-17T07:45:16.000Z"
+    },
+    {
+      "id": "leetcode-easy-sum-of-root-to-leaf-binary-numbers",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Sum of Root To Leaf Binary Numbers",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int sumRootToLeaf(TreeNode root) {\n        return DFS(root, 0);\n    }\n\n    public int DFS(TreeNode rt, int x) {\n        if (rt==null) return 0;\n        x = x*2 + rt.val;\n        if(rt.left==rt.right) return x;\n        return DFS(rt.left, x) + DFS(rt.right, x);\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-24T16:50:45.000Z"
     },
     {
       "id": "leetcode-easy-trionic-array-i",
