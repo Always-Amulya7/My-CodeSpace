@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 57,
-    "lastUpdated": "2026-02-26T20:03:46.677Z",
+    "totalProblems": 58,
+    "lastUpdated": "2026-02-27T14:27:05.718Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,10 +16,10 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 53,
+        "total": 54,
         "Easy": 20,
         "Medium": 23,
-        "Hard": 10
+        "Hard": 11
       },
       "Hackerrank": {
         "total": 3,
@@ -893,6 +893,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-01-30T07:58:23.000Z"
+    },
+    {
+      "id": "leetcode-hard-minimum-operations-to-equalize-binary-string",
+      "platform": "Leetcode",
+      "difficulty": "Hard",
+      "problemName": "Minimum Operations to Equalize Binary String",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int minOperations(String s, int k) {\n        int zero = 0;\n        int len = s.length();\n\n        for (int i = 0; i < len; i++)\n            zero += ~s.charAt(i) & 1;\n\n        if (zero == 0)\n            return 0;\n\n        if (len == k)\n            return (zero == len ? 1 : -1);\n\n        int base = len - k;\n\n        int odd = Math.max(\n            (zero + k - 1) / k,\n            (len - zero + base - 1) / base\n        );\n\n        odd += ~odd & 1;\n\n        int even = Math.max(\n            (zero + k - 1) / k,\n            (zero + base - 1) / base\n        );\n\n        even += even & 1;\n\n        int res = Integer.MAX_VALUE;\n\n        if ((k & 1) == (zero & 1))\n            res = Math.min(res, odd);\n\n        if ((~zero & 1) == 1)\n            res = Math.min(res, even);\n\n        return res == Integer.MAX_VALUE ? -1 : res;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-27T14:26:53.000Z"
     },
     {
       "id": "leetcode-hard-minimum-pair-removal-to-sort-array-ii",
