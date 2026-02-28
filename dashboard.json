@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 58,
-    "lastUpdated": "2026-02-27T14:27:05.718Z",
+    "totalProblems": 59,
+    "lastUpdated": "2026-02-28T14:16:38.437Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,9 +16,9 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 54,
+        "total": 55,
         "Easy": 20,
-        "Medium": 23,
+        "Medium": 24,
         "Hard": 11
       },
       "Hackerrank": {
@@ -463,6 +463,22 @@
       "lastUpdated": "2026-02-23T17:22:29.000Z"
     },
     {
+      "id": "leetcode-medium-concatenation-of-consecutive-binary-numbers",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Concatenation of Consecutive Binary Numbers",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n  public int concatenatedBinary(int n) {\n    final int MOD = 1_000_000_007;\n    long ans = 0;\n\n    for (int i = 1; i <= n; ++i)\n      ans = ((ans << numberOfBits(i)) % MOD + i) % MOD;\n\n    return (int) ans;\n  }\n\n  private int numberOfBits(int n) {\n    return (int) (Math.log(n) / Math.log(2)) + 1;\n  }\n}",
+        "readme": "StaffMathBitManipulationSimulationWeeklyContest218\n\nGiven an integer n, return the decimal value of the binary string formed by concatenating the binary representations of 1 to n in order, modulo 109 + 7.\n\n \nExample 1:\n\nInput: n = 1\nOutput: 1\nExplanation: \"1\" in binary corresponds to the decimal value 1. \n\n\nExample 2:\n\nInput: n = 3\nOutput: 27\nExplanation: In binary, 1, 2, and 3 corresponds to \"1\", \"10\", and \"11\".\nAfter concatenating them, we have \"11011\", which corresponds to the decimal value 27.\n\n\nExample 3:\n\nInput: n = 12\nOutput: 505379714\nExplanation: The concatenation results in \"1101110010111011110001001101010111100\".\nThe decimal value of that is 118505380540.\nAfter modulo 109 + 7, the result is 505379714.\n\n\n \nConstraints:\n\n\n\t1 <= n <= 105",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-28T14:16:27.000Z"
+    },
+    {
       "id": "leetcode-medium-construct-the-minimum-bitwise-array-ii",
       "platform": "Leetcode",
       "difficulty": "Medium",
@@ -902,13 +918,13 @@
       "language": "java",
       "files": {
         "code": "class Solution {\n    public int minOperations(String s, int k) {\n        int zero = 0;\n        int len = s.length();\n\n        for (int i = 0; i < len; i++)\n            zero += ~s.charAt(i) & 1;\n\n        if (zero == 0)\n            return 0;\n\n        if (len == k)\n            return (zero == len ? 1 : -1);\n\n        int base = len - k;\n\n        int odd = Math.max(\n            (zero + k - 1) / k,\n            (len - zero + base - 1) / base\n        );\n\n        odd += ~odd & 1;\n\n        int even = Math.max(\n            (zero + k - 1) / k,\n            (zero + base - 1) / base\n        );\n\n        even += even & 1;\n\n        int res = Integer.MAX_VALUE;\n\n        if ((k & 1) == (zero & 1))\n            res = Math.min(res, odd);\n\n        if ((~zero & 1) == 1)\n            res = Math.min(res, even);\n\n        return res == Integer.MAX_VALUE ? -1 : res;\n    }\n}",
-        "readme": "",
+        "readme": "SeniorStaffMathStringBreadth-FirstSearchUnion-FindOrderedSetBiweeklyContest164\n\nYou are given a binary string s, and an integer k.\n\nIn one operation, you must choose exactly k different indices and flip each '0' to '1' and each '1' to '0'.\n\nReturn the minimum number of operations required to make all characters in the string equal to '1'. If it is not possible, return -1.\n\n \nExample 1:\n\n\nInput: s = \"110\", k = 1\n\nOutput: 1\n\nExplanation:\n\n\n\tThere is one '0' in s.\n\tSince k = 1, we can flip it directly in one operation.\n\n\n\nExample 2:\n\n\nInput: s = \"0101\", k = 3\n\nOutput: 2\n\nExplanation:\n\nOne optimal set of operations choosing k = 3 indices in each operation is:\n\n\n\tOperation 1: Flip indices [0, 1, 3]. s changes from \"0101\" to \"1000\".\n\tOperation 2: Flip indices [1, 2, 3]. s changes from \"1000\" to \"1111\".\n\n\nThus, the minimum number of operations is 2.\n\n\nExample 3:\n\n\nInput: s = \"101\", k = 2\n\nOutput: -1\n\nExplanation:\n\nSince k = 2 and s has only one '0', it is impossible to flip exactly k indices to make all '1'. Hence, the answer is -1.\n\n\n \nConstraints:\n\n\n\t1 <= s.length <= 10​​​​​​​5\n\ts[i] is either '0' or '1'.\n\t1 <= k <= s.length",
         "notes": ""
       },
       "hasCode": true,
-      "hasReadme": false,
+      "hasReadme": true,
       "hasNotes": false,
-      "lastUpdated": "2026-02-27T14:26:53.000Z"
+      "lastUpdated": "2026-02-27T14:26:54.000Z"
     },
     {
       "id": "leetcode-hard-minimum-pair-removal-to-sort-array-ii",
