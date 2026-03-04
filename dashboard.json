@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 61,
-    "lastUpdated": "2026-03-03T13:29:58.274Z",
+    "totalProblems": 62,
+    "lastUpdated": "2026-03-04T10:04:22.779Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,8 +16,8 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 57,
-        "Easy": 20,
+        "total": 58,
+        "Easy": 21,
         "Medium": 26,
         "Hard": 11
       },
@@ -383,6 +383,22 @@
       "lastUpdated": "2026-02-25T04:26:51.000Z"
     },
     {
+      "id": "leetcode-easy-special-positions-in-a-binary-matrix",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Special Positions in a Binary Matrix",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int numSpecial(int[][] mat) {\n        int m = mat.length, n = mat[0].length;\n        int[] row = new int[m];\n        int[] col = new int[n];\n        for (int i = 0; i < m; i++) {\n            for (int j = 0; j < n; j++) {\n                if (mat[i][j] == 1) {\n                    row[i]++;\n                    col[j]++;\n                }\n            }\n        }\n\n        int ans = 0;\n        for (int i = 0; i < m; i++) {\n            for (int j = 0; j < n; j++) {\n                if (mat[i][j] == 1 && row[i] == 1 && col[j] == 1) {\n                    ans++;\n                }\n            }\n        }\n\n        return ans;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-04T10:04:08.000Z"
+    },
+    {
       "id": "leetcode-easy-sum-of-root-to-leaf-binary-numbers",
       "platform": "Leetcode",
       "difficulty": "Easy",
@@ -502,13 +518,13 @@
       "language": "java",
       "files": {
         "code": "class Solution {\n    public char findKthBit(int n, int k) {\n        if (n == 1) return '0';\n        \n        int len = (1 << n) - 1;\n        int mid = (len + 1) / 2;\n        \n        if (k == mid) return '1';\n        if (k < mid) return findKthBit(n - 1, k);\n        \n        char c = findKthBit(n - 1, len - k + 1);\n        return c == '0' ? '1' : '0';\n    }\n}",
-        "readme": "",
+        "readme": "SeniorStringRecursionSimulationWeeklyContest201\n\nGiven two positive integers n and k, the binary string Sn is formed as follows:\n\n\n\tS1 = \"0\"\n\tSi = Si - 1 + \"1\" + reverse(invert(Si - 1)) for i > 1\n\n\nWhere + denotes the concatenation operation, reverse(x) returns the reversed string x, and invert(x) inverts all the bits in x (0 changes to 1 and 1 changes to 0).\n\nFor example, the first four strings in the above sequence are:\n\n\n\tS1 = \"0\"\n\tS2 = \"011\"\n\tS3 = \"0111001\"\n\tS4 = \"011100110110001\"\n\n\nReturn the kth bit in Sn. It is guaranteed that k is valid for the given n.\n\n \nExample 1:\n\nInput: n = 3, k = 1\nOutput: \"0\"\nExplanation: S3 is \"0111001\".\nThe 1st bit is \"0\".\n\n\nExample 2:\n\nInput: n = 4, k = 11\nOutput: \"1\"\nExplanation: S4 is \"011100110110001\".\nThe 11th bit is \"1\".\n\n\n \nConstraints:\n\n\n\t1 <= n <= 20\n\t1 <= k <= 2n - 1",
         "notes": ""
       },
       "hasCode": true,
-      "hasReadme": false,
+      "hasReadme": true,
       "hasNotes": false,
-      "lastUpdated": "2026-03-03T13:29:45.000Z"
+      "lastUpdated": "2026-03-03T13:29:47.000Z"
     },
     {
       "id": "leetcode-medium-find-the-largest-area-of-square-inside-two-rectangles",
