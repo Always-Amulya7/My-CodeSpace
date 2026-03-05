@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 62,
-    "lastUpdated": "2026-03-04T10:04:22.779Z",
+    "totalProblems": 63,
+    "lastUpdated": "2026-03-05T17:52:49.879Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,8 +16,8 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 58,
-        "Easy": 21,
+        "total": 59,
+        "Easy": 22,
         "Medium": 26,
         "Hard": 11
       },
@@ -271,6 +271,22 @@
       "lastUpdated": "2026-01-26T09:43:27.000Z"
     },
     {
+      "id": "leetcode-easy-minimum-changes-to-make-alternating-binary-string",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Minimum Changes To Make Alternating Binary String",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int minOperations(String s) {\n        int count = 0, n = s.length();\n        for (int i = 0; i < n; i++)\n            count += (s.charAt(i) ^ i) & 1;\n        return Math.min(count, n - count);\n    }\n}",
+        "readme": "MidLevelStringWeeklyContest228\n\nYou are given a string s consisting only of the characters '0' and '1'. In one operation, you can change any '0' to '1' or vice versa.\n\nThe string is called alternating if no two adjacent characters are equal. For example, the string \"010\" is alternating, while the string \"0100\" is not.\n\nReturn the minimum number of operations needed to make s alternating.\n\n \nExample 1:\n\nInput: s = \"0100\"\nOutput: 1\nExplanation: If you change the last character to '1', s will be \"0101\", which is alternating.\n\n\nExample 2:\n\nInput: s = \"10\"\nOutput: 0\nExplanation: s is already alternating.\n\n\nExample 3:\n\nInput: s = \"1111\"\nOutput: 2\nExplanation: You need two operations to reach \"0101\" or \"1010\".\n\n\n \nConstraints:\n\n\n\t1 <= s.length <= 104\n\ts[i] is either '0' or '1'.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-05T17:45:15.000Z"
+    },
+    {
       "id": "leetcode-easy-minimum-difference-between-highest-and-lowest-of-k-scores",
       "platform": "Leetcode",
       "difficulty": "Easy",
@@ -390,13 +406,13 @@
       "language": "java",
       "files": {
         "code": "class Solution {\n    public int numSpecial(int[][] mat) {\n        int m = mat.length, n = mat[0].length;\n        int[] row = new int[m];\n        int[] col = new int[n];\n        for (int i = 0; i < m; i++) {\n            for (int j = 0; j < n; j++) {\n                if (mat[i][j] == 1) {\n                    row[i]++;\n                    col[j]++;\n                }\n            }\n        }\n\n        int ans = 0;\n        for (int i = 0; i < m; i++) {\n            for (int j = 0; j < n; j++) {\n                if (mat[i][j] == 1 && row[i] == 1 && col[j] == 1) {\n                    ans++;\n                }\n            }\n        }\n\n        return ans;\n    }\n}",
-        "readme": "",
+        "readme": "MidLevelArrayMatrixWeeklyContest206\n\nGiven an m x n binary matrix mat, return the number of special positions in mat.\n\nA position (i, j) is called special if mat[i][j] == 1 and all other elements in row i and column j are 0 (rows and columns are 0-indexed).\n\n \nExample 1:\n\nInput: mat = [[1,0,0],[0,0,1],[1,0,0]]\nOutput: 1\nExplanation: (1, 2) is a special position because mat[1][2] == 1 and all other elements in row 1 and column 2 are 0.\n\n\nExample 2:\n\nInput: mat = [[1,0,0],[0,1,0],[0,0,1]]\nOutput: 3\nExplanation: (0, 0), (1, 1) and (2, 2) are special positions.\n\n\n \nConstraints:\n\n\n\tm == mat.length\n\tn == mat[i].length\n\t1 <= m, n <= 100\n\tmat[i][j] is either 0 or 1.",
         "notes": ""
       },
       "hasCode": true,
-      "hasReadme": false,
+      "hasReadme": true,
       "hasNotes": false,
-      "lastUpdated": "2026-03-04T10:04:08.000Z"
+      "lastUpdated": "2026-03-04T10:04:12.000Z"
     },
     {
       "id": "leetcode-easy-sum-of-root-to-leaf-binary-numbers",
