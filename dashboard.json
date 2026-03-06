@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 63,
-    "lastUpdated": "2026-03-05T17:52:49.879Z",
+    "totalProblems": 64,
+    "lastUpdated": "2026-03-06T17:20:22.833Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,8 +16,8 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 59,
-        "Easy": 22,
+        "total": 60,
+        "Easy": 23,
         "Medium": 26,
         "Hard": 11
       },
@@ -173,6 +173,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-02-17T07:45:51.000Z"
+    },
+    {
+      "id": "leetcode-easy-check-if-binary-string-has-at-most-one-segment-of-ones",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Check if Binary String Has at Most One Segment of Ones",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public boolean checkOnesSegment(String s) {\n        boolean seenZero = false;\n\n        for(char c : s.toCharArray()) {\n            if(c == '0') {\n                seenZero = true;\n            } else if(seenZero) {\n                return false;\n            }\n        }\n\n        return true;\n    }\n}",
+        "readme": "MidLevelStringWeeklyContest231\n\nGiven a binary string s ​​​​​without leading zeros, return true​​​ if s contains at most one contiguous segment of ones. Otherwise, return false.\n\n \nExample 1:\n\nInput: s = \"1001\"\nOutput: false\nExplanation: The ones do not form a contiguous segment.\n\n\nExample 2:\n\nInput: s = \"110\"\nOutput: true\n\n \nConstraints:\n\n\n\t1 <= s.length <= 100\n\ts[i]​​​​ is either '0' or '1'.\n\ts[0] is '1'.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-06T17:20:11.000Z"
     },
     {
       "id": "leetcode-easy-construct-the-minimum-bitwise-array-i",
