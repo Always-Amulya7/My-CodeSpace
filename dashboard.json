@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 64,
-    "lastUpdated": "2026-03-06T17:20:22.833Z",
+    "totalProblems": 65,
+    "lastUpdated": "2026-03-07T12:50:10.503Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,9 +16,9 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 60,
+        "total": 61,
         "Easy": 23,
-        "Medium": 26,
+        "Medium": 27,
         "Hard": 11
       },
       "Hackerrank": {
@@ -813,6 +813,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-01-29T09:18:58.000Z"
+    },
+    {
+      "id": "leetcode-medium-minimum-number-of-flips-to-make-the-binary-string-alternating",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Minimum Number of Flips to Make the Binary String Alternating",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int minFlips(String s) {\n        int n = s.length();\n        String t = s + s;\n\n        int ans = n;\n        int mis0 = 0;\n\n        for(int i = 0; i < 2*n; i++){\n\n            char expected = (i % 2 == 0) ? '0' : '1';\n\n            if(t.charAt(i) != expected) mis0++;\n\n            if(i >= n){\n                int left = i - n;\n                char expLeft = (left % 2 == 0) ? '0' : '1';\n                if(t.charAt(left) != expLeft) mis0--;\n            }\n\n            if(i >= n - 1){\n                int mis1 = n - mis0;\n                ans = Math.min(ans, Math.min(mis0, mis1));\n            }\n        }\n\n        return ans;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-07T12:49:58.000Z"
     },
     {
       "id": "leetcode-medium-minimum-removals-to-balance-array",
