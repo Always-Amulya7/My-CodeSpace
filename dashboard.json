@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 67,
-    "lastUpdated": "2026-03-08T17:50:54.291Z",
+    "totalProblems": 68,
+    "lastUpdated": "2026-03-11T18:13:51.386Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,8 +16,8 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 63,
-        "Easy": 24,
+        "total": 64,
+        "Easy": 25,
         "Medium": 28,
         "Hard": 11
       },
@@ -205,6 +205,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-03-06T17:20:11.000Z"
+    },
+    {
+      "id": "leetcode-easy-complement-of-base-10-integer",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Complement of Base 10 Integer",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int bitwiseComplement(int n) {\n        if (n == 0) return 1;\n        int mask = n;\n        for (int i = 0; i <= 4; i++)\n            mask |= mask >> (1 << i);\n        return ~n & mask;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-11T18:13:39.000Z"
     },
     {
       "id": "leetcode-easy-construct-the-minimum-bitwise-array-i",
