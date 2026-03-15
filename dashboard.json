@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 69,
-    "lastUpdated": "2026-03-15T15:11:36.098Z",
+    "totalProblems": 70,
+    "lastUpdated": "2026-03-15T15:12:36.298Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,10 +16,10 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 65,
+        "total": 66,
         "Easy": 25,
         "Medium": 29,
-        "Hard": 11
+        "Hard": 12
       },
       "Hackerrank": {
         "total": 3,
@@ -950,13 +950,13 @@
       "language": "java",
       "files": {
         "code": "class Solution {\n\n    public String getHappyString(int n, int k) {\n\n        int total = 3 * (1<<(n-1));\n        if(k>total) return \"\";\n\n        k--;\n        StringBuilder res=new StringBuilder();\n        char last='\\0';\n\n        for(int pos=0;pos<n;pos++){\n\n            int branch=1<<(n-pos-1);\n\n            List<Character> choices=new ArrayList<>();\n            for(char c:new char[]{'a','b','c'})\n                if(c!=last) choices.add(c);\n\n            int idx=k/branch;\n            res.append(choices.get(idx));\n            last=choices.get(idx);\n            k%=branch;\n        }\n\n        return res.toString();\n    }\n}",
-        "readme": "",
+        "readme": "🗓️Make-upnotice,ThisistheDailyCodingChallengeforMarch14th2026.Thereare2incompletechallengesforMarch2026andyouhave1ticketleftforthismonth.Areyousureyouwanttouseatickettomakeupthissubmission?,No,Yes\n\nA happy string is a string that:\n\n\n\tconsists only of letters of the set ['a', 'b', 'c'].\n\ts[i] != s[i + 1] for all values of i from 1 to s.length - 1 (string is 1-indexed).\n\n\nFor example, strings \"abc\", \"ac\", \"b\" and \"abcbabcbcb\" are all happy strings and strings \"aa\", \"baa\" and \"ababbc\" are not happy strings.\n\nGiven two integers n and k, consider a list of all happy strings of length n sorted in lexicographical order.\n\nReturn the kth string of this list or return an empty string if there are less than k happy strings of length n.\n\n \nExample 1:\n\nInput: n = 1, k = 3\nOutput: \"c\"\nExplanation: The list [\"a\", \"b\", \"c\"] contains all happy strings of length 1. The third string is \"c\".\n\n\nExample 2:\n\nInput: n = 1, k = 4\nOutput: \"\"\nExplanation: There are only 3 happy strings of length 1.\n\n\nExample 3:\n\nInput: n = 3, k = 9\nOutput: \"cab\"\nExplanation: There are 12 different happy string of length 3 [\"aba\", \"abc\", \"aca\", \"acb\", \"bab\", \"bac\", \"bca\", \"bcb\", \"cab\", \"cac\", \"cba\", \"cbc\"]. You will find the 9th string = \"cab\"\n\n\n \nConstraints:\n\n\n\t1 <= n <= 10\n\t1 <= k <= 100",
         "notes": ""
       },
       "hasCode": true,
-      "hasReadme": false,
+      "hasReadme": true,
       "hasNotes": false,
-      "lastUpdated": "2026-03-15T15:11:23.000Z"
+      "lastUpdated": "2026-03-15T15:11:25.000Z"
     },
     {
       "id": "leetcode-hard-divide-an-array-into-subarrays-with-minimum-cost-ii",
@@ -973,6 +973,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-02-02T07:30:50.000Z"
+    },
+    {
+      "id": "leetcode-hard-fancy-sequence",
+      "platform": "Leetcode",
+      "difficulty": "Hard",
+      "problemName": "Fancy Sequence",
+      "language": "java",
+      "files": {
+        "code": "class Fancy {\n    private static final int MOD = 1000000007;\n    private ArrayList<Long> val;  \n    private long a, b;   \n\n    public Fancy() {\n        val = new ArrayList<>(); \n        a = 1;\n        b = 0;\n    }\n\n    private long modPow(long x, long y, long mod) {\n        long res = 1;\n        x = x % mod;\n        while (y > 0) {\n            if (y % 2 == 1) {\n                res = (res * x) % mod;\n            }\n            y = y / 2;\n            x = (x * x) % mod;\n        }\n        return res;\n    }\n\n    public void append(int val) {\n        long x = (val - b + MOD) % MOD;\n        this.val.add((x * modPow(a, MOD - 2, MOD)) % MOD);  \n    }\n\n    public void addAll(int inc) {\n        b = (b + inc) % MOD;\n    }\n\n    public void multAll(int m) {\n        a = (a * m) % MOD;\n        b = (b * m) % MOD;\n    }\n\n    public int getIndex(int idx) {\n        if (idx >= val.size()) return -1; \n        return (int)((a * val.get(idx) + b) % MOD);\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-15T15:12:25.000Z"
     },
     {
       "id": "leetcode-hard-last-day-where-you-can-still-cross",
