@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 68,
-    "lastUpdated": "2026-03-11T18:13:51.386Z",
+    "totalProblems": 69,
+    "lastUpdated": "2026-03-15T15:11:36.098Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,9 +16,9 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 64,
+        "total": 65,
         "Easy": 25,
-        "Medium": 28,
+        "Medium": 29,
         "Hard": 11
       },
       "Hackerrank": {
@@ -941,6 +941,22 @@
       "hasReadme": false,
       "hasNotes": false,
       "lastUpdated": "2026-01-13T15:45:50.000Z"
+    },
+    {
+      "id": "leetcode-medium-the-k-th-lexicographical-string-of-all-happy-strings-of-length-n",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "The k-th Lexicographical String of All Happy Strings of Length n",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n\n    public String getHappyString(int n, int k) {\n\n        int total = 3 * (1<<(n-1));\n        if(k>total) return \"\";\n\n        k--;\n        StringBuilder res=new StringBuilder();\n        char last='\\0';\n\n        for(int pos=0;pos<n;pos++){\n\n            int branch=1<<(n-pos-1);\n\n            List<Character> choices=new ArrayList<>();\n            for(char c:new char[]{'a','b','c'})\n                if(c!=last) choices.add(c);\n\n            int idx=k/branch;\n            res.append(choices.get(idx));\n            last=choices.get(idx);\n            k%=branch;\n        }\n\n        return res.toString();\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-15T15:11:23.000Z"
     },
     {
       "id": "leetcode-hard-divide-an-array-into-subarrays-with-minimum-cost-ii",
