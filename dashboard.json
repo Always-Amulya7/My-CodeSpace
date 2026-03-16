@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 70,
-    "lastUpdated": "2026-03-15T15:12:36.298Z",
+    "totalProblems": 71,
+    "lastUpdated": "2026-03-16T07:26:07.561Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,9 +16,9 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 66,
+        "total": 67,
         "Easy": 25,
-        "Medium": 29,
+        "Medium": 30,
         "Hard": 12
       },
       "Hackerrank": {
@@ -639,6 +639,22 @@
       "lastUpdated": "2026-01-04T13:45:09.000Z"
     },
     {
+      "id": "leetcode-medium-get-biggest-three-rhombus-sums-in-a-grid",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Get Biggest Three Rhombus Sums in a Grid",
+      "language": "java",
+      "files": {
+        "code": "class Answer {\n\n    int[] ans;\n\n    public Answer() {\n        ans = new int[3];\n    }\n\n    void put(int x) {\n        if (x > ans[0]) {\n            ans[2] = ans[1];\n            ans[1] = ans[0];\n            ans[0] = x;\n        } else if (x != ans[0] && x > ans[1]) {\n            ans[2] = ans[1];\n            ans[1] = x;\n        } else if (x != ans[0] && x != ans[1] && x > ans[2]) {\n            ans[2] = x;\n        }\n    }\n\n    List<Integer> get() {\n        List<Integer> ret = new ArrayList<>();\n        for (int num : ans) {\n            if (num != 0) {\n                ret.add(num);\n            }\n        }\n        return ret;\n    }\n}\n\nclass Solution {\n\n    public int[] getBiggestThree(int[][] grid) {\n        int m = grid.length;\n        int n = grid[0].length;\n        int[][] sum1 = new int[m + 1][n + 2];\n        int[][] sum2 = new int[m + 1][n + 2];\n\n        for (int i = 1; i <= m; ++i) {\n            for (int j = 1; j <= n; ++j) {\n                sum1[i][j] = sum1[i - 1][j - 1] + grid[i - 1][j - 1];\n                sum2[i][j] = sum2[i - 1][j + 1] + grid[i - 1][j - 1];\n            }\n        }\n\n        Answer ans = new Answer();\n        for (int i = 0; i < m; ++i) {\n            for (int j = 0; j < n; ++j) {\n                // a single cell is also a rhombus\n                ans.put(grid[i][j]);\n                for (int k = i + 2; k < m; k += 2) {\n                    int ux = i;\n                    int uy = j;\n                    int dx = k;\n                    int dy = j;\n                    int lx = (i + k) / 2;\n                    int ly = j - (k - i) / 2;\n                    int rx = (i + k) / 2;\n                    int ry = j + (k - i) / 2;\n                    if (ly < 0 || ry >= n) {\n                        break;\n                    }\n                    int sum =\n                        (sum2[lx + 1][ly + 1] - sum2[ux][uy + 2]) +\n                        (sum1[rx + 1][ry + 1] - sum1[ux][uy]) +\n                        (sum1[dx + 1][dy + 1] - sum1[lx][ly]) +\n                        (sum2[dx + 1][dy + 1] - sum2[rx][ry + 2]) -\n                        (grid[ux][uy] +\n                            grid[dx][dy] +\n                            grid[lx][ly] +\n                            grid[rx][ry]);\n                    ans.put(sum);\n                }\n            }\n        }\n\n        List<Integer> resultList = ans.get();\n        int[] result = new int[resultList.size()];\n        for (int i = 0; i < resultList.size(); i++) {\n            result[i] = resultList.get(i);\n        }\n        return result;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-16T07:25:56.000Z"
+    },
+    {
       "id": "leetcode-medium-integer-to-roman",
       "platform": "Leetcode",
       "difficulty": "Medium",
@@ -982,13 +998,13 @@
       "language": "java",
       "files": {
         "code": "class Fancy {\n    private static final int MOD = 1000000007;\n    private ArrayList<Long> val;  \n    private long a, b;   \n\n    public Fancy() {\n        val = new ArrayList<>(); \n        a = 1;\n        b = 0;\n    }\n\n    private long modPow(long x, long y, long mod) {\n        long res = 1;\n        x = x % mod;\n        while (y > 0) {\n            if (y % 2 == 1) {\n                res = (res * x) % mod;\n            }\n            y = y / 2;\n            x = (x * x) % mod;\n        }\n        return res;\n    }\n\n    public void append(int val) {\n        long x = (val - b + MOD) % MOD;\n        this.val.add((x * modPow(a, MOD - 2, MOD)) % MOD);  \n    }\n\n    public void addAll(int inc) {\n        b = (b + inc) % MOD;\n    }\n\n    public void multAll(int m) {\n        a = (a * m) % MOD;\n        b = (b * m) % MOD;\n    }\n\n    public int getIndex(int idx) {\n        if (idx >= val.size()) return -1; \n        return (int)((a * val.get(idx) + b) % MOD);\n    }\n}",
-        "readme": "",
+        "readme": "PrincipalMathDesignSegmentTreeBiweeklyContest37\n\nWrite an API that generates fancy sequences using the append, addAll, and multAll operations.\n\nImplement the Fancy class:\n\n\n\tFancy() Initializes the object with an empty sequence.\n\tvoid append(val) Appends an integer val to the end of the sequence.\n\tvoid addAll(inc) Increments all existing values in the sequence by an integer inc.\n\tvoid multAll(m) Multiplies all existing values in the sequence by an integer m.\n\tint getIndex(idx) Gets the current value at index idx (0-indexed) of the sequence modulo 109 + 7. If the index is greater or equal than the length of the sequence, return -1.\n\n\n \nExample 1:\n\nInput\n[\"Fancy\", \"append\", \"addAll\", \"append\", \"multAll\", \"getIndex\", \"addAll\", \"append\", \"multAll\", \"getIndex\", \"getIndex\", \"getIndex\"]\n[[], [2], [3], [7], [2], [0], [3], [10], [2], [0], [1], [2]]\nOutput\n[null, null, null, null, null, 10, null, null, null, 26, 34, 20]\n\nExplanation\nFancy fancy = new Fancy();\nfancy.append(2);   // fancy sequence: [2]\nfancy.addAll(3);   // fancy sequence: [2+3] -> [5]\nfancy.append(7);   // fancy sequence: [5, 7]\nfancy.multAll(2);  // fancy sequence: [5*2, 7*2] -> [10, 14]\nfancy.getIndex(0); // return 10\nfancy.addAll(3);   // fancy sequence: [10+3, 14+3] -> [13, 17]\nfancy.append(10);  // fancy sequence: [13, 17, 10]\nfancy.multAll(2);  // fancy sequence: [13*2, 17*2, 10*2] -> [26, 34, 20]\nfancy.getIndex(0); // return 26\nfancy.getIndex(1); // return 34\nfancy.getIndex(2); // return 20\n\n\n \nConstraints:\n\n\n\t1 <= val, inc, m <= 100\n\t0 <= idx <= 105\n\tAt most 105 calls total will be made to append, addAll, multAll, and getIndex.",
         "notes": ""
       },
       "hasCode": true,
-      "hasReadme": false,
+      "hasReadme": true,
       "hasNotes": false,
-      "lastUpdated": "2026-03-15T15:12:25.000Z"
+      "lastUpdated": "2026-03-15T15:12:27.000Z"
     },
     {
       "id": "leetcode-hard-last-day-where-you-can-still-cross",
