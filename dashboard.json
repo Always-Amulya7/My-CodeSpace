@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 72,
-    "lastUpdated": "2026-03-17T07:16:39.899Z",
+    "totalProblems": 73,
+    "lastUpdated": "2026-03-18T19:02:17.485Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,9 +16,9 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 68,
+        "total": 69,
         "Easy": 25,
-        "Medium": 31,
+        "Medium": 32,
         "Hard": 12
       },
       "Hackerrank": {
@@ -575,6 +575,22 @@
       "lastUpdated": "2026-01-21T03:31:48.000Z"
     },
     {
+      "id": "leetcode-medium-count-submatrices-with-top-left-element-and-sum-less-than-k",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Count Submatrices with Top-Left Element and Sum Less Than k",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int countSubmatrices(int[][] grid, int k) {\n        int m = grid.length, n = grid[0].length;\n        int ans = 0;\n        int[][] px = new int[m + 1][n + 1];\n        for (int i = 0; i < m; i++) {\n            for (int j = 0; j < n; j++) {\n                px[i+1][j+1] = grid[i][j] + px[i][j+1] + px[i+1][j] - px[i][j];\n                if (px[i+1][j+1] <= k) ans++;\n            }\n        }\n        return ans;\n    }\n}",
+        "readme": "SeniorArrayMatrixPrefixSumWeeklyContest387\n\nYou are given a 0-indexed integer matrix grid and an integer k.\n\nReturn the number of submatrices that contain the top-left element of the grid, and have a sum less than or equal to k.\n\n \nExample 1:\n\nInput: grid = [[7,6,3],[6,6,1]], k = 18\nOutput: 4\nExplanation: There are only 4 submatrices, shown in the image above, that contain the top-left element of grid, and have a sum less than or equal to 18.\n\nExample 2:\n\nInput: grid = [[7,2,9],[1,5,0],[2,6,6]], k = 20\nOutput: 6\nExplanation: There are only 6 submatrices, shown in the image above, that contain the top-left element of grid, and have a sum less than or equal to 20.\n\n\n \nConstraints:\n\n\n\tm == grid.length \n\tn == grid[i].length\n\t1 <= n, m <= 1000 \n\t0 <= grid[i][j] <= 1000\n\t1 <= k <= 109",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-18T19:02:05.000Z"
+    },
+    {
       "id": "leetcode-medium-find-kth-bit-in-nth-binary-string",
       "platform": "Leetcode",
       "difficulty": "Medium",
@@ -694,13 +710,13 @@
       "language": "java",
       "files": {
         "code": "class Solution {\n    public int largestSubmatrix(int[][] matrix) {\n        int m = matrix.length, n = matrix[0].length;\n        int res = 0;\n\n        for (int i = 1; i < m; i++)\n            for (int j = 0; j < n; j++)\n                if (matrix[i][j] == 1)\n                    matrix[i][j] += matrix[i - 1][j];\n\n        for (int i = 0; i < m; i++) {\n            Arrays.sort(matrix[i]);\n            for (int j = 0; j < n; j++)\n                res = Math.max(res, matrix[i][j] * (n - j));\n        }\n\n        return res;\n    }\n}",
-        "readme": "",
+        "readme": "StaffArrayGreedySortingMatrixWeeklyContest224\n\nYou are given a binary matrix matrix of size m x n, and you are allowed to rearrange the columns of the matrix in any order.\n\nReturn the area of the largest submatrix within matrix where every element of the submatrix is 1 after reordering the columns optimally.\n\n \nExample 1:\n\nInput: matrix = [[0,0,1],[1,1,1],[1,0,1]]\nOutput: 4\nExplanation: You can rearrange the columns as shown above.\nThe largest submatrix of 1s, in bold, has an area of 4.\n\n\nExample 2:\n\nInput: matrix = [[1,0,1,0,1]]\nOutput: 3\nExplanation: You can rearrange the columns as shown above.\nThe largest submatrix of 1s, in bold, has an area of 3.\n\n\nExample 3:\n\nInput: matrix = [[1,1,0],[1,0,1]]\nOutput: 2\nExplanation: Notice that you must rearrange entire columns, and there is no way to make a submatrix of 1s larger than an area of 2.\n\n\n \nConstraints:\n\n\n\tm == matrix.length\n\tn == matrix[i].length\n\t1 <= m * n <= 105\n\tmatrix[i][j] is either 0 or 1.",
         "notes": ""
       },
       "hasCode": true,
-      "hasReadme": false,
+      "hasReadme": true,
       "hasNotes": false,
-      "lastUpdated": "2026-03-17T07:16:28.000Z"
+      "lastUpdated": "2026-03-17T07:16:29.000Z"
     },
     {
       "id": "leetcode-medium-longest-balanced-subarray-i",
