@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 76,
-    "lastUpdated": "2026-03-22T17:15:30.841Z",
+    "totalProblems": 77,
+    "lastUpdated": "2026-03-24T19:59:33.858Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,9 +16,9 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 72,
+        "total": 73,
         "Easy": 26,
-        "Medium": 34,
+        "Medium": 35,
         "Hard": 12
       },
       "Hackerrank": {
@@ -573,6 +573,22 @@
       "hasReadme": true,
       "hasNotes": false,
       "lastUpdated": "2026-02-28T14:16:27.000Z"
+    },
+    {
+      "id": "leetcode-medium-construct-product-matrix",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Construct Product Matrix",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n\n    public int[][] constructProductMatrix(int[][] grid) {\n        final int MOD = 12345;\n        int n = grid.length;\n        int m = grid[0].length;\n        int[][] p = new int[n][m];\n\n        long suffix = 1;\n        for (int i = n - 1; i >= 0; i--) {\n            for (int j = m - 1; j >= 0; j--) {\n                p[i][j] = (int) suffix;\n                suffix = (suffix * grid[i][j]) % MOD;\n            }\n        }\n\n        long prefix = 1;\n        for (int i = 0; i < n; i++) {\n            for (int j = 0; j < m; j++) {\n                p[i][j] = (int) (((long) p[i][j] * prefix) % MOD);\n                prefix = (prefix * grid[i][j]) % MOD;\n            }\n        }\n\n        return p;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-24T19:59:21.000Z"
     },
     {
       "id": "leetcode-medium-construct-the-minimum-bitwise-array-ii",
