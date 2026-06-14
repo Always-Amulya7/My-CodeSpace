@@ -1,33 +1,1282 @@
 {
   "metadata": {
-    "totalProblems": 0,
-    "lastUpdated": "2026-06-14T17:46:10.755Z",
+    "totalProblems": 78,
+    "lastUpdated": "2026-06-14T17:46:24.507Z",
     "breakdown": {
-      "LeetCode": {
+      "Codechef": {
         "total": 0,
         "Easy": 0,
         "Medium": 0,
         "Hard": 0
       },
-      "GFG": {
-        "total": 0,
-        "Easy": 0,
+      "Gfg": {
+        "total": 1,
+        "Easy": 1,
         "Medium": 0,
         "Hard": 0
       },
-      "HackerRank": {
-        "total": 0,
-        "Easy": 0,
-        "Medium": 0,
-        "Hard": 0
+      "Leetcode": {
+        "total": 74,
+        "Easy": 26,
+        "Medium": 36,
+        "Hard": 12
       },
-      "CodeChef": {
-        "total": 0,
+      "Hackerrank": {
+        "total": 3,
         "Easy": 0,
-        "Medium": 0,
+        "Medium": 3,
         "Hard": 0
       }
     }
   },
-  "problems": []
+  "problems": [
+    {
+      "id": "gfg-easy-decision-making-in-java",
+      "platform": "Gfg",
+      "difficulty": "Easy",
+      "problemName": "Decision Making in Java",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n     static String compareNM(int n, int m){\n        if(n<m){\n            return \"lesser\";\n        }\n        else if(n==m){\n            return \"equal\";\n        }\n        else{\n            return \"greater\";\n        }\n        \n    }\n }",
+        "readme": "Decision_Making_Javaif_Else_Switch_Break_Continue_Jump\n\nDecision Making in Java\nDifficulty: BasicAccuracy: 60.12%Submissions: 208K+Points: 1\n\nGiven two integers, n and m. The task is to check the relation between n and m. Return \"lesser\" if n < m,  \"equal\" if n == m, and \"greater\" if n > m.\n\nExamples :\n\n\nInput: n = 4, m = 8\nOutput: lesser\nExplanation: 4 < 8 so print 'lesser'.\nInput: n = 8, m = 8\nOutput: equal\nExplanation: 8 = 8 so print 'equal'.\nInput: n = 8, m = 4\nOutput: greater\nExplanation: 8 > 4 so print 'greater'.\n\nConstraints:\n-109 <= m , n <= 109\n\n\nTry more examples\nExpected Complexities\nTopic Tags\nRelated Articles\nReport An Issue\nIf you are facing any issue on this page. Please let us know.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2025-12-29T08:07:30.000Z"
+    },
+    {
+      "id": "hackerrank-medium-java-date-and-time",
+      "platform": "Hackerrank",
+      "difficulty": "Medium",
+      "problemName": "Java Date and Time",
+      "language": "java",
+      "files": {
+        "code": "import java.io.*;\nimport java.math.*;\nimport java.security.*;\nimport java.text.*;\nimport java.util.*;\nimport java.util.concurrent.*;\nimport java.util.function.*;\nimport java.util.regex.*;\nimport java.util.stream.*;\nimport static java.util.stream.Collectors.joining;\nimport static java.util.stream.Collectors.toList;\n\nclass Result {\n\n    /*\n     * Complete the 'findDay' function below.\n     *\n     * The function is expected to return a STRING.\n     * The function accepts following parameters:\n     *  1. INTEGER month\n     *  2. INTEGER day\n     *  3. INTEGER year\n     */\n\n    public static String findDay(int month, int day, int year) {\n    Calendar calendar = Calendar.getInstance();\n    calendar.set(year, month - 1, day);\n    var dayOfWeek = calendar.get(calendar.DAY_OF_WEEK);\n    String[] names = new String[] {\"SUNDAY\", \"MONDAY\", \"TUESDAY\", \"WEDNESDAY\", \"THURSDAY\", \"FRIDAY\", \"SATURDAY\"};\n    return names[dayOfWeek - 1];\n}\n\n}\n\npublic class Solution {\n    public static void main(String[] args) throws IOException {\n        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));\n        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv(\"OUTPUT_PATH\")));\n\n        String[] firstMultipleInput = bufferedReader.readLine().replaceAll(\"\\\\s+$\", \"\").split(\" \");\n\n        int month = Integer.parseInt(firstMultipleInput[0]);\n\n        int day = Integer.parseInt(firstMultipleInput[1]);\n\n        int year = Integer.parseInt(firstMultipleInput[2]);\n\n        String res = Result.findDay(month, day, year);\n\n        bufferedWriter.write(res);\n        bufferedWriter.newLine();\n\n        bufferedReader.close();\n        bufferedWriter.close();\n    }\n}",
+        "readme": "null\n\nThe Calendar class is an abstract class that provides methods for converting between a specific instant in time and a set of calendar fields such as YEAR, MONTH, DAY_OF_MONTH, HOUR, and so on, and for manipulating the calendar fields, such as getting the date of the next week.\n\nYou are given a date. You just need to write the method, , which returns the day on that date. To simplify your task, we have provided a portion of the code in the editor.\n\nExample\n\n\n\n\nThe method should return  as the day on that date.\n\nFunction Description\n\nComplete the findDay function in the editor below.\n\nfindDay has the following parameters:\n\nint: month\nint: day\nint: year\n\nReturns\n\nstring: the day of the week in capital letters\n\nInput Format\n\nA single line of input containing the space separated month, day and year, respectively, in    format.\n\nConstraints\n\nSample Input\n\n08 05 2015\n\n\nSample Output\n\nWEDNESDAY\n\n\nExplanation\n\nThe day on August th  was WEDNESDAY.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2025-12-29T08:10:52.000Z"
+    },
+    {
+      "id": "hackerrank-medium-java-int-to-string",
+      "platform": "Hackerrank",
+      "difficulty": "Medium",
+      "problemName": "Java Int to String",
+      "language": "java",
+      "files": {
+        "code": "import java.util.Scanner;\n\nclass Solution\n{\n    public static void main(String args[])\n    {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        sc.close();\n        \n        String s = Integer.toString(n);\n        \n        if(n == Integer.parseInt(s))\n            System.out.println(\"Good job\");\n        else\n            System.out.println(\"Wrong Answer\");\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2025-12-29T08:09:51.000Z"
+    },
+    {
+      "id": "hackerrank-medium-java-stdin-and-stdout-ii",
+      "platform": "Hackerrank",
+      "difficulty": "Medium",
+      "problemName": "Java Stdin and Stdout II",
+      "language": "java",
+      "files": {
+        "code": "import java.util.Scanner;\n\nclass Solution\n{\n    public static void main(String args[])\n    {\n        Scanner sc = new Scanner(System.in);\n        \n        int n = sc.nextInt();\n        double d = sc.nextDouble();\n        sc.nextLine();\n        String s = sc.nextLine();\n        \n        sc.close();\n        \n        System.out.println(\"String: \" + s);\n        System.out.println(\"Double: \" + d);\n        System.out.println(\"Int: \" + n);\n    }\n}",
+        "readme": "null\n\nIn this challenge, you must read an integer, a double, and a String from stdin, then print the values according to the instructions in the Output Format section below. To make the problem a little easier, a portion of the code is provided for you in the editor.\n\nNote: We recommend completing Java Stdin and Stdout I before attempting this challenge.\n\nInput Format\n\nThere are three lines of input:\n\nThe first line contains an integer.\nThe second line contains a double.\nThe third line contains a String.\n\nOutput Format\n\nThere are three lines of output:\n\nOn the first line, print String: followed by the unaltered String read from stdin.\nOn the second line, print Double: followed by the unaltered double read from stdin.\nOn the third line, print Int: followed by the unaltered integer read from stdin.\n\nTo make the problem easier, a portion of the code is already provided in the editor.\n\nNote: If you use the nextLine() method immediately following the nextInt() method, recall that nextInt() reads integer tokens; because of this, the last newline character for that line of integer input is still queued in the input buffer and the next nextLine() will be reading the remainder of the integer line (which is empty).\n\nSample Input\n\n42\n3.1415\nWelcome to HackerRank's Java tutorials!\n\n\nSample Output\n\nString: Welcome to HackerRank's Java tutorials!\nDouble: 3.1415\nInt: 42",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2025-12-29T08:09:06.000Z"
+    },
+    {
+      "id": "leetcode-easy-add-binary",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Add Binary",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public String addBinary(String a, String b) {\n        StringBuilder result = new StringBuilder();\n        int i = a.length() - 1, j = b.length() - 1, carry = 0;\n\n        while (i >= 0 || j >= 0 || carry == 1) {\n            int sum = carry;\n            if (i >= 0) sum += a.charAt(i--) - '0';\n            if (j >= 0) sum += b.charAt(j--) - '0';\n\n            result.append(sum % 2);\n            carry = sum / 2;\n        }\n\n        return result.reverse().toString();\n    }\n}",
+        "readme": "🗓️Make-upnotice,ThisistheDailyCodingChallengeforFebruary15th2026.Thereare3incompletechallengesforFebruary2026andyouhave1ticketleftforthismonth.Areyousureyouwanttouseatickettomakeupthissubmission?,No,Yes\n\nGiven two binary strings a and b, return their sum as a binary string.\n\n \nExample 1:\nInput: a = \"11\", b = \"1\"\nOutput: \"100\"\nExample 2:\nInput: a = \"1010\", b = \"1011\"\nOutput: \"10101\"\n\n \nConstraints:\n\n\n\t1 <= a.length, b.length <= 104\n\ta and b consist only of '0' or '1' characters.\n\tEach string does not contain leading zeros except for the zero itself.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-17T07:44:25.000Z"
+    },
+    {
+      "id": "leetcode-easy-balanced-binary-tree",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Balanced Binary Tree",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    private int dfs(TreeNode root) {\n        if (root == null) {\n            return 0;\n        }\n        int leftHeight = dfs(root.left);\n        if (leftHeight == -1) {\n            return -1;\n        }\n        int rightHeight = dfs(root.right);\n        if (rightHeight == -1) {\n            return -1;\n        }\n        if (Math.abs(leftHeight - rightHeight) > 1) {\n            return -1;\n        }\n        return 1 + Math.max(leftHeight, rightHeight);\n    }\n\n    public boolean isBalanced(TreeNode root) {\n        return dfs(root) != -1;\n    }\n}",
+        "readme": "TreeDepth-FirstSearchBinaryTree\n\nGiven a binary tree, determine if it is height-balanced.\n\n \nExample 1:\n\nInput: root = [3,9,20,null,null,15,7]\nOutput: true\n\n\nExample 2:\n\nInput: root = [1,2,2,3,3,null,null,4,4]\nOutput: false\n\n\nExample 3:\n\nInput: root = []\nOutput: true\n\n\n \nConstraints:\n\n\n\tThe number of nodes in the tree is in the range [0, 5000].\n\t-104 <= Node.val <= 104",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-08T16:19:38.000Z"
+    },
+    {
+      "id": "leetcode-easy-binary-gap",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Binary Gap",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int binaryGap(int n) {\n        int maxdist = 0;\n        int currdist = 0;\n        boolean found = false;\n        \n        while (n > 0) {\n            int bit = n % 2;\n            \n            if (bit == 1) {\n                if (found) {\n                    maxdist = Math.max(maxdist, currdist);\n                }\n                currdist = 1;\n                found = true;\n            } else {\n                if (found) {\n                    currdist++;\n                }\n            }\n            \n            n /= 2;\n        }\n        \n        return maxdist;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-22T17:03:50.000Z"
+    },
+    {
+      "id": "leetcode-easy-binary-number-with-alternating-bits",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Binary Number with Alternating Bits",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public boolean hasAlternatingBits(int n) {\n        return (n & (n >> 1)) == 0 && (n & (n >> 2)) == (n >> 2);\n    }\n}",
+        "readme": "MidLevelBitManipulation\n\nGiven a positive integer, check whether it has alternating bits: namely, if two adjacent bits will always have different values.\n\n \nExample 1:\n\nInput: n = 5\nOutput: true\nExplanation: The binary representation of 5 is: 101\n\n\nExample 2:\n\nInput: n = 7\nOutput: false\nExplanation: The binary representation of 7 is: 111.\n\nExample 3:\n\nInput: n = 11\nOutput: false\nExplanation: The binary representation of 11 is: 1011.\n\n \nConstraints:\n\n\n\t1 <= n <= 231 - 1",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-18T19:38:31.000Z"
+    },
+    {
+      "id": "leetcode-easy-binary-watch",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Binary Watch",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public List<String> readBinaryWatch(int turnedOn) {\n        List<String> result = new ArrayList<>();\n        \n        for (int hour = 0; hour < 12; hour++) {\n            \n            for (int minute = 0; minute < 60; minute++) {\n                \n                int totalBits = Integer.bitCount(hour) + Integer.bitCount(minute);\n                \n                if (totalBits == turnedOn) {\n                    \n                    String time = hour + \":\" + \n                                  (minute < 10 ? \"0\" + minute : minute);\n                    \n                    result.add(time);\n                }\n            }\n        }\n        \n        return result;\n    }\n}",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,216,Days,Consistencyiskey,seeyoutomorrow!\n\nA binary watch has 4 LEDs on the top to represent the hours (0-11), and 6 LEDs on the bottom to represent the minutes (0-59). Each LED represents a zero or one, with the least significant bit on the right.\n\n\n\tFor example, the below binary watch reads \"4:51\".\n\n\n\n\nGiven an integer turnedOn which represents the number of LEDs that are currently on (ignoring the PM), return all possible times the watch could represent. You may return the answer in any order.\n\nThe hour must not contain a leading zero.\n\n\n\tFor example, \"01:00\" is not valid. It should be \"1:00\".\n\n\nThe minute must consist of two digits and may contain a leading zero.\n\n\n\tFor example, \"10:2\" is not valid. It should be \"10:02\".\n\n\n \nExample 1:\nInput: turnedOn = 1\nOutput: [\"0:01\",\"0:02\",\"0:04\",\"0:08\",\"0:16\",\"0:32\",\"1:00\",\"2:00\",\"4:00\",\"8:00\"]\nExample 2:\nInput: turnedOn = 9\nOutput: []\n\n \nConstraints:\n\n\n\t0 <= turnedOn <= 10",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-17T07:45:51.000Z"
+    },
+    {
+      "id": "leetcode-easy-check-if-array-is-sorted-and-rotated",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Check if Array Is Sorted and Rotated",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public boolean check(int[] nums) {\n        int count = 0;\n        int n = nums.length;\n        for (int i = 0; i < n; i++) {\n            if (nums[i] > nums[(i + 1) % n]) {\n                count++;\n            }\n        }\n        return count <= 1;\n    }\n}",
+        "readme": "MidLevelArrayWeeklyContest227\n\nGiven an array nums, return true if the array was originally sorted in non-decreasing order, then rotated some number of positions (including zero). Otherwise, return false.\n\nThere may be duplicates in the original array.\n\nNote: An array A rotated by x positions results in an array B of the same length such that B[i] == A[(i+x) % A.length] for every valid index i.\n\n \nExample 1:\n\nInput: nums = [3,4,5,1,2]\nOutput: true\nExplanation: [1,2,3,4,5] is the original sorted array.\nYou can rotate the array by x = 2 positions to begin on the element of value 3: [3,4,5,1,2].\n\n\nExample 2:\n\nInput: nums = [2,1,3,4]\nOutput: false\nExplanation: There is no sorted array once rotated that can make nums.\n\n\nExample 3:\n\nInput: nums = [1,2,3]\nOutput: true\nExplanation: [1,2,3] is the original sorted array.\nYou can rotate the array by x = 0 positions (i.e. no rotation) to make nums.\n\n\n \nConstraints:\n\n\n\t1 <= nums.length <= 100\n\t1 <= nums[i] <= 100",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-08T09:57:01.000Z"
+    },
+    {
+      "id": "leetcode-easy-check-if-binary-string-has-at-most-one-segment-of-ones",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Check if Binary String Has at Most One Segment of Ones",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public boolean checkOnesSegment(String s) {\n        boolean seenZero = false;\n\n        for(char c : s.toCharArray()) {\n            if(c == '0') {\n                seenZero = true;\n            } else if(seenZero) {\n                return false;\n            }\n        }\n\n        return true;\n    }\n}",
+        "readme": "MidLevelStringWeeklyContest231\n\nGiven a binary string s ​​​​​without leading zeros, return true​​​ if s contains at most one contiguous segment of ones. Otherwise, return false.\n\n \nExample 1:\n\nInput: s = \"1001\"\nOutput: false\nExplanation: The ones do not form a contiguous segment.\n\n\nExample 2:\n\nInput: s = \"110\"\nOutput: true\n\n \nConstraints:\n\n\n\t1 <= s.length <= 100\n\ts[i]​​​​ is either '0' or '1'.\n\ts[0] is '1'.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-06T17:20:11.000Z"
+    },
+    {
+      "id": "leetcode-easy-complement-of-base-10-integer",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Complement of Base 10 Integer",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int bitwiseComplement(int n) {\n        if (n == 0) return 1;\n        int mask = n;\n        for (int i = 0; i <= 4; i++)\n            mask |= mask >> (1 << i);\n        return ~n & mask;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-11T18:13:39.000Z"
+    },
+    {
+      "id": "leetcode-easy-construct-the-minimum-bitwise-array-i",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Construct the Minimum Bitwise Array I",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int[] minBitwiseArray(List<Integer> nums) {\n        int ans[] = new int[nums.size()];\n        for(int i = 0; i < nums.size(); i++) {\n            int n = nums.get(i);\n            if(n != 2) ans[i] = n - ((n + 1) & (-n - 1)) / 2;\n            else ans[i] = -1;\n        }  \n        return ans;\n    }\n}",
+        "readme": "ArrayBitManipulationBiweeklyContest141\n\nYou are given an array nums consisting of n prime integers.\n\nYou need to construct an array ans of length n, such that, for each index i, the bitwise OR of ans[i] and ans[i] + 1 is equal to nums[i], i.e. ans[i] OR (ans[i] + 1) == nums[i].\n\nAdditionally, you must minimize each value of ans[i] in the resulting array.\n\nIf it is not possible to find such a value for ans[i] that satisfies the condition, then set ans[i] = -1.\n\n \nExample 1:\n\n\nInput: nums = [2,3,5,7]\n\nOutput: [-1,1,4,3]\n\nExplanation:\n\n\n\tFor i = 0, as there is no value for ans[0] that satisfies ans[0] OR (ans[0] + 1) = 2, so ans[0] = -1.\n\tFor i = 1, the smallest ans[1] that satisfies ans[1] OR (ans[1] + 1) = 3 is 1, because 1 OR (1 + 1) = 3.\n\tFor i = 2, the smallest ans[2] that satisfies ans[2] OR (ans[2] + 1) = 5 is 4, because 4 OR (4 + 1) = 5.\n\tFor i = 3, the smallest ans[3] that satisfies ans[3] OR (ans[3] + 1) = 7 is 3, because 3 OR (3 + 1) = 7.\n\n\n\nExample 2:\n\n\nInput: nums = [11,13,31]\n\nOutput: [9,12,15]\n\nExplanation:\n\n\n\tFor i = 0, the smallest ans[0] that satisfies ans[0] OR (ans[0] + 1) = 11 is 9, because 9 OR (9 + 1) = 11.\n\tFor i = 1, the smallest ans[1] that satisfies ans[1] OR (ans[1] + 1) = 13 is 12, because 12 OR (12 + 1) = 13.\n\tFor i = 2, the smallest ans[2] that satisfies ans[2] OR (ans[2] + 1) = 31 is 15, because 15 OR (15 + 1) = 31.\n\n\n\n \nConstraints:\n\n\n\t1 <= nums.length <= 100\n\t2 <= nums[i] <= 1000\n\tnums[i] is a prime number.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-20T03:40:47.000Z"
+    },
+    {
+      "id": "leetcode-easy-count-binary-substrings",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Count Binary Substrings",
+      "language": "python",
+      "files": {
+        "code": "class Solution:\n    def countBinarySubstrings(self, s: str) -> int:\n        prev_group = 0\n        curr_group = 1\n        result = 0\n        for i in range(1, len(s)):\n            if s[i] == s[i - 1]:\n                curr_group += 1\n            else:\n                result += min(prev_group, curr_group)\n                prev_group = curr_group\n                curr_group = 1\n        result += min(prev_group, curr_group)\n        return result",
+        "readme": "StaffTwoPointersString\n\nGiven a binary string s, return the number of non-empty substrings that have the same number of 0's and 1's, and all the 0's and all the 1's in these substrings are grouped consecutively.\n\nSubstrings that occur multiple times are counted the number of times they occur.\n\n \nExample 1:\n\nInput: s = \"00110011\"\nOutput: 6\nExplanation: There are 6 substrings that have equal number of consecutive 1's and 0's: \"0011\", \"01\", \"1100\", \"10\", \"0011\", and \"01\".\nNotice that some of these substrings repeat and are counted the number of times they occur.\nAlso, \"00110011\" is not a valid substring because all the 0's (and 1's) are not grouped together.\n\n\nExample 2:\n\nInput: s = \"10101\"\nOutput: 4\nExplanation: There are 4 substrings: \"10\", \"01\", \"10\", \"01\" that have equal number of consecutive 1's and 0's.\n\n\n \nConstraints:\n\n\n\t1 <= s.length <= 105\n\ts[i] is either '0' or '1'.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-19T15:07:44.000Z"
+    },
+    {
+      "id": "leetcode-easy-determine-whether-matrix-can-be-obtained-by-rotation",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Determine Whether Matrix Can Be Obtained By Rotation",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public boolean findRotation(int[][] mat, int[][] target) {\n        for (int i = 0; i < 4; i++) {\n            if (isEqual(mat, target)) return true;\n            rotate(mat);\n        }\n        return false;\n    }\n\n    private void rotate(int[][] mat) {\n        int n = mat.length;\n        for (int i = 0; i < n; i++) {\n            for (int j = i + 1; j < n; j++) {\n                int temp = mat[i][j];\n                mat[i][j] = mat[j][i];\n                mat[j][i] = temp;\n            }\n        }\n        for (int i = 0; i < n; i++) {\n            for (int j = 0; j < n / 2; j++) {\n                int temp = mat[i][j];\n                mat[i][j] = mat[i][n - 1 - j];\n                mat[i][n - 1 - j] = temp;\n            }\n        }\n    }\n\n    private boolean isEqual(int[][] mat, int[][] target) {\n        for (int i = 0; i < mat.length; i++) {\n            for (int j = 0; j < mat[0].length; j++) {\n                if (mat[i][j] != target[i][j]) return false;\n            }\n        }\n        return true;\n    }\n}",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,249,Days,Consistencyiskey,seeyoutomorrow!\n\nGiven two n x n binary matrices mat and target, return true if it is possible to make mat equal to target by rotating mat in 90-degree increments, or false otherwise.\n\n \nExample 1:\n\nInput: mat = [[0,1],[1,0]], target = [[1,0],[0,1]]\nOutput: true\nExplanation: We can rotate mat 90 degrees clockwise to make mat equal target.\n\n\nExample 2:\n\nInput: mat = [[0,1],[1,1]], target = [[1,0],[0,1]]\nOutput: false\nExplanation: It is impossible to make mat equal to target by rotating mat.\n\n\nExample 3:\n\nInput: mat = [[0,0,0],[0,1,0],[1,1,1]], target = [[1,1,1],[0,1,0],[0,0,0]]\nOutput: true\nExplanation: We can rotate mat 90 degrees clockwise two times to make mat equal target.\n\n\n \nConstraints:\n\n\n\tn == mat.length == target.length\n\tn == mat[i].length == target[i].length\n\t1 <= n <= 10\n\tmat[i][j] and target[i][j] are either 0 or 1.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-22T17:15:20.000Z"
+    },
+    {
+      "id": "leetcode-easy-divide-an-array-into-subarrays-with-minimum-cost-i",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Divide an Array Into Subarrays With Minimum Cost I",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int minimumCost(int[] A) {\n        int a = 51, b = 51;\n\n        for (int i = 1; i < A.length; i++) {\n            if (A[i] < a) {\n                b = a;\n                a = A[i];\n            } else if (A[i] < b)\n                b = A[i];\n\n            if (a == 1 && b == 1) break;\n        }\n\n        return A[0] + a + b;\n    }\n}",
+        "readme": "ArraySortingEnumerationBiweeklyContest122\n\nYou are given an array of integers nums of length n.\n\nThe cost of an array is the value of its first element. For example, the cost of [1,2,3] is 1 while the cost of [3,4,1] is 3.\n\nYou need to divide nums into 3 disjoint contiguous subarrays.\n\nReturn the minimum possible sum of the cost of these subarrays.\n\n \nExample 1:\n\nInput: nums = [1,2,3,12]\nOutput: 6\nExplanation: The best possible way to form 3 subarrays is: [1], [2], and [3,12] at a total cost of 1 + 2 + 3 = 6.\nThe other possible ways to form 3 subarrays are:\n- [1], [2,3], and [12] at a total cost of 1 + 2 + 12 = 15.\n- [1,2], [3], and [12] at a total cost of 1 + 3 + 12 = 16.\n\n\nExample 2:\n\nInput: nums = [5,4,3]\nOutput: 12\nExplanation: The best possible way to form 3 subarrays is: [5], [4], and [3] at a total cost of 5 + 4 + 3 = 12.\nIt can be shown that 12 is the minimum cost achievable.\n\n\nExample 3:\n\nInput: nums = [10,3,1,1]\nOutput: 12\nExplanation: The best possible way to form 3 subarrays is: [10,3], [1], and [1] at a total cost of 10 + 1 + 1 = 12.\nIt can be shown that 12 is the minimum cost achievable.\n\n\n \nConstraints:\n\n\n\t3 <= n <= 50\n\t1 <= nums[i] <= 50",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-01T18:58:46.000Z"
+    },
+    {
+      "id": "leetcode-easy-find-smallest-letter-greater-than-target",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Find Smallest Letter Greater Than Target",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public char nextGreatestLetter(char[] letters, char target) {\n        for (int i = 0; i < letters.length; i++) {\n            if (letters[i] > target) {\n                return letters[i];\n            }\n        }\n        return letters[0];\n    }\n}",
+        "readme": "ArrayBinarySearchWeeklyContest62\n\nYou are given an array of characters letters that is sorted in non-decreasing order, and a character target. There are at least two different characters in letters.\n\nReturn the smallest character in letters that is lexicographically greater than target. If such a character does not exist, return the first character in letters.\n\n \nExample 1:\n\nInput: letters = [\"c\",\"f\",\"j\"], target = \"a\"\nOutput: \"c\"\nExplanation: The smallest character that is lexicographically greater than 'a' in letters is 'c'.\n\n\nExample 2:\n\nInput: letters = [\"c\",\"f\",\"j\"], target = \"c\"\nOutput: \"f\"\nExplanation: The smallest character that is lexicographically greater than 'c' in letters is 'f'.\n\n\nExample 3:\n\nInput: letters = [\"x\",\"x\",\"y\",\"y\"], target = \"z\"\nOutput: \"x\"\nExplanation: There are no characters in letters that is lexicographically greater than 'z' so we return letters[0].\n\n\n \nConstraints:\n\n\n\t2 <= letters.length <= 104\n\tletters[i] is a lowercase English letter.\n\tletters is sorted in non-decreasing order.\n\tletters contains at least two different characters.\n\ttarget is a lowercase English letter.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-31T18:03:30.000Z"
+    },
+    {
+      "id": "leetcode-easy-longest-common-prefix",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Longest Common Prefix",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public String longestCommonPrefix(String[] v) {\n        StringBuilder ans = new StringBuilder();\n        Arrays.sort(v);\n        String first = v[0];\n        String last = v[v.length-1];\n        for (int i=0; i<Math.min(first.length(), last.length()); i++) {\n            if (first.charAt(i) != last.charAt(i)) {\n                return ans.toString();\n            }\n            ans.append(first.charAt(i));\n        }\n        return ans.toString();\n    }\n}",
+        "readme": "ArrayStringTrie\n\nWrite a function to find the longest common prefix string amongst an array of strings.\n\nIf there is no common prefix, return an empty string \"\".\n\n \nExample 1:\n\nInput: strs = [\"flower\",\"flow\",\"flight\"]\nOutput: \"fl\"\n\n\nExample 2:\n\nInput: strs = [\"dog\",\"racecar\",\"car\"]\nOutput: \"\"\nExplanation: There is no common prefix among the input strings.\n\n\n \nConstraints:\n\n\n\t1 <= strs.length <= 200\n\t0 <= strs[i].length <= 200\n\tstrs[i] consists of only lowercase English letters if it is non-empty.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-05T17:27:23.000Z"
+    },
+    {
+      "id": "leetcode-easy-minimum-absolute-difference",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Minimum Absolute Difference",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public List<List<Integer>> minimumAbsDifference(int[] arr) {\n        Arrays.sort(arr);\n        int minDiff = Integer.MAX_VALUE;\n        for(int i = 0; i < arr.length - 1; i ++) {\n            minDiff = Math.min(minDiff, arr[i + 1] - arr[i]);\n        }\n        List<List<Integer>> res = new ArrayList<>();\n        for(int i = 0; i < arr.length - 1; i ++){\n            if (arr[i + 1] - arr[i] == minDiff) {\n                res.add(Arrays.asList(arr[i], arr[i + 1]));\n            }\n        }\n        return res;\n    }\n}",
+        "readme": "ArraySortingWeeklyContest155\n\nGiven an array of distinct integers arr, find all pairs of elements with the minimum absolute difference of any two elements.\n\nReturn a list of pairs in ascending order(with respect to pairs), each pair [a, b] follows\n\n\n\ta, b are from arr\n\ta < b\n\tb - a equals to the minimum absolute difference of any two elements in arr\n\n\n \nExample 1:\n\nInput: arr = [4,2,1,3]\nOutput: [[1,2],[2,3],[3,4]]\nExplanation: The minimum absolute difference is 1. List all pairs with difference equal to 1 in ascending order.\n\nExample 2:\n\nInput: arr = [1,3,6,10,15]\nOutput: [[1,3]]\n\n\nExample 3:\n\nInput: arr = [3,8,-10,23,19,-4,-14,27]\nOutput: [[-14,-10],[19,23],[23,27]]\n\n\n \nConstraints:\n\n\n\t2 <= arr.length <= 105\n\t-106 <= arr[i] <= 106",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-26T09:43:27.000Z"
+    },
+    {
+      "id": "leetcode-easy-minimum-changes-to-make-alternating-binary-string",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Minimum Changes To Make Alternating Binary String",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int minOperations(String s) {\n        int count = 0, n = s.length();\n        for (int i = 0; i < n; i++)\n            count += (s.charAt(i) ^ i) & 1;\n        return Math.min(count, n - count);\n    }\n}",
+        "readme": "MidLevelStringWeeklyContest228\n\nYou are given a string s consisting only of the characters '0' and '1'. In one operation, you can change any '0' to '1' or vice versa.\n\nThe string is called alternating if no two adjacent characters are equal. For example, the string \"010\" is alternating, while the string \"0100\" is not.\n\nReturn the minimum number of operations needed to make s alternating.\n\n \nExample 1:\n\nInput: s = \"0100\"\nOutput: 1\nExplanation: If you change the last character to '1', s will be \"0101\", which is alternating.\n\n\nExample 2:\n\nInput: s = \"10\"\nOutput: 0\nExplanation: s is already alternating.\n\n\nExample 3:\n\nInput: s = \"1111\"\nOutput: 2\nExplanation: You need two operations to reach \"0101\" or \"1010\".\n\n\n \nConstraints:\n\n\n\t1 <= s.length <= 104\n\ts[i] is either '0' or '1'.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-05T17:45:15.000Z"
+    },
+    {
+      "id": "leetcode-easy-minimum-difference-between-highest-and-lowest-of-k-scores",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Minimum Difference Between Highest and Lowest of K Scores",
+      "language": "java",
+      "files": {
+        "code": "import java.util.Arrays;\n\nclass Solution {\n    public int minimumDifference(int[] nums, int k) {\n        if (k == 1) return 0;\n        Arrays.sort(nums);\n        int minDiff = Integer.MAX_VALUE;\n        for (int i = 0; i <= nums.length - k; i++) {\n            int currentDiff = nums[i + k - 1] - nums[i];\n            minDiff = Math.min(minDiff, currentDiff);\n        }\n        return minDiff;\n    }\n}",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,193,Days,Consistencyiskey,seeyoutomorrow!\n\nYou are given a 0-indexed integer array nums, where nums[i] represents the score of the ith student. You are also given an integer k.\n\nPick the scores of any k students from the array so that the difference between the highest and the lowest of the k scores is minimized.\n\nReturn the minimum possible difference.\n\n \nExample 1:\n\nInput: nums = [90], k = 1\nOutput: 0\nExplanation: There is one way to pick score(s) of one student:\n- [90]. The difference between the highest and lowest score is 90 - 90 = 0.\nThe minimum possible difference is 0.\n\n\nExample 2:\n\nInput: nums = [9,4,1,7], k = 2\nOutput: 2\nExplanation: There are six ways to pick score(s) of two students:\n- [9,4,1,7]. The difference between the highest and lowest score is 9 - 4 = 5.\n- [9,4,1,7]. The difference between the highest and lowest score is 9 - 1 = 8.\n- [9,4,1,7]. The difference between the highest and lowest score is 9 - 7 = 2.\n- [9,4,1,7]. The difference between the highest and lowest score is 4 - 1 = 3.\n- [9,4,1,7]. The difference between the highest and lowest score is 7 - 4 = 3.\n- [9,4,1,7]. The difference between the highest and lowest score is 7 - 1 = 6.\nThe minimum possible difference is 2.\n\n \nConstraints:\n\n\n\t1 <= k <= nums.length <= 1000\n\t0 <= nums[i] <= 105",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-25T04:17:05.000Z"
+    },
+    {
+      "id": "leetcode-easy-minimum-pair-removal-to-sort-array-i",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Minimum Pair Removal to Sort Array I",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    private boolean isSorted(int[] nums, int n) {\n        for(int i = 1; i < n; i++) {\n            if(nums[i] < nums[i - 1]) return false;\n        }\n        return true;\n    }\n    public int minimumPairRemoval(int[] nums) {\n        int ans = 0, n = nums.length;\n        while(!isSorted(nums, n)) {\n            ans += 1;\n            int min_sum = Integer.MAX_VALUE, pos = -1;\n            for(int i = 1; i < n; i++) {\n                int sum = nums[i - 1] + nums[i];\n                if(sum < min_sum) {\n                    min_sum = sum;\n                    pos = i;\n                }\n            }\n            nums[pos - 1] = min_sum;\n            for(int i = pos; i < n - 1; i++) nums[i] = nums[i + 1];\n            n--;\n        }\n        return ans;\n    }\n}",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,190,Days,Consistencyiskey,seeyoutomorrow!\n\nGiven an array nums, you can perform the following operation any number of times:\n\n\n\tSelect the adjacent pair with the minimum sum in nums. If multiple such pairs exist, choose the leftmost one.\n\tReplace the pair with their sum.\n\n\nReturn the minimum number of operations needed to make the array non-decreasing.\n\nAn array is said to be non-decreasing if each element is greater than or equal to its previous element (if it exists).\n\n \nExample 1:\n\n\nInput: nums = [5,2,3,1]\n\nOutput: 2\n\nExplanation:\n\n\n\tThe pair (3,1) has the minimum sum of 4. After replacement, nums = [5,2,4].\n\tThe pair (2,4) has the minimum sum of 6. After replacement, nums = [5,6].\n\n\nThe array nums became non-decreasing in two operations.\n\n\nExample 2:\n\n\nInput: nums = [1,2,2]\n\nOutput: 0\n\nExplanation:\n\nThe array nums is already sorted.\n\n\n \nConstraints:\n\n\n\t1 <= nums.length <= 50\n\t-1000 <= nums[i] <= 1000",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-22T14:35:27.000Z"
+    },
+    {
+      "id": "leetcode-easy-minimum-time-visiting-all-points",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Minimum Time Visiting All Points",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int minTimeToVisitAllPoints(int[][] points) {\n        int ans = 0;\n        for (int i = 0; i < points.length - 1; i++) {\n            int currX = points[i][0];\n            int currY = points[i][1];\n            int targetX = points[i + 1][0];\n            int targetY = points[i + 1][1];\n            ans += Math.max(Math.abs(targetX - currX), Math.abs(targetY - currY));\n        }\n        \n        return ans;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-12T07:43:19.000Z"
+    },
+    {
+      "id": "leetcode-easy-n-repeated-element-in-size-2n-array",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "N-Repeated Element in Size 2N Array",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int repeatedNTimes(int[] nums) {\n        int n = nums.length - 1;\n        if(nums[0] == nums[n]) return nums[0];\n        for(int i = 0; i < n; i++) {\n            if(nums[i] == nums[i + 1] || nums[i] == nums[i + 2]) return nums[i];\n        }\n        return nums[0];\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-02T12:14:05.000Z"
+    },
+    {
+      "id": "leetcode-easy-plus-one",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Plus One",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int[] plusOne(int[] digits) {\n        for (int i = digits.length - 1; i >= 0; i--) {\n            if (digits[i] < 9) {\n                digits[i]++;\n                return digits;\n            }\n            digits[i] = 0;\n        }\n        int[] result = new int[digits.length + 1];\n        result[0] = 1;\n        return result;\n    }\n}",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,169,Days,Consistencyiskey,seeyoutomorrow!\n\nYou are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.\n\nIncrement the large integer by one and return the resulting array of digits.\n\n \nExample 1:\n\nInput: digits = [1,2,3]\nOutput: [1,2,4]\nExplanation: The array represents the integer 123.\nIncrementing by one gives 123 + 1 = 124.\nThus, the result should be [1,2,4].\n\n\nExample 2:\n\nInput: digits = [4,3,2,1]\nOutput: [4,3,2,2]\nExplanation: The array represents the integer 4321.\nIncrementing by one gives 4321 + 1 = 4322.\nThus, the result should be [4,3,2,2].\n\n\nExample 3:\n\nInput: digits = [9]\nOutput: [1,0]\nExplanation: The array represents the integer 9.\nIncrementing by one gives 9 + 1 = 10.\nThus, the result should be [1,0].\n\n\n \nConstraints:\n\n\n\t1 <= digits.length <= 100\n\t0 <= digits[i] <= 9\n\tdigits does not contain any leading 0's.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-01T09:43:58.000Z"
+    },
+    {
+      "id": "leetcode-easy-reverse-bits",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Reverse Bits",
+      "language": "java",
+      "files": {
+        "code": "public class Solution {\n    public int reverseBits(int n) {\n        int res = 0;\n        for (int i = 0; i < 32; i++) {\n            res <<= 1;\n            res |= (n & 1);\n            n >>>= 1;\n        }\n        return res;\n    }\n}",
+        "readme": "🗓️Make-upnotice,ThisistheDailyCodingChallengeforFebruary16th2026.Thereare2incompletechallengesforFebruary2026andyouhave1ticketleftforthismonth.Areyousureyouwanttouseatickettomakeupthissubmission?,No,Yes\n\nReverse bits of a given 32 bits signed integer.\n\n \nExample 1:\n\n\nInput: n = 43261596\n\nOutput: 964176192\n\nExplanation:\n\nIntegerBinary432615960000001010010100000111101001110096417619200111001011110000010100101000000\n\n\nExample 2:\n\n\nInput: n = 2147483644\n\nOutput: 1073741822\n\nExplanation:\n\nIntegerBinary214748364401111111111111111111111111111100107374182200111111111111111111111111111110\n\n\n \nConstraints:\n\n\n\t0 <= n <= 231 - 2\n\tn is even.\n\n\n \nFollow up: If this function is called many times, how would you optimize it?",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-17T07:45:16.000Z"
+    },
+    {
+      "id": "leetcode-easy-sort-integers-by-the-number-of-1-bits",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Sort Integers by The Number of 1 Bits",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int[] sortByBits(int[] arr) {\n        java.util.TreeMap<Integer, java.util.PriorityQueue<Integer>> bitmap = new java.util.TreeMap<>();\n        \n        for (int val : arr) {\n            int bits = Integer.bitCount(val);\n            bitmap.putIfAbsent(bits, new java.util.PriorityQueue<>());\n            bitmap.get(bits).add(val);\n        }\n        \n        int[] ans = new int[arr.length];\n        int index = 0;\n        \n        for (int key : bitmap.keySet()) {\n            java.util.PriorityQueue<Integer> pq = bitmap.get(key);\n            while (!pq.isEmpty()) {\n                ans[index++] = pq.poll();\n            }\n        }\n        return ans;\n    }\n}",
+        "readme": "MidLevelArrayBitManipulationSortingCountingBiweeklyContest20\n\nYou are given an integer array arr. Sort the integers in the array in ascending order by the number of 1's in their binary representation and in case of two or more integers have the same number of 1's you have to sort them in ascending order.\n\nReturn the array after sorting it.\n\n \nExample 1:\n\nInput: arr = [0,1,2,3,4,5,6,7,8]\nOutput: [0,1,2,4,8,3,5,6,7]\nExplantion: [0] is the only integer with 0 bits.\n[1,2,4,8] all have 1 bit.\n[3,5,6] have 2 bits.\n[7] has 3 bits.\nThe sorted array by bits is [0,1,2,4,8,3,5,6,7]\n\n\nExample 2:\n\nInput: arr = [1024,512,256,128,64,32,16,8,4,2,1]\nOutput: [1,2,4,8,16,32,64,128,256,512,1024]\nExplantion: All integers have 1 bit in the binary representation, you should just sort them in ascending order.\n\n\n \nConstraints:\n\n\n\t1 <= arr.length <= 500\n\t0 <= arr[i] <= 104",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-25T04:26:51.000Z"
+    },
+    {
+      "id": "leetcode-easy-special-positions-in-a-binary-matrix",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Special Positions in a Binary Matrix",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int numSpecial(int[][] mat) {\n        int m = mat.length, n = mat[0].length;\n        int[] row = new int[m];\n        int[] col = new int[n];\n        for (int i = 0; i < m; i++) {\n            for (int j = 0; j < n; j++) {\n                if (mat[i][j] == 1) {\n                    row[i]++;\n                    col[j]++;\n                }\n            }\n        }\n\n        int ans = 0;\n        for (int i = 0; i < m; i++) {\n            for (int j = 0; j < n; j++) {\n                if (mat[i][j] == 1 && row[i] == 1 && col[j] == 1) {\n                    ans++;\n                }\n            }\n        }\n\n        return ans;\n    }\n}",
+        "readme": "MidLevelArrayMatrixWeeklyContest206\n\nGiven an m x n binary matrix mat, return the number of special positions in mat.\n\nA position (i, j) is called special if mat[i][j] == 1 and all other elements in row i and column j are 0 (rows and columns are 0-indexed).\n\n \nExample 1:\n\nInput: mat = [[1,0,0],[0,0,1],[1,0,0]]\nOutput: 1\nExplanation: (1, 2) is a special position because mat[1][2] == 1 and all other elements in row 1 and column 2 are 0.\n\n\nExample 2:\n\nInput: mat = [[1,0,0],[0,1,0],[0,0,1]]\nOutput: 3\nExplanation: (0, 0), (1, 1) and (2, 2) are special positions.\n\n\n \nConstraints:\n\n\n\tm == mat.length\n\tn == mat[i].length\n\t1 <= m, n <= 100\n\tmat[i][j] is either 0 or 1.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-04T10:04:12.000Z"
+    },
+    {
+      "id": "leetcode-easy-sum-of-root-to-leaf-binary-numbers",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Sum of Root To Leaf Binary Numbers",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int sumRootToLeaf(TreeNode root) {\n        return DFS(root, 0);\n    }\n\n    public int DFS(TreeNode rt, int x) {\n        if (rt==null) return 0;\n        x = x*2 + rt.val;\n        if(rt.left==rt.right) return x;\n        return DFS(rt.left, x) + DFS(rt.right, x);\n    }\n}",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,223,Days,Consistencyiskey,seeyoutomorrow!\n\nYou are given the root of a binary tree where each node has a value 0 or 1. Each root-to-leaf path represents a binary number starting with the most significant bit.\n\n\n\tFor example, if the path is 0 -> 1 -> 1 -> 0 -> 1, then this could represent 01101 in binary, which is 13.\n\n\nFor all leaves in the tree, consider the numbers represented by the path from the root to that leaf. Return the sum of these numbers.\n\nThe test cases are generated so that the answer fits in a 32-bits integer.\n\n \nExample 1:\n\nInput: root = [1,0,1,0,1,0,1]\nOutput: 22\nExplanation: (100) + (101) + (110) + (111) = 4 + 5 + 6 + 7 = 22\n\n\nExample 2:\n\nInput: root = [0]\nOutput: 0\n\n\n \nConstraints:\n\n\n\tThe number of nodes in the tree is in the range [1, 1000].\n\tNode.val is 0 or 1.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-24T16:50:47.000Z"
+    },
+    {
+      "id": "leetcode-easy-trionic-array-i",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Trionic Array I",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public boolean isTrionic(int[] nums) {\n        int n = nums.length;\n        if (n < 4) return false;\n\n        int state = 0; \n        for (int i = 0; i < n - 1; i++) {\n            if (state == 0) {\n                if (nums[i] < nums[i + 1]) {\n                    // Increasing\n                } else if (i > 0 && nums[i] > nums[i + 1]) {\n                    state = 1; // Reached peak\n                } else {\n                    return false;\n                }\n            } else if (state == 1) {\n                if (nums[i] > nums[i + 1]) {\n                    // Decreasing\n                } else if (nums[i] < nums[i + 1]) {\n                    state = 2; // Reached valley\n                } else {\n                    return false;\n                }\n            } else if (state == 2) {\n                if (nums[i] < nums[i + 1]) {\n                    // Increasing again\n                } else {\n                    return false;\n                }\n            }\n        }\n        return state == 2;\n    }\n}",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,202,Days,Consistencyiskey,seeyoutomorrow!\n\nYou are given an integer array nums of length n.\n\nAn array is trionic if there exist indices 0 < p < q < n − 1 such that:\n\n\n\tnums[0...p] is strictly increasing,\n\tnums[p...q] is strictly decreasing,\n\tnums[q...n − 1] is strictly increasing.\n\n\nReturn true if nums is trionic, otherwise return false.\n\n \nExample 1:\n\n\nInput: nums = [1,3,5,4,2,6]\n\nOutput: true\n\nExplanation:\n\nPick p = 2, q = 4:\n\n\n\tnums[0...2] = [1, 3, 5] is strictly increasing (1 < 3 < 5).\n\tnums[2...4] = [5, 4, 2] is strictly decreasing (5 > 4 > 2).\n\tnums[4...5] = [2, 6] is strictly increasing (2 < 6).\n\n\n\nExample 2:\n\n\nInput: nums = [2,1,3]\n\nOutput: false\n\nExplanation:\n\nThere is no way to pick p and q to form the required three segments.\n\n\n \nConstraints:\n\n\n\t3 <= n <= 100\n\t-1000 <= nums[i] <= 1000",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-03T04:10:37.000Z"
+    },
+    {
+      "id": "leetcode-medium-balance-a-binary-search-tree",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Balance a Binary Search Tree",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    List<Integer> nums;\n    public TreeNode balanceBST(TreeNode root) {\n        nums = new ArrayList<Integer>();\n        getNumbers(root);\n        TreeNode res = balanceTree(0,nums.size()-1);\n        return res;\n    }\n    private void getNumbers(TreeNode node){\n        if(node==null) return;\n        getNumbers(node.left);\n        nums.add(node.val);\n        getNumbers(node.right);\n    }\n    private TreeNode balanceTree(int l, int r){\n        if(l>r)return null;\n        int middleIdx = l+ ((r-l)/2);\n        TreeNode res = new TreeNode(nums.get(middleIdx));\n        res.left = balanceTree(l,middleIdx-1);\n        res.right = balanceTree(middleIdx+1,r);\n        return res;\n    }              \n}",
+        "readme": "SeniorDivideandConquerGreedyTreeDepth-FirstSearchBinarySearchTreeBinaryTreeWeeklyContest180\n\nGiven the root of a binary search tree, return a balanced binary search tree with the same node values. If there is more than one answer, return any of them.\n\nA binary search tree is balanced if the depth of the two subtrees of every node never differs by more than 1.\n\n \nExample 1:\n\nInput: root = [1,null,2,null,3,null,4,null,null]\nOutput: [2,1,3,null,null,null,4]\nExplanation: This is not the only correct answer, [3,1,4,null,2] is also correct.\n\n\nExample 2:\n\nInput: root = [2,1,3]\nOutput: [2,1,3]\n\n\n \nConstraints:\n\n\n\tThe number of nodes in the tree is in the range [1, 104].\n\t1 <= Node.val <= 105",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-09T15:40:26.000Z"
+    },
+    {
+      "id": "leetcode-medium-champagne-tower",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Champagne Tower",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public double champagneTower(int poured, int query_row, int query_glass) {\n        double[][] tower = new double[102][102];\n        tower[0][0] = (double) poured;\n\n        for (int r = 0; r <= query_row; r++) {\n            for (int c = 0; c <= r; c++) {\n                if (tower[r][c] > 1.0) {\n                    double excess = (tower[r][c] - 1.0) / 2.0;\n                    tower[r][c] = 1.0;\n                    tower[r + 1][c] += excess;\n                    tower[r + 1][c + 1] += excess;\n                }\n            }\n        }\n        return tower[query_row][query_glass];\n    }\n}",
+        "readme": "PrincipalDynamicProgrammingWeeklyContest75\n\nWe stack glasses in a pyramid, where the first row has 1 glass, the second row has 2 glasses, and so on until the 100th row.  Each glass holds one cup of champagne.\n\nThen, some champagne is poured into the first glass at the top.  When the topmost glass is full, any excess liquid poured will fall equally to the glass immediately to the left and right of it.  When those glasses become full, any excess champagne will fall equally to the left and right of those glasses, and so on.  (A glass at the bottom row has its excess champagne fall on the floor.)\n\nFor example, after one cup of champagne is poured, the top most glass is full.  After two cups of champagne are poured, the two glasses on the second row are half full.  After three cups of champagne are poured, those two cups become full - there are 3 full glasses total now.  After four cups of champagne are poured, the third row has the middle glass half full, and the two outside glasses are a quarter full, as pictured below.\n\n\n\nNow after pouring some non-negative integer cups of champagne, return how full the jth glass in the ith row is (both i and j are 0-indexed.)\n\n \nExample 1:\n\nInput: poured = 1, query_row = 1, query_glass = 1\nOutput: 0.00000\nExplanation: We poured 1 cup of champange to the top glass of the tower (which is indexed as (0, 0)). There will be no excess liquid so all the glasses under the top glass will remain empty.\n\n\nExample 2:\n\nInput: poured = 2, query_row = 1, query_glass = 1\nOutput: 0.50000\nExplanation: We poured 2 cups of champange to the top glass of the tower (which is indexed as (0, 0)). There is one cup of excess liquid. The glass indexed as (1, 0) and the glass indexed as (1, 1) will share the excess liquid equally, and each will get half cup of champange.\n\n\nExample 3:\n\nInput: poured = 100000009, query_row = 33, query_glass = 17\nOutput: 1.00000\n\n\n \nConstraints:\n\n\n\t0 <= poured <= 109\n\t0 <= query_glass <= query_row < 100",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-14T13:23:29.000Z"
+    },
+    {
+      "id": "leetcode-medium-check-if-a-string-contains-all-binary-codes-of-size-k",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Check If a String Contains All Binary Codes of Size K",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public boolean hasAllCodes(String s, int k) {\n        int req = 1 << k;\n        boolean[] seen = new boolean[req];\n        int mask = req - 1;\n        int hash = 0;\n\n        for (int i = 0; i < s.length(); ++i) {\n            hash = ((hash << 1) & mask) | (s.charAt(i) & 1);\n\n            if (i >= k - 1 && !seen[hash]) {\n                seen[hash] = true;\n                req--;\n                if (req == 0) return true;\n            }\n        }\n\n        return false;\n    }\n}",
+        "readme": "SeniorHashTableStringBitManipulationRollingHashHashFunctionBiweeklyContest27\n\nGiven a binary string s and an integer k, return true if every binary code of length k is a substring of s. Otherwise, return false.\n\n \nExample 1:\n\nInput: s = \"00110110\", k = 2\nOutput: true\nExplanation: The binary codes of length 2 are \"00\", \"01\", \"10\" and \"11\". They can be all found as substrings at indices 0, 1, 3 and 2 respectively.\n\n\nExample 2:\n\nInput: s = \"0110\", k = 1\nOutput: true\nExplanation: The binary codes of length 1 are \"0\" and \"1\", it is clear that both exist as a substring. \n\n\nExample 3:\n\nInput: s = \"0110\", k = 2\nOutput: false\nExplanation: The binary code \"00\" is of length 2 and does not exist in the array.\n\n\n \nConstraints:\n\n\n\t1 <= s.length <= 5 * 105\n\ts[i] is either '0' or '1'.\n\t1 <= k <= 20",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-23T17:22:29.000Z"
+    },
+    {
+      "id": "leetcode-medium-concatenation-of-consecutive-binary-numbers",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Concatenation of Consecutive Binary Numbers",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n  public int concatenatedBinary(int n) {\n    final int MOD = 1_000_000_007;\n    long ans = 0;\n\n    for (int i = 1; i <= n; ++i)\n      ans = ((ans << numberOfBits(i)) % MOD + i) % MOD;\n\n    return (int) ans;\n  }\n\n  private int numberOfBits(int n) {\n    return (int) (Math.log(n) / Math.log(2)) + 1;\n  }\n}",
+        "readme": "StaffMathBitManipulationSimulationWeeklyContest218\n\nGiven an integer n, return the decimal value of the binary string formed by concatenating the binary representations of 1 to n in order, modulo 109 + 7.\n\n \nExample 1:\n\nInput: n = 1\nOutput: 1\nExplanation: \"1\" in binary corresponds to the decimal value 1. \n\n\nExample 2:\n\nInput: n = 3\nOutput: 27\nExplanation: In binary, 1, 2, and 3 corresponds to \"1\", \"10\", and \"11\".\nAfter concatenating them, we have \"11011\", which corresponds to the decimal value 27.\n\n\nExample 3:\n\nInput: n = 12\nOutput: 505379714\nExplanation: The concatenation results in \"1101110010111011110001001101010111100\".\nThe decimal value of that is 118505380540.\nAfter modulo 109 + 7, the result is 505379714.\n\n\n \nConstraints:\n\n\n\t1 <= n <= 105",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-28T14:16:27.000Z"
+    },
+    {
+      "id": "leetcode-medium-construct-product-matrix",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Construct Product Matrix",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n\n    public int[][] constructProductMatrix(int[][] grid) {\n        final int MOD = 12345;\n        int n = grid.length;\n        int m = grid[0].length;\n        int[][] p = new int[n][m];\n\n        long suffix = 1;\n        for (int i = n - 1; i >= 0; i--) {\n            for (int j = m - 1; j >= 0; j--) {\n                p[i][j] = (int) suffix;\n                suffix = (suffix * grid[i][j]) % MOD;\n            }\n        }\n\n        long prefix = 1;\n        for (int i = 0; i < n; i++) {\n            for (int j = 0; j < m; j++) {\n                p[i][j] = (int) (((long) p[i][j] * prefix) % MOD);\n                prefix = (prefix * grid[i][j]) % MOD;\n            }\n        }\n\n        return p;\n    }\n}",
+        "readme": "StaffArrayMatrixPrefixSumWeeklyContest367\n\nGiven a 0-indexed 2D integer matrix grid of size n * m, we define a 0-indexed 2D matrix p of size n * m as the product matrix of grid if the following condition is met:\n\n\n\tEach element p[i][j] is calculated as the product of all elements in grid except for the element grid[i][j]. This product is then taken modulo 12345.\n\n\nReturn the product matrix of grid.\n\n \nExample 1:\n\nInput: grid = [[1,2],[3,4]]\nOutput: [[24,12],[8,6]]\nExplanation: p[0][0] = grid[0][1] * grid[1][0] * grid[1][1] = 2 * 3 * 4 = 24\np[0][1] = grid[0][0] * grid[1][0] * grid[1][1] = 1 * 3 * 4 = 12\np[1][0] = grid[0][0] * grid[0][1] * grid[1][1] = 1 * 2 * 4 = 8\np[1][1] = grid[0][0] * grid[0][1] * grid[1][0] = 1 * 2 * 3 = 6\nSo the answer is [[24,12],[8,6]].\n\nExample 2:\n\nInput: grid = [[12345],[2],[1]]\nOutput: [[2],[0],[0]]\nExplanation: p[0][0] = grid[0][1] * grid[0][2] = 2 * 1 = 2.\np[0][1] = grid[0][0] * grid[0][2] = 12345 * 1 = 12345. 12345 % 12345 = 0. So p[0][1] = 0.\np[0][2] = grid[0][0] * grid[0][1] = 12345 * 2 = 24690. 24690 % 12345 = 0. So p[0][2] = 0.\nSo the answer is [[2],[0],[0]].\n\n \nConstraints:\n\n\n\t1 <= n == grid.length <= 105\n\t1 <= m == grid[i].length <= 105\n\t2 <= n * m <= 105\n\t1 <= grid[i][j] <= 109",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-24T19:59:22.000Z"
+    },
+    {
+      "id": "leetcode-medium-construct-the-minimum-bitwise-array-ii",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Construct the Minimum Bitwise Array II",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int[] minBitwiseArray(List<Integer> nums) {\n        int ans[] = new int[nums.size()];\n        for(int i = 0; i < nums.size(); i++) {\n            int n = nums.get(i);\n            if(n != 2) ans[i] = n - ((n + 1) & (-n - 1)) / 2;\n            else ans[i] = -1;\n        }  \n        return ans;\n    }\n}",
+        "readme": "ArrayBitManipulationBiweeklyContest141\n\nYou are given an array nums consisting of n prime integers.\n\nYou need to construct an array ans of length n, such that, for each index i, the bitwise OR of ans[i] and ans[i] + 1 is equal to nums[i], i.e. ans[i] OR (ans[i] + 1) == nums[i].\n\nAdditionally, you must minimize each value of ans[i] in the resulting array.\n\nIf it is not possible to find such a value for ans[i] that satisfies the condition, then set ans[i] = -1.\n\n \nExample 1:\n\n\nInput: nums = [2,3,5,7]\n\nOutput: [-1,1,4,3]\n\nExplanation:\n\n\n\tFor i = 0, as there is no value for ans[0] that satisfies ans[0] OR (ans[0] + 1) = 2, so ans[0] = -1.\n\tFor i = 1, the smallest ans[1] that satisfies ans[1] OR (ans[1] + 1) = 3 is 1, because 1 OR (1 + 1) = 3.\n\tFor i = 2, the smallest ans[2] that satisfies ans[2] OR (ans[2] + 1) = 5 is 4, because 4 OR (4 + 1) = 5.\n\tFor i = 3, the smallest ans[3] that satisfies ans[3] OR (ans[3] + 1) = 7 is 3, because 3 OR (3 + 1) = 7.\n\n\n\nExample 2:\n\n\nInput: nums = [11,13,31]\n\nOutput: [9,12,15]\n\nExplanation:\n\n\n\tFor i = 0, the smallest ans[0] that satisfies ans[0] OR (ans[0] + 1) = 11 is 9, because 9 OR (9 + 1) = 11.\n\tFor i = 1, the smallest ans[1] that satisfies ans[1] OR (ans[1] + 1) = 13 is 12, because 12 OR (12 + 1) = 13.\n\tFor i = 2, the smallest ans[2] that satisfies ans[2] OR (ans[2] + 1) = 31 is 15, because 15 OR (15 + 1) = 31.\n\n\n\n \nConstraints:\n\n\n\t1 <= nums.length <= 100\n\t2 <= nums[i] <= 109\n\tnums[i] is a prime number.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-21T03:31:48.000Z"
+    },
+    {
+      "id": "leetcode-medium-count-submatrices-with-equal-frequency-of-x-and-y",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Count Submatrices With Equal Frequency of X and Y",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n\n    public int numberOfSubmatrices(char[][] grid) {\n        int n = grid.length;\n        int m = grid[0].length;\n        int ans = 0;\n        int[][][] sum = new int[n + 1][m + 1][2];\n        for (int i = 0; i < n; i++) {\n            for (int j = 0; j < m; j++) {\n                if (grid[i][j] == 'X') {\n                    sum[i + 1][j + 1][0] =\n                        sum[i + 1][j][0] + sum[i][j + 1][0] - sum[i][j][0] + 1;\n                    sum[i + 1][j + 1][1] = 1;\n                } else if (grid[i][j] == 'Y') {\n                    sum[i + 1][j + 1][0] =\n                        sum[i + 1][j][0] + sum[i][j + 1][0] - sum[i][j][0] - 1;\n                    sum[i + 1][j + 1][1] = sum[i + 1][j][1] | sum[i][j + 1][1];\n                } else {\n                    sum[i + 1][j + 1][0] =\n                        sum[i + 1][j][0] + sum[i][j + 1][0] - sum[i][j][0];\n                    sum[i + 1][j + 1][1] = sum[i + 1][j][1] | sum[i][j + 1][1];\n                }\n                ans += (sum[i + 1][j + 1][0] == 0 && sum[i + 1][j + 1][1] == 1)\n                    ? 1\n                    : 0;\n            }\n        }\n        return ans;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-19T15:21:29.000Z"
+    },
+    {
+      "id": "leetcode-medium-count-submatrices-with-top-left-element-and-sum-less-than-k",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Count Submatrices with Top-Left Element and Sum Less Than k",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int countSubmatrices(int[][] grid, int k) {\n        int m = grid.length, n = grid[0].length;\n        int ans = 0;\n        int[][] px = new int[m + 1][n + 1];\n        for (int i = 0; i < m; i++) {\n            for (int j = 0; j < n; j++) {\n                px[i+1][j+1] = grid[i][j] + px[i][j+1] + px[i+1][j] - px[i][j];\n                if (px[i+1][j+1] <= k) ans++;\n            }\n        }\n        return ans;\n    }\n}",
+        "readme": "SeniorArrayMatrixPrefixSumWeeklyContest387\n\nYou are given a 0-indexed integer matrix grid and an integer k.\n\nReturn the number of submatrices that contain the top-left element of the grid, and have a sum less than or equal to k.\n\n \nExample 1:\n\nInput: grid = [[7,6,3],[6,6,1]], k = 18\nOutput: 4\nExplanation: There are only 4 submatrices, shown in the image above, that contain the top-left element of grid, and have a sum less than or equal to 18.\n\nExample 2:\n\nInput: grid = [[7,2,9],[1,5,0],[2,6,6]], k = 20\nOutput: 6\nExplanation: There are only 6 submatrices, shown in the image above, that contain the top-left element of grid, and have a sum less than or equal to 20.\n\n\n \nConstraints:\n\n\n\tm == grid.length \n\tn == grid[i].length\n\t1 <= n, m <= 1000 \n\t0 <= grid[i][j] <= 1000\n\t1 <= k <= 109",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-18T19:02:05.000Z"
+    },
+    {
+      "id": "leetcode-medium-equal-sum-grid-partition-i",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Equal Sum Grid Partition I",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public boolean canPartitionGrid(int[][] grid) {\n        int m = grid.length, n = grid[0].length;\n        long total = 0;\n        \n        for (int[] row : grid)\n            for (int x : row)\n                total += x;\n        \n        if ((total & 1) == 1) return false;\n        \n        long target = total / 2, sum = 0;\n        \n        for (int i = 0; i < m - 1; i++) {\n            for (int j = 0; j < n; j++)\n                sum += grid[i][j];\n            if (sum == target) return true;\n        }\n        \n        sum = 0;\n        \n        for (int j = 0; j < n - 1; j++) {\n            for (int i = 0; i < m; i++)\n                sum += grid[i][j];\n            if (sum == target) return true;\n        }\n        \n        return false;\n    }\n}",
+        "readme": "SeniorArrayMatrixEnumerationPrefixSumWeeklyContest449\n\nYou are given an m x n matrix grid of positive integers. Your task is to determine if it is possible to make either one horizontal or one vertical cut on the grid such that:\n\n\n\tEach of the two resulting sections formed by the cut is non-empty.\n\tThe sum of the elements in both sections is equal.\n\n\nReturn true if such a partition exists; otherwise return false.\n\n \nExample 1:\n\n\nInput: grid = [[1,4],[2,3]]\n\nOutput: true\n\nExplanation:\n\n\n\nA horizontal cut between row 0 and row 1 results in two non-empty sections, each with a sum of 5. Thus, the answer is true.\n\n\nExample 2:\n\n\nInput: grid = [[1,3],[2,4]]\n\nOutput: false\n\nExplanation:\n\nNo horizontal or vertical cut results in two non-empty sections with equal sums. Thus, the answer is false.\n\n\n \nConstraints:\n\n\n\t1 <= m == grid.length <= 105\n\t1 <= n == grid[i].length <= 105\n\t2 <= m * n <= 105\n\t1 <= grid[i][j] <= 105",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-25T18:41:38.000Z"
+    },
+    {
+      "id": "leetcode-medium-find-kth-bit-in-nth-binary-string",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Find Kth Bit in Nth Binary String",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public char findKthBit(int n, int k) {\n        if (n == 1) return '0';\n        \n        int len = (1 << n) - 1;\n        int mid = (len + 1) / 2;\n        \n        if (k == mid) return '1';\n        if (k < mid) return findKthBit(n - 1, k);\n        \n        char c = findKthBit(n - 1, len - k + 1);\n        return c == '0' ? '1' : '0';\n    }\n}",
+        "readme": "SeniorStringRecursionSimulationWeeklyContest201\n\nGiven two positive integers n and k, the binary string Sn is formed as follows:\n\n\n\tS1 = \"0\"\n\tSi = Si - 1 + \"1\" + reverse(invert(Si - 1)) for i > 1\n\n\nWhere + denotes the concatenation operation, reverse(x) returns the reversed string x, and invert(x) inverts all the bits in x (0 changes to 1 and 1 changes to 0).\n\nFor example, the first four strings in the above sequence are:\n\n\n\tS1 = \"0\"\n\tS2 = \"011\"\n\tS3 = \"0111001\"\n\tS4 = \"011100110110001\"\n\n\nReturn the kth bit in Sn. It is guaranteed that k is valid for the given n.\n\n \nExample 1:\n\nInput: n = 3, k = 1\nOutput: \"0\"\nExplanation: S3 is \"0111001\".\nThe 1st bit is \"0\".\n\n\nExample 2:\n\nInput: n = 4, k = 11\nOutput: \"1\"\nExplanation: S4 is \"011100110110001\".\nThe 11th bit is \"1\".\n\n\n \nConstraints:\n\n\n\t1 <= n <= 20\n\t1 <= k <= 2n - 1",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-03T13:29:47.000Z"
+    },
+    {
+      "id": "leetcode-medium-find-the-largest-area-of-square-inside-two-rectangles",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Find the Largest Area of Square Inside Two Rectangles",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public long largestSquareArea(int[][] bottomLeft, int[][] topRight) {\n        long maxSide = 0;\n        int n = bottomLeft.length;\n\n        for (int i = 0; i < n; i++) {\n            for (int j = i + 1; j < n; j++) {\n                // Find intersection boundaries\n                // Use Math.max for lower bounds (left, bottom)\n                // Use Math.min for upper bounds (right, top)\n                int x1 = Math.max(bottomLeft[i][0], bottomLeft[j][0]);\n                int y1 = Math.max(bottomLeft[i][1], bottomLeft[j][1]);\n                int x2 = Math.min(topRight[i][0], topRight[j][0]);\n                int y2 = Math.min(topRight[i][1], topRight[j][1]);\n\n                // Width and Height of the intersection rectangle\n                long width = x2 - x1;\n                long height = y2 - y1;\n\n                // If valid intersection (width and height > 0)\n                if (width > 0 && height > 0) {\n                    long side = Math.min(width, height);\n                    maxSide = Math.max(maxSide, side);\n                }\n            }\n        }\n\n        return maxSide * maxSide;\n    }\n}",
+        "readme": "ArrayMathGeometryWeeklyContest386\n\nThere exist n rectangles in a 2D plane with edges parallel to the x and y axis. You are given two 2D integer arrays bottomLeft and topRight where bottomLeft[i] = [a_i, b_i] and topRight[i] = [c_i, d_i] represent the bottom-left and top-right coordinates of the ith rectangle, respectively.\n\nYou need to find the maximum area of a square that can fit inside the intersecting region of at least two rectangles. Return 0 if such a square does not exist.\n\n \nExample 1:\n\nInput: bottomLeft = [[1,1],[2,2],[3,1]], topRight = [[3,3],[4,4],[6,6]]\n\nOutput: 1\n\nExplanation:\n\nA square with side length 1 can fit inside either the intersecting region of rectangles 0 and 1 or the intersecting region of rectangles 1 and 2. Hence the maximum area is 1. It can be shown that a square with a greater side length can not fit inside any intersecting region of two rectangles.\n\nExample 2:\n\nInput: bottomLeft = [[1,1],[1,3],[1,5]], topRight = [[5,5],[5,7],[5,9]]\n\nOutput: 4\n\nExplanation:\n\nA square with side length 2 can fit inside either the intersecting region of rectangles 0 and 1 or the intersecting region of rectangles 1 and 2. Hence the maximum area is 2 * 2 = 4. It can be shown that a square with a greater side length can not fit inside any intersecting region of two rectangles.\n\nExample 3:\n  \n\nInput: bottomLeft = [[1,1],[2,2],[1,2]], topRight = [[3,3],[4,4],[3,4]]\n\nOutput: 1\n\nExplanation:\n\nA square with side length 1 can fit inside the intersecting region of any two rectangles. Also, no larger square can, so the maximum area is 1. Note that the region can be formed by the intersection of more than 2 rectangles.\n\nExample 4:\n  \n\nInput: bottomLeft = [[1,1],[3,3],[3,1]], topRight = [[2,2],[4,4],[4,2]]\n\nOutput: 0\n\nExplanation:\n\nNo pair of rectangles intersect, hence, the answer is 0.\n\n \nConstraints:\n\n\n\tn == bottomLeft.length == topRight.length\n\t2 <= n <= 103\n\tbottomLeft[i].length == topRight[i].length == 2\n\t1 <= bottomLeft[i][0], bottomLeft[i][1] <= 107\n\t1 <= topRight[i][0], topRight[i][1] <= 107\n\tbottomLeft[i][0] < topRight[i][0]\n\tbottomLeft[i][1] < topRight[i][1]",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-17T11:05:34.000Z"
+    },
+    {
+      "id": "leetcode-medium-find-unique-binary-string",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Find Unique Binary String",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public String findDifferentBinaryString(String[] nums) {\n\n        int n = nums.length;\n        int size = (int)Math.pow(2, n);\n\n        int[] nu = new int[size];\n\n        for(String num : nums){\n            int val = Integer.parseInt(num, 2);\n            nu[val]++;\n        }\n\n        for(int i = 0; i < size; i++){\n            if(nu[i] == 0){\n                String ans = Integer.toBinaryString(i);\n                return \"0\".repeat(n - ans.length()) + ans;\n            }\n        }\n\n        return \"0\".repeat(n);\n    }\n}",
+        "readme": "SeniorArrayHashTableStringBacktrackingWeeklyContest255\n\nGiven an array of strings nums containing n unique binary strings each of length n, return a binary string of length n that does not appear in nums. If there are multiple answers, you may return any of them.\n\n \nExample 1:\n\nInput: nums = [\"01\",\"10\"]\nOutput: \"11\"\nExplanation: \"11\" does not appear in nums. \"00\" would also be correct.\n\n\nExample 2:\n\nInput: nums = [\"00\",\"01\"]\nOutput: \"11\"\nExplanation: \"11\" does not appear in nums. \"10\" would also be correct.\n\n\nExample 3:\n\nInput: nums = [\"111\",\"011\",\"001\"]\nOutput: \"101\"\nExplanation: \"101\" does not appear in nums. \"000\", \"010\", \"100\", and \"110\" would also be correct.\n\n\n \nConstraints:\n\n\n\tn == nums.length\n\t1 <= n <= 16\n\tnums[i].length == n\n\tnums[i] is either '0' or '1'.\n\tAll the strings of nums are unique.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-08T17:50:43.000Z"
+    },
+    {
+      "id": "leetcode-medium-four-divisors",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Four Divisors",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    private int factors(int n) {\n        int sum = 0, c = 0;\n        for(int i = 2; i*i <= n; i++) {\n            if(n % i == 0) {\n                int j = n / i;\n                if(j == i || c > 0) return 0;\n                sum += i + j;\n                c++;\n            }\n        }\n        if(c == 0) return 0;\n        return 1 + sum + n;\n    }\n    public int sumFourDivisors(int[] nums) {\n        int sum = 0;\n        for(int i = 0; i < nums.length; i++) {\n            sum += factors(nums[i]);\n        }\n        return sum;\n    }\n}",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,172,Days,Consistencyiskey,seeyoutomorrow!\n\nGiven an integer array nums, return the sum of divisors of the integers in that array that have exactly four divisors. If there is no such integer in the array, return 0.\n\n \nExample 1:\n\nInput: nums = [21,4,7]\nOutput: 32\nExplanation: \n21 has 4 divisors: 1, 3, 7, 21\n4 has 3 divisors: 1, 2, 4\n7 has 2 divisors: 1, 7\nThe answer is the sum of divisors of 21 only.\n\n\nExample 2:\n\nInput: nums = [21,21]\nOutput: 64\n\n\nExample 3:\n\nInput: nums = [1,2,3,4,5]\nOutput: 0\n\n\n \nConstraints:\n\n\n\t1 <= nums.length <= 104\n\t1 <= nums[i] <= 105",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-04T13:45:09.000Z"
+    },
+    {
+      "id": "leetcode-medium-get-biggest-three-rhombus-sums-in-a-grid",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Get Biggest Three Rhombus Sums in a Grid",
+      "language": "java",
+      "files": {
+        "code": "class Answer {\n\n    int[] ans;\n\n    public Answer() {\n        ans = new int[3];\n    }\n\n    void put(int x) {\n        if (x > ans[0]) {\n            ans[2] = ans[1];\n            ans[1] = ans[0];\n            ans[0] = x;\n        } else if (x != ans[0] && x > ans[1]) {\n            ans[2] = ans[1];\n            ans[1] = x;\n        } else if (x != ans[0] && x != ans[1] && x > ans[2]) {\n            ans[2] = x;\n        }\n    }\n\n    List<Integer> get() {\n        List<Integer> ret = new ArrayList<>();\n        for (int num : ans) {\n            if (num != 0) {\n                ret.add(num);\n            }\n        }\n        return ret;\n    }\n}\n\nclass Solution {\n\n    public int[] getBiggestThree(int[][] grid) {\n        int m = grid.length;\n        int n = grid[0].length;\n        int[][] sum1 = new int[m + 1][n + 2];\n        int[][] sum2 = new int[m + 1][n + 2];\n\n        for (int i = 1; i <= m; ++i) {\n            for (int j = 1; j <= n; ++j) {\n                sum1[i][j] = sum1[i - 1][j - 1] + grid[i - 1][j - 1];\n                sum2[i][j] = sum2[i - 1][j + 1] + grid[i - 1][j - 1];\n            }\n        }\n\n        Answer ans = new Answer();\n        for (int i = 0; i < m; ++i) {\n            for (int j = 0; j < n; ++j) {\n                // a single cell is also a rhombus\n                ans.put(grid[i][j]);\n                for (int k = i + 2; k < m; k += 2) {\n                    int ux = i;\n                    int uy = j;\n                    int dx = k;\n                    int dy = j;\n                    int lx = (i + k) / 2;\n                    int ly = j - (k - i) / 2;\n                    int rx = (i + k) / 2;\n                    int ry = j + (k - i) / 2;\n                    if (ly < 0 || ry >= n) {\n                        break;\n                    }\n                    int sum =\n                        (sum2[lx + 1][ly + 1] - sum2[ux][uy + 2]) +\n                        (sum1[rx + 1][ry + 1] - sum1[ux][uy]) +\n                        (sum1[dx + 1][dy + 1] - sum1[lx][ly]) +\n                        (sum2[dx + 1][dy + 1] - sum2[rx][ry + 2]) -\n                        (grid[ux][uy] +\n                            grid[dx][dy] +\n                            grid[lx][ly] +\n                            grid[rx][ry]);\n                    ans.put(sum);\n                }\n            }\n        }\n\n        List<Integer> resultList = ans.get();\n        int[] result = new int[resultList.size()];\n        for (int i = 0; i < resultList.size(); i++) {\n            result[i] = resultList.get(i);\n        }\n        return result;\n    }\n}",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,243,Days,Consistencyiskey,seeyoutomorrow!\n\nYou are given an m x n integer matrix grid​​​.\n\nA rhombus sum is the sum of the elements that form the border of a regular rhombus shape in grid​​​. The rhombus must have the shape of a square rotated 45 degrees with each of the corners centered in a grid cell. Below is an image of four valid rhombus shapes with the corresponding colored cells that should be included in each rhombus sum:\n\nNote that the rhombus can have an area of 0, which is depicted by the purple rhombus in the bottom right corner.\n\nReturn the biggest three distinct rhombus sums in the grid in descending order. If there are less than three distinct values, return all of them.\n\n \nExample 1:\n\nInput: grid = [[3,4,5,1,3],[3,3,4,2,3],[20,30,200,40,10],[1,5,5,4,1],[4,3,2,2,5]]\nOutput: [228,216,211]\nExplanation: The rhombus shapes for the three biggest distinct rhombus sums are depicted above.\n- Blue: 20 + 3 + 200 + 5 = 228\n- Red: 200 + 2 + 10 + 4 = 216\n- Green: 5 + 200 + 4 + 2 = 211\n\n\nExample 2:\n\nInput: grid = [[1,2,3],[4,5,6],[7,8,9]]\nOutput: [20,9,8]\nExplanation: The rhombus shapes for the three biggest distinct rhombus sums are depicted above.\n- Blue: 4 + 2 + 6 + 8 = 20\n- Red: 9 (area 0 rhombus in the bottom right corner)\n- Green: 8 (area 0 rhombus in the bottom middle)\n\n\nExample 3:\n\nInput: grid = [[7,7,7]]\nOutput: [7]\nExplanation: All three possible rhombus sums are the same, so return [7].\n\n\n \nConstraints:\n\n\n\tm == grid.length\n\tn == grid[i].length\n\t1 <= m, n <= 50\n\t1 <= grid[i][j] <= 105",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-16T07:25:57.000Z"
+    },
+    {
+      "id": "leetcode-medium-integer-to-roman",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Integer to Roman",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public static void main(String[] args) {}\n\n    public String intToRoman(int num) {\n        String[][] s = {\n            {\"\", \"I\", \"II\", \"III\", \"IV\", \"V\", \"VI\", \"VII\", \"VIII\", \"IX\"},\n            {\"\", \"X\", \"XX\", \"XXX\", \"XL\", \"L\", \"LX\", \"LXX\", \"LXXX\", \"XC\"},\n            {\"\", \"C\", \"CC\", \"CCC\", \"CD\", \"D\", \"DC\", \"DCC\", \"DCCC\", \"CM\"},\n            {\"\", \"M\", \"MM\", \"MMM\"}\n        };\n\n        return s[3][num / 1000 % 10] + s[2][num / 100 % 10] + s[1][num / 10 % 10] + s[0][num % 10];\n    }\n}",
+        "readme": "HashTableMathString\n\nSeven different symbols represent Roman numerals with the following values:\n\nSymbolValueI1V5X10L50C100D500M1000\n\nRoman numerals are formed by appending the conversions of decimal place values from highest to lowest. Converting a decimal place value into a Roman numeral has the following rules:\n\n\n\tIf the value does not start with 4 or 9, select the symbol of the maximal value that can be subtracted from the input, append that symbol to the result, subtract its value, and convert the remainder to a Roman numeral.\n\tIf the value starts with 4 or 9 use the subtractive form representing one symbol subtracted from the following symbol, for example, 4 is 1 (I) less than 5 (V): IV and 9 is 1 (I) less than 10 (X): IX. Only the following subtractive forms are used: 4 (IV), 9 (IX), 40 (XL), 90 (XC), 400 (CD) and 900 (CM).\n\tOnly powers of 10 (I, X, C, M) can be appended consecutively at most 3 times to represent multiples of 10. You cannot append 5 (V), 50 (L), or 500 (D) multiple times. If you need to append a symbol 4 times use the subtractive form.\n\n\nGiven an integer, convert it to a Roman numeral.\n\n \nExample 1:\n\n\nInput: num = 3749\n\nOutput: \"MMMDCCXLIX\"\n\nExplanation:\n\n3000 = MMM as 1000 (M) + 1000 (M) + 1000 (M)\n 700 = DCC as 500 (D) + 100 (C) + 100 (C)\n  40 = XL as 10 (X) less of 50 (L)\n   9 = IX as 1 (I) less of 10 (X)\nNote: 49 is not 1 (I) less of 50 (L) because the conversion is based on decimal places\n\n\n\nExample 2:\n\n\nInput: num = 58\n\nOutput: \"LVIII\"\n\nExplanation:\n\n50 = L\n 8 = VIII\n\n\n\nExample 3:\n\n\nInput: num = 1994\n\nOutput: \"MCMXCIV\"\n\nExplanation:\n\n1000 = M\n 900 = CM\n  90 = XC\n   4 = IV\n\n\n\n \nConstraints:\n\n\n\t1 <= num <= 3999",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2025-12-29T07:54:23.000Z"
+    },
+    {
+      "id": "leetcode-medium-largest-magic-square",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Largest Magic Square",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n\n    public int largestMagicSquare(int[][] mat) {\n        int R = mat.length;\n        int C = mat[0].length;\n\n        // Row prefix sums\n        int[][] rowSum = new int[R][C];\n        for (int r = 0; r < R; r++) {\n            rowSum[r][0] = mat[r][0];\n            for (int c = 1; c < C; c++) {\n                rowSum[r][c] = rowSum[r][c - 1] + mat[r][c];\n            }\n        }\n\n        // Column prefix sums\n        int[][] colSum = new int[R][C];\n        for (int c = 0; c < C; c++) {\n            colSum[0][c] = mat[0][c];\n            for (int r = 1; r < R; r++) {\n                colSum[r][c] = colSum[r - 1][c] + mat[r][c];\n            }\n        }\n\n        int maxSize = 1;\n\n        // Try every cell as top-left\n        for (int r = 0; r < R; r++) {\n            for (int c = 0; c < C; c++) {\n                int maxPossible = Math.min(R - r, C - c);\n\n                // Try bigger squares first\n                for (int size = maxPossible; size > maxSize; size--) {\n                    if (isMagic(r, c, size, mat, rowSum, colSum)) {\n                        maxSize = size;\n                        break;\n                    }\n                }\n            }\n        }\n        return maxSize;\n    }\n\n    private boolean isMagic(\n            int sr, int sc, int size,\n            int[][] mat, int[][] rowSum, int[][] colSum) {\n\n        // Target sum from first row\n        int target = rowSum[sr][sc + size - 1]\n                   - (sc > 0 ? rowSum[sr][sc - 1] : 0);\n\n        // Check rows\n        for (int r = sr; r < sr + size; r++) {\n            int sum = rowSum[r][sc + size - 1]\n                    - (sc > 0 ? rowSum[r][sc - 1] : 0);\n            if (sum != target) return false;\n        }\n\n        // Check columns\n        for (int c = sc; c < sc + size; c++) {\n            int sum = colSum[sr + size - 1][c]\n                    - (sr > 0 ? colSum[sr - 1][c] : 0);\n            if (sum != target) return false;\n        }\n\n        // Main diagonal\n        int d1 = 0;\n        for (int k = 0; k < size; k++)\n            d1 += mat[sr + k][sc + k];\n        if (d1 != target) return false;\n\n        // Anti-diagonal\n        int d2 = 0;\n        for (int k = 0; k < size; k++)\n            d2 += mat[sr + size - 1 - k][sc + k];\n\n        return d2 == target;\n    }\n}",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,186,Days,Consistencyiskey,seeyoutomorrow!\n\nA k x k magic square is a k x k grid filled with integers such that every row sum, every column sum, and both diagonal sums are all equal. The integers in the magic square do not have to be distinct. Every 1 x 1 grid is trivially a magic square.\n\nGiven an m x n integer grid, return the size (i.e., the side length k) of the largest magic square that can be found within this grid.\n\n \nExample 1:\n\nInput: grid = [[7,1,4,5,6],[2,5,1,6,4],[1,5,4,3,2],[1,2,7,3,4]]\nOutput: 3\nExplanation: The largest magic square has a size of 3.\nEvery row sum, column sum, and diagonal sum of this magic square is equal to 12.\n- Row sums: 5+1+6 = 5+4+3 = 2+7+3 = 12\n- Column sums: 5+5+2 = 1+4+7 = 6+3+3 = 12\n- Diagonal sums: 5+4+3 = 6+4+2 = 12\n\n\nExample 2:\n\nInput: grid = [[5,1,3,1],[9,3,3,1],[1,3,3,8]]\nOutput: 2\n\n\n \nConstraints:\n\n\n\tm == grid.length\n\tn == grid[i].length\n\t1 <= m, n <= 50\n\t1 <= grid[i][j] <= 106",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-18T03:41:28.000Z"
+    },
+    {
+      "id": "leetcode-medium-largest-submatrix-with-rearrangements",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Largest Submatrix With Rearrangements",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int largestSubmatrix(int[][] matrix) {\n        int m = matrix.length, n = matrix[0].length;\n        int res = 0;\n\n        for (int i = 1; i < m; i++)\n            for (int j = 0; j < n; j++)\n                if (matrix[i][j] == 1)\n                    matrix[i][j] += matrix[i - 1][j];\n\n        for (int i = 0; i < m; i++) {\n            Arrays.sort(matrix[i]);\n            for (int j = 0; j < n; j++)\n                res = Math.max(res, matrix[i][j] * (n - j));\n        }\n\n        return res;\n    }\n}",
+        "readme": "StaffArrayGreedySortingMatrixWeeklyContest224\n\nYou are given a binary matrix matrix of size m x n, and you are allowed to rearrange the columns of the matrix in any order.\n\nReturn the area of the largest submatrix within matrix where every element of the submatrix is 1 after reordering the columns optimally.\n\n \nExample 1:\n\nInput: matrix = [[0,0,1],[1,1,1],[1,0,1]]\nOutput: 4\nExplanation: You can rearrange the columns as shown above.\nThe largest submatrix of 1s, in bold, has an area of 4.\n\n\nExample 2:\n\nInput: matrix = [[1,0,1,0,1]]\nOutput: 3\nExplanation: You can rearrange the columns as shown above.\nThe largest submatrix of 1s, in bold, has an area of 3.\n\n\nExample 3:\n\nInput: matrix = [[1,1,0],[1,0,1]]\nOutput: 2\nExplanation: Notice that you must rearrange entire columns, and there is no way to make a submatrix of 1s larger than an area of 2.\n\n\n \nConstraints:\n\n\n\tm == matrix.length\n\tn == matrix[i].length\n\t1 <= m * n <= 105\n\tmatrix[i][j] is either 0 or 1.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-17T07:16:29.000Z"
+    },
+    {
+      "id": "leetcode-medium-longest-balanced-subarray-i",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Longest Balanced Subarray I",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int longestBalanced(int[] nums) {\n        int max = 0;\n\n        for (int i = 0; i < nums.length; i++) {\n            HashSet<Integer> even = new HashSet<>();\n            HashSet<Integer> odd = new HashSet<>();\n\n            for (int j = i; j < nums.length; j++) {\n                if (nums[j] % 2 == 0)\n                    even.add(nums[j]);\n                else\n                    odd.add(nums[j]);\n\n                if (even.size() == odd.size()) {\n                    max = Math.max(max, j - i + 1);\n                }\n            }\n        }\n        return max;\n    }\n}",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,209,Days,Consistencyiskey,seeyoutomorrow!\n\nYou are given an integer array nums.\n\nA subarray is called balanced if the number of distinct even numbers in the subarray is equal to the number of distinct odd numbers.\n\nReturn the length of the longest balanced subarray.\n\n \nExample 1:\n\n\nInput: nums = [2,5,4,3]\n\nOutput: 4\n\nExplanation:\n\n\n\tThe longest balanced subarray is [2, 5, 4, 3].\n\tIt has 2 distinct even numbers [2, 4] and 2 distinct odd numbers [5, 3]. Thus, the answer is 4.\n\n\n\nExample 2:\n\n\nInput: nums = [3,2,2,5,4]\n\nOutput: 5\n\nExplanation:\n\n\n\tThe longest balanced subarray is [3, 2, 2, 5, 4].\n\tIt has 2 distinct even numbers [2, 4] and 2 distinct odd numbers [3, 5]. Thus, the answer is 5.\n\n\n\nExample 3:\n\n\nInput: nums = [1,2,3,2]\n\nOutput: 3\n\nExplanation:\n\n\n\tThe longest balanced subarray is [2, 3, 2].\n\tIt has 1 distinct even number [2] and 1 distinct odd number [3]. Thus, the answer is 3.\n\n\n\n \nConstraints:\n\n\n\t1 <= nums.length <= 1500\n\t1 <= nums[i] <= 105",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-10T07:43:28.000Z"
+    },
+    {
+      "id": "leetcode-medium-longest-balanced-substring-i",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Longest Balanced Substring I",
+      "language": "python",
+      "files": {
+        "code": "class Solution:\n    def longestBalanced(self, s: str) -> int:\n        cnt, n=1, len(s)\n        for l in range(n):\n            freq=[0]*26\n            uniq, maxF, cntMax=0, 0, 0\n            for r in range(l, n):\n                freq[ord(s[r])-97]+=1\n                f=freq[ord(s[r])-97]\n                uniq+=f==1\n                if f>maxF:\n                    maxF=f\n                    cntMax=1\n                elif f==maxF:\n                    cntMax+=1\n                if uniq==cntMax:\n                    cnt=max(cnt, r-l+1)\n        return cnt",
+        "readme": "SeniorHashTableStringCountingEnumerationWeeklyContest471\n\nYou are given a string s consisting of lowercase English letters.\n\nA substring of s is called balanced if all distinct characters in the substring appear the same number of times.\n\nReturn the length of the longest balanced substring of s.\n\n \nExample 1:\n\n\nInput: s = \"abbac\"\n\nOutput: 4\n\nExplanation:\n\nThe longest balanced substring is \"abba\" because both distinct characters 'a' and 'b' each appear exactly 2 times.\n\n\nExample 2:\n\n\nInput: s = \"zzabccy\"\n\nOutput: 4\n\nExplanation:\n\nThe longest balanced substring is \"zabc\" because the distinct characters 'z', 'a', 'b', and 'c' each appear exactly 1 time.​​​​​​​\n\n\nExample 3:\n\n\nInput: s = \"aba\"\n\nOutput: 2\n\nExplanation:\n\n​​​​​​​One of the longest balanced substrings is \"ab\" because both distinct characters 'a' and 'b' each appear exactly 1 time. Another longest balanced substring is \"ba\".\n\n\n \nConstraints:\n\n\n\t1 <= s.length <= 1000\n\ts consists of lowercase English letters.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-12T10:25:42.000Z"
+    },
+    {
+      "id": "leetcode-medium-longest-balanced-substring-ii",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Longest Balanced Substring II",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int longestBalanced(String s) {\n        char[] c = s.toCharArray();\n        int n = c.length;\n        \n        int cur_a = 0, cur_b = 0, cur_c = 0;        \n        int max_a = 0, max_b = 0, max_c = 0;\n\n        for (int i = 0; i < n; i++) {\n            if (c[i] == 'a') {\n                cur_a = (i > 0 && c[i-1] == 'a') ? cur_a + 1 : 1;\n                max_a = Math.max(max_a, cur_a);\n            } else if (c[i] == 'b') {\n                cur_b = (i > 0 && c[i-1] == 'b') ? cur_b + 1 : 1;\n                max_b = Math.max(max_b, cur_b);\n            } else { \n                cur_c = (i > 0 && c[i-1] == 'c') ? cur_c + 1 : 1;\n                max_c = Math.max(max_c, cur_c);\n            }\n        }\n        \n        int res = Math.max(Math.max(max_a, max_b), max_c);\n        \n        res = Math.max(res, find2(c, 'a', 'b'));\n        res = Math.max(res, find2(c, 'a', 'c'));\n        res = Math.max(res, find2(c, 'b', 'c'));\n        \n        res = Math.max(res, find3(c));\n        \n        return res;\n    }\n    \n    private int find2(char[] c, char x, char y) {\n        int n = c.length, max_len = 0;\n        int[] first = new int[2 * n + 1];\n        Arrays.fill(first, -2);\n        \n        int clear_idx = -1, diff = n;\n        first[diff] = -1;\n        \n        for (int i = 0; i < n; i++) {\n            if (c[i] != x && c[i] != y) {\n                clear_idx = i;\n                diff = n;\n                first[diff] = clear_idx;\n            } else {\n                if (c[i] == x) diff++;\n                else diff--;\n                \n                if (first[diff] < clear_idx) {\n                    first[diff] = i;\n                } else {\n                    max_len = Math.max(max_len, i - first[diff]);\n                }\n            }\n        }\n        \n        return max_len;\n    }\n    \n    private int find3(char[] c) {\n        long state = Long.MAX_VALUE / 2;\n        Map<Long, Integer> first = new HashMap<>();\n        first.put(state, -1);\n    \n        int max_len = 0;\n    \n        for (int i = 0; i < c.length; i++) {\n            if (c[i] == 'a') state += 1_000_001;\n            else if (c[i] == 'b') state -= 1_000_000;\n            else state--;\n        \n            if (first.containsKey(state)) {\n                max_len = Math.max(max_len, i - first.get(state));\n            } else {\n                first.put(state, i);\n            }\n        }\n    \n        return max_len;\n    }\n}",
+        "readme": "StaffHashTableStringPrefixSumWeeklyContest471\n\nYou are given a string s consisting only of the characters 'a', 'b', and 'c'.\n\nA substring of s is called balanced if all distinct characters in the substring appear the same number of times.\n\nReturn the length of the longest balanced substring of s.\n\n \nExample 1:\n\n\nInput: s = \"abbac\"\n\nOutput: 4\n\nExplanation:\n\nThe longest balanced substring is \"abba\" because both distinct characters 'a' and 'b' each appear exactly 2 times.\n\n\nExample 2:\n\n\nInput: s = \"aabcc\"\n\nOutput: 3\n\nExplanation:\n\nThe longest balanced substring is \"abc\" because all distinct characters 'a', 'b' and 'c' each appear exactly 1 time.\n\n\nExample 3:\n\n\nInput: s = \"aba\"\n\nOutput: 2\n\nExplanation:\n\nOne of the longest balanced substrings is \"ab\" because both distinct characters 'a' and 'b' each appear exactly 1 time. Another longest balanced substring is \"ba\".\n\n\n \nConstraints:\n\n\n\t1 <= s.length <= 105\n\ts contains only the characters 'a', 'b', and 'c'.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-13T16:44:56.000Z"
+    },
+    {
+      "id": "leetcode-medium-magic-squares-in-grid",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Magic Squares In Grid",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public boolean isMagicSquare(int[][] grid, int r, int c) {\n        if (grid[r+1][c+1] != 5) return false; //center must always be 5\n\n        int a = grid[r][c],b = grid[r][c+1],d = grid[r][c+2]; // grid ele except centre\n        int e = grid[r+1][c],f = grid[r+1][c+2];\n        int h = grid[r+2][c],i = grid[r+2][c+1],j = grid[r+2][c+2];\n\n        boolean[] seen = new boolean[10];\n        int[] arr = {a,b,d,e,f,h,i,j,5};// 1 - 9 checking\n        for (int x : arr) {\n            if (x < 1 || x > 9 || seen[x]) return false;\n            seen[x] = true;\n        }\n\n        if (a + j != 10) return false; //opposite cells must sum to 10\n        if (b + i != 10) return false;\n        if (d + h != 10) return false;\n        if (e + f != 10) return false;\n\n         // Check all rows, columns, and diagonals sum to 15\n        if (a + b + d != 15) return false;\n        if (h + i + j != 15) return false;\n        if (a + e + h != 15) return false;\n        if (d + f + j != 15) return false;\n        if (a + 5 + j != 15) return false;// centre is 5\n        if (d + 5 + h != 15) return false;\n\n        return true;\n    }\n\n    public int numMagicSquaresInside(int[][] grid) {\n        int m = grid.length, n = grid[0].length, c = 0;\n        for (int i = 0;i <= m-3;i++) {\n            for (int j = 0;j <= n-3;j++) {\n                if (isMagicSquare(grid,i,j)) c++;\n            }\n        }\n        return c;\n    }\n}",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,167,Days,Consistencyiskey,seeyoutomorrow!\n\nA 3 x 3 magic square is a 3 x 3 grid filled with distinct numbers from 1 to 9 such that each row, column, and both diagonals all have the same sum.\n\nGiven a row x col grid of integers, how many 3 x 3 magic square subgrids are there?\n\nNote: while a magic square can only contain numbers from 1 to 9, grid may contain numbers up to 15.\n\n \nExample 1:\n\nInput: grid = [[4,3,8,4],[9,5,1,9],[2,7,6,2]]\nOutput: 1\nExplanation: \nThe following subgrid is a 3 x 3 magic square:\n\nwhile this one is not:\n\nIn total, there is only one magic square inside the given grid.\n\n\nExample 2:\n\nInput: grid = [[8]]\nOutput: 0\n\n\n \nConstraints:\n\n\n\trow == grid.length\n\tcol == grid[i].length\n\t1 <= row, col <= 10\n\t0 <= grid[i][j] <= 15",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2025-12-30T15:11:28.000Z"
+    },
+    {
+      "id": "leetcode-medium-maximize-area-of-square-hole-in-grid",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Maximize Area of Square Hole in Grid",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    private int maxLen(int[] Bars) {\n        int count = 2, length = 2;\n        for(int i = 1; i < Bars.length; i++) {\n            if(Bars[i] - Bars[i-1] == 1) count++;\n            else count = 2;\n            length = Math.max(length, count);\n        }\n        return length;\n    }\n    public int maximizeSquareHoleArea(int n, int m, int[] hBars, int[] vBars) {\n        Arrays.sort(hBars);\n        Arrays.sort(vBars);\n        int side = Math.min(maxLen(hBars), maxLen(vBars));\n        return side * side; \n    }\n}",
+        "readme": "ArraySortingBiweeklyContest118\n\nYou are given the two integers, n and m and two integer arrays, hBars and vBars. The grid has n + 2 horizontal and m + 2 vertical bars, creating 1 x 1 unit cells. The bars are indexed starting from 1.\n\nYou can remove some of the bars in hBars from horizontal bars and some of the bars in vBars from vertical bars. Note that other bars are fixed and cannot be removed.\n\nReturn an integer denoting the maximum area of a square-shaped hole in the grid, after removing some bars (possibly none).\n\n \nExample 1:\n\n\n\n\nInput: n = 2, m = 1, hBars = [2,3], vBars = [2]\n\nOutput: 4\n\nExplanation:\n\nThe left image shows the initial grid formed by the bars. The horizontal bars are [1,2,3,4], and the vertical bars are [1,2,3].\n\nOne way to get the maximum square-shaped hole is by removing horizontal bar 2 and vertical bar 2.\n\n\nExample 2:\n\n\n\n\nInput: n = 1, m = 1, hBars = [2], vBars = [2]\n\nOutput: 4\n\nExplanation:\n\nTo get the maximum square-shaped hole, we remove horizontal bar 2 and vertical bar 2.\n\n\nExample 3:\n\n\n\n\nInput: n = 2, m = 3, hBars = [2,3], vBars = [2,4]\n\nOutput: 4\n\nExplanation:\n\nOne way to get the maximum square-shaped hole is by removing horizontal bar 3, and vertical bar 4.\n\n\n \nConstraints:\n\n\n\t1 <= n <= 109\n\t1 <= m <= 109\n\t1 <= hBars.length <= 100\n\t2 <= hBars[i] <= n + 1\n\t1 <= vBars.length <= 100\n\t2 <= vBars[i] <= m + 1\n\tAll values in hBars are distinct.\n\tAll values in vBars are distinct.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-15T13:30:58.000Z"
+    },
+    {
+      "id": "leetcode-medium-maximum-matrix-sum",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Maximum Matrix Sum",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public long maxMatrixSum(int[][] matrix) {\n        long sum = 0 ;\n\n        int n = matrix.length ;\n\n        int min = 100001 ;\n\n        int negCount = 0 ;\n\n        for (int[] row : matrix)\n        {\n            for (int val : row)\n            {\n                if (val < 0)\n                {\n                    negCount++ ;\n                    val = -val ;\n                }\n\n                if (val < min) min = val ;\n\n                sum += val ;\n            }\n        }\n\n        return negCount % 2 == 0 ? sum : sum - 2L * min ;\n    }\n}",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,173,Days,Consistencyiskey,seeyoutomorrow!\n\nYou are given an n x n integer matrix. You can do the following operation any number of times:\n\n\n\tChoose any two adjacent elements of matrix and multiply each of them by -1.\n\n\nTwo elements are considered adjacent if and only if they share a border.\n\nYour goal is to maximize the summation of the matrix's elements. Return the maximum sum of the matrix's elements using the operation mentioned above.\n\n \nExample 1:\n\nInput: matrix = [[1,-1],[-1,1]]\nOutput: 4\nExplanation: We can follow the following steps to reach sum equals 4:\n- Multiply the 2 elements in the first row by -1.\n- Multiply the 2 elements in the first column by -1.\n\n\nExample 2:\n\nInput: matrix = [[1,2,3],[-1,-2,-3],[1,2,3]]\nOutput: 16\nExplanation: We can follow the following step to reach sum equals 16:\n- Multiply the 2 last elements in the second row by -1.\n\n\n \nConstraints:\n\n\n\tn == matrix.length == matrix[i].length\n\t2 <= n <= 250\n\t-105 <= matrix[i][j] <= 105",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-05T11:39:42.000Z"
+    },
+    {
+      "id": "leetcode-medium-maximum-product-of-splitted-binary-tree",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Maximum Product of Splitted Binary Tree",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    static final int MOD = 1_000_000_007;\n    long totalSum = 0;\n    long maxProduct = 0;\n\n    // First DFS: compute total tree sum\n    long getTotalSum(TreeNode root) {\n        if (root == null) return 0;\n        return root.val \n             + getTotalSum(root.left) \n             + getTotalSum(root.right);\n    }\n\n    // Second DFS (postorder): compute subtree sums\n    long dfs(TreeNode root) {\n        if (root == null) return 0;\n\n        // Get sums of left and right subtrees\n        long left = dfs(root.left);\n        long right = dfs(root.right);\n\n        // Current subtree sum\n        long subSum = root.val + left + right;\n\n        // Try splitting above this node\n        long product = subSum * (totalSum - subSum);\n        maxProduct = Math.max(maxProduct, product);\n\n        return subSum;\n    }\n\n    public int maxProduct(TreeNode root) {\n        totalSum = getTotalSum(root); // O(n)\n        dfs(root);                    // O(n)\n        return (int)(maxProduct % MOD);\n    }\n}",
+        "readme": "🗓️Make-upnotice,ThisistheDailyCodingChallengeforJanuary7th2026.Thereare2incompletechallengesforJanuary2026andyouhave1ticketleftforthismonth.Areyousureyouwanttouseatickettomakeupthissubmission?,No,Yes\n\nGiven the root of a binary tree, split the binary tree into two subtrees by removing one edge such that the product of the sums of the subtrees is maximized.\n\nReturn the maximum product of the sums of the two subtrees. Since the answer may be too large, return it modulo 109 + 7.\n\nNote that you need to maximize the answer before taking the mod and not after taking it.\n\n \nExample 1:\n\nInput: root = [1,2,3,4,5,6]\nOutput: 110\nExplanation: Remove the red edge and get 2 binary trees with sum 11 and 10. Their product is 110 (11*10)\n\n\nExample 2:\n\nInput: root = [1,null,2,3,4,null,null,5,6]\nOutput: 90\nExplanation: Remove the red edge and get 2 binary trees with sum 15 and 6.Their product is 90 (15*6)\n\n\n \nConstraints:\n\n\n\tThe number of nodes in the tree is in the range [2, 5 * 104].\n\t1 <= Node.val <= 104",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-08T05:37:48.000Z"
+    },
+    {
+      "id": "leetcode-medium-maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Maximum Side Length of a Square with Sum Less than or Equal to Threshold",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int maxSideLength(int[][] mat, int threshold) {\n        int m = mat.length, n = mat[0].length;\n        int maxSide = Math.min(m,n);\n\n        int[][] pref = new int[m+1][n+1];\n        for (int i = 1; i <= m; i++) {\n            for (int j = 1; j <= n; j++) {\n                pref[i][j] =\n                    mat[i-1][j-1]\n                  + pref[i-1][j]\n                  + pref[i][j-1]\n                  - pref[i-1][j-1];\n            }\n        }\n\n        while (maxSide > 0) {\n            for (int i = 0; i + maxSide <= m; i++) {\n                for (int j = 0; j + maxSide <= n; j++) {\n                    if (helper(pref, threshold, i, j, maxSide))\n                        return maxSide;\n                }\n            }\n            maxSide--;\n        }\n\n        return 0;\n    }\n\n    private boolean helper(int[][] pref, int t, int x, int y, int side) {\n        int x2 = x + side;\n        int y2 = y + side;\n\n        int sum =\n            pref[x2][y2]\n        - pref[x][y2]\n        - pref[x2][y]\n        + pref[x][y];\n\n        return sum <= t;\n    }\n\n}",
+        "readme": "ArrayBinarySearchMatrixPrefixSumWeeklyContest167\n\nGiven a m x n matrix mat and an integer threshold, return the maximum side-length of a square with a sum less than or equal to threshold or return 0 if there is no such square.\n\n \nExample 1:\n\nInput: mat = [[1,1,3,2,4,3,2],[1,1,3,2,4,3,2],[1,1,3,2,4,3,2]], threshold = 4\nOutput: 2\nExplanation: The maximum side length of square with sum less than 4 is 2 as shown.\n\n\nExample 2:\n\nInput: mat = [[2,2,2,2,2],[2,2,2,2,2],[2,2,2,2,2],[2,2,2,2,2],[2,2,2,2,2]], threshold = 1\nOutput: 0\n\n\n \nConstraints:\n\n\n\tm == mat.length\n\tn == mat[i].length\n\t1 <= m, n <= 300\n\t0 <= mat[i][j] <= 104\n\t0 <= threshold <= 105",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-20T03:39:58.000Z"
+    },
+    {
+      "id": "leetcode-medium-maximum-square-area-by-removing-fences-from-a-field",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Maximum Square Area by Removing Fences From a Field",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int maximizeSquareArea(int m, int n, int[] hFences, int[] vFences) {\n        // 1. Add implicit boundary fences to new lists\n        // We use Arrays to facilitate sorting and resizing\n        int[] h = Arrays.copyOf(hFences, hFences.length + 2);\n        h[hFences.length] = 1;\n        h[hFences.length + 1] = m;\n        \n        int[] v = Arrays.copyOf(vFences, vFences.length + 2);\n        v[vFences.length] = 1;\n        v[vFences.length + 1] = n;\n\n        // 2. Sort arrays\n        Arrays.sort(h);\n        Arrays.sort(v);\n\n        // 3. Store all possible horizontal gaps\n        Set<Integer> hGaps = new HashSet<>();\n        for (int i = 0; i < h.length; i++) {\n            for (int j = i + 1; j < h.length; j++) {\n                hGaps.add(h[j] - h[i]);\n            }\n        }\n\n        // 4. Check vertical gaps\n        long maxSide = -1;\n        for (int i = 0; i < v.length; i++) {\n            for (int j = i + 1; j < v.length; j++) {\n                int currentGap = v[j] - v[i];\n                if (hGaps.contains(currentGap)) {\n                    maxSide = Math.max(maxSide, currentGap);\n                }\n            }\n        }\n\n        if (maxSide == -1) return -1;\n\n        // 5. Return result modulo 10^9 + 7\n        long MOD = 1_000_000_007;\n        return (int) ((maxSide * maxSide) % MOD);\n    }\n}",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,184,Days,Consistencyiskey,seeyoutomorrow!\n\nThere is a large (m - 1) x (n - 1) rectangular field with corners at (1, 1) and (m, n) containing some horizontal and vertical fences given in arrays hFences and vFences respectively.\n\nHorizontal fences are from the coordinates (hFences[i], 1) to (hFences[i], n) and vertical fences are from the coordinates (1, vFences[i]) to (m, vFences[i]).\n\nReturn the maximum area of a square field that can be formed by removing some fences (possibly none) or -1 if it is impossible to make a square field.\n\nSince the answer may be large, return it modulo 109 + 7.\n\nNote: The field is surrounded by two horizontal fences from the coordinates (1, 1) to (1, n) and (m, 1) to (m, n) and two vertical fences from the coordinates (1, 1) to (m, 1) and (1, n) to (m, n). These fences cannot be removed.\n\n \nExample 1:\n\n\n\nInput: m = 4, n = 3, hFences = [2,3], vFences = [2]\nOutput: 4\nExplanation: Removing the horizontal fence at 2 and the vertical fence at 2 will give a square field of area 4.\n\n\nExample 2:\n\n\n\nInput: m = 6, n = 7, hFences = [2], vFences = [4]\nOutput: -1\nExplanation: It can be proved that there is no way to create a square field by removing fences.\n\n\n \nConstraints:\n\n\n\t3 <= m, n <= 109\n\t1 <= hFences.length, vFences.length <= 600\n\t1 < hFences[i] < m\n\t1 < vFences[i] < n\n\thFences and vFences are unique.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-16T16:33:37.000Z"
+    },
+    {
+      "id": "leetcode-medium-minimize-maximum-pair-sum-in-array",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Minimize Maximum Pair Sum in Array",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int minPairSum(int[] nums) {\n        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;\n        int[] freq = new int[100001];\n        for(int i = 0; i < nums.length; i++) {\n            if(nums[i] < min) min = nums[i];\n            if(nums[i] > max) max = nums[i];\n            freq[nums[i]]++;\n        }\n        int max_sum = 0, l = min, r = max;\n        while(l <= r) {\n            if(freq[l] == 0) l++;\n            else if(freq[r] == 0) r--;\n            else {\n                max_sum = Math.max(max_sum, l + r);\n                freq[l]--;\n                freq[r]--;\n            }\n        }\n        return max_sum;\n    }\n}",
+        "readme": "ArrayTwoPointersGreedySortingBiweeklyContest53\n\nThe pair sum of a pair (a,b) is equal to a + b. The maximum pair sum is the largest pair sum in a list of pairs.\n\n\n\tFor example, if we have pairs (1,5), (2,3), and (4,4), the maximum pair sum would be max(1+5, 2+3, 4+4) = max(6, 5, 8) = 8.\n\n\nGiven an array nums of even length n, pair up the elements of nums into n / 2 pairs such that:\n\n\n\tEach element of nums is in exactly one pair, and\n\tThe maximum pair sum is minimized.\n\n\nReturn the minimized maximum pair sum after optimally pairing up the elements.\n\n \nExample 1:\n\nInput: nums = [3,5,2,3]\nOutput: 7\nExplanation: The elements can be paired up into pairs (3,3) and (5,2).\nThe maximum pair sum is max(3+3, 5+2) = max(6, 7) = 7.\n\n\nExample 2:\n\nInput: nums = [3,5,4,2,4,6]\nOutput: 8\nExplanation: The elements can be paired up into pairs (3,5), (4,4), and (6,2).\nThe maximum pair sum is max(3+5, 4+4, 6+2) = max(8, 8, 8) = 8.\n\n\n \nConstraints:\n\n\n\tn == nums.length\n\t2 <= n <= 105\n\tn is even.\n\t1 <= nums[i] <= 105",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-24T17:23:27.000Z"
+    },
+    {
+      "id": "leetcode-medium-minimum-absolute-difference-in-sliding-submatrix",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Minimum Absolute Difference in Sliding Submatrix",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int[][] minAbsDiff(int[][] grid, int k) {\n        int m = grid.length, n = grid[0].length;\n        int[][] ans = new int[m - k + 1][n - k + 1];\n\n        for (int i = 0; i <= m - k; i++) {\n            for (int j = 0; j <= n - k; j++) {\n                List<Integer> v = new ArrayList<>();\n                for (int x = i; x < i + k; x++)\n                    for (int y = j; y < j + k; y++)\n                        v.add(grid[x][y]);\n\n                Collections.sort(v);\n                int mn = Integer.MAX_VALUE;\n                int prev = v.get(0);\n                for (int p = 1; p < v.size(); p++) {\n                    if (v.get(p) != prev)\n                        mn = Math.min(mn, v.get(p) - prev);\n                    prev = v.get(p);\n                }\n                ans[i][j] = (mn == Integer.MAX_VALUE) ? 0 : mn;\n            }\n        }\n        return ans;\n    }\n}",
+        "readme": "SeniorArraySortingMatrixWeeklyContest452\n\nYou are given an m x n integer matrix grid and an integer k.\n\nFor every contiguous k x k submatrix of grid, compute the minimum absolute difference between any two distinct values within that submatrix.\n\nReturn a 2D array ans of size (m - k + 1) x (n - k + 1), where ans[i][j] is the minimum absolute difference in the submatrix whose top-left corner is (i, j) in grid.\n\nNote: If all elements in the submatrix have the same value, the answer will be 0.\nA submatrix (x1, y1, x2, y2) is a matrix that is formed by choosing all cells matrix[x][y] where x1 <= x <= x2 and y1 <= y <= y2.\n \nExample 1:\n\n\nInput: grid = [[1,8],[3,-2]], k = 2\n\nOutput: [[2]]\n\nExplanation:\n\n\n\tThere is only one possible k x k submatrix: [[1, 8], [3, -2]].\n\tDistinct values in the submatrix are [1, 8, 3, -2].\n\tThe minimum absolute difference in the submatrix is |1 - 3| = 2. Thus, the answer is [[2]].\n\n\n\nExample 2:\n\n\nInput: grid = [[3,-1]], k = 1\n\nOutput: [[0,0]]\n\nExplanation:\n\n\n\tBoth k x k submatrix has only one distinct element.\n\tThus, the answer is [[0, 0]].\n\n\n\nExample 3:\n\n\nInput: grid = [[1,-2,3],[2,3,5]], k = 2\n\nOutput: [[1,2]]\n\nExplanation:\n\n\n\tThere are two possible k × k submatrix:\n\n\t\n\t\tStarting at (0, 0): [[1, -2], [2, 3]].\n\n\t\t\n\t\t\tDistinct values in the submatrix are [1, -2, 2, 3].\n\t\t\tThe minimum absolute difference in the submatrix is |1 - 2| = 1.\n\t\t\n\t\t\n\t\tStarting at (0, 1): [[-2, 3], [3, 5]].\n\t\t\n\t\t\tDistinct values in the submatrix are [-2, 3, 5].\n\t\t\tThe minimum absolute difference in the submatrix is |3 - 5| = 2.\n\t\t\n\t\t\n\t\n\t\n\tThus, the answer is [[1, 2]].\n\n\n\n \nConstraints:\n\n\n\t1 <= m == grid.length <= 30\n\t1 <= n == grid[i].length <= 30\n\t-105 <= grid[i][j] <= 105\n\t1 <= k <= min(m, n)",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-20T13:54:47.000Z"
+    },
+    {
+      "id": "leetcode-medium-minimum-cost-path-with-edge-reversals",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Minimum Cost Path with Edge Reversals",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int minCost(int n, int[][] edges) {\n        List<int[]>[] graph = new ArrayList[n];\n        for (int i = 0; i < n; i++) graph[i] = new ArrayList<>();\n\n        for (int[] e : edges) {\n            graph[e[0]].add(new int[]{e[1], e[2]});\n            graph[e[1]].add(new int[]{e[0], 2 * e[2]});\n        }\n\n        long[] dist = new long[n];\n        Arrays.fill(dist, Long.MAX_VALUE);\n        dist[0] = 0;\n\n        PriorityQueue<long[]> pq =\n            new PriorityQueue<>(Comparator.comparingLong(a -> a[0]));\n        pq.offer(new long[]{0, 0});\n\n        while (!pq.isEmpty()) {\n            long[] cur = pq.poll();\n            long cost = cur[0];\n            int node = (int) cur[1];\n\n            if (cost > dist[node]) continue;\n\n            for (int[] nxt : graph[node]) {\n                int v = nxt[0];\n                int w = nxt[1];\n                if (dist[v] > cost + w) {\n                    dist[v] = cost + w;\n                    pq.offer(new long[]{dist[v], v});\n                }\n            }\n        }\n\n        return dist[n - 1] == Long.MAX_VALUE ? -1 : (int) dist[n - 1];\n    }\n}",
+        "readme": "GraphTheoryHeap(PriorityQueue)ShortestPathBiweeklyContest163\n\nYou are given a directed, weighted graph with n nodes labeled from 0 to n - 1, and an array edges where edges[i] = [ui, vi, wi] represents a directed edge from node ui to node vi with cost wi.\n\nEach node ui has a switch that can be used at most once: when you arrive at ui and have not yet used its switch, you may activate it on one of its incoming edges vi → ui reverse that edge to ui → vi and immediately traverse it.\n\nThe reversal is only valid for that single move, and using a reversed edge costs 2 * wi.\n\nReturn the minimum total cost to travel from node 0 to node n - 1. If it is not possible, return -1.\n\n \nExample 1:\n\n\nInput: n = 4, edges = [[0,1,3],[3,1,1],[2,3,4],[0,2,2]]\n\nOutput: 5\n\nExplanation: \n\n\n\n\n\tUse the path 0 → 1 (cost 3).\n\tAt node 1 reverse the original edge 3 → 1 into 1 → 3 and traverse it at cost 2 * 1 = 2.\n\tTotal cost is 3 + 2 = 5.\n\n\n\nExample 2:\n\n\nInput: n = 4, edges = [[0,2,1],[2,1,1],[1,3,1],[2,3,3]]\n\nOutput: 3\n\nExplanation:\n\n\n\tNo reversal is needed. Take the path 0 → 2 (cost 1), then 2 → 1 (cost 1), then 1 → 3 (cost 1).\n\tTotal cost is 1 + 1 + 1 = 3.\n\n\n\n \nConstraints:\n\n\n\t2 <= n <= 5 * 104\n\t1 <= edges.length <= 105\n\tedges[i] = [ui, vi, wi]\n\t0 <= ui, vi <= n - 1\n\t1 <= wi <= 1000",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-27T02:53:55.000Z"
+    },
+    {
+      "id": "leetcode-medium-minimum-cost-to-convert-string-i",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Minimum Cost to Convert String I",
+      "language": "java",
+      "files": {
+        "code": "import java.util.*;\n\nclass Solution {\n    private void dijkstra(int src, List<int[]>[] adj, int[] dist) {\n        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));\n        dist[src] = 0;\n        pq.offer(new int[]{0, src});\n\n        while (!pq.isEmpty()) {\n            int[] cur = pq.poll();\n            int d = cur[0], u = cur[1];\n\n            if (d > dist[u]) continue;\n\n            for (int[] edge : adj[u]) {\n                int v = edge[0], w = edge[1];\n                if (dist[v] > d + w) {\n                    dist[v] = d + w;\n                    pq.offer(new int[]{dist[v], v});\n                }\n            }\n        }\n    }\n\n    public long minimumCost(String source, String target, char[] original, char[] changed, int[] cost) {\n        if (source.length() != target.length()) return -1;\n\n        List<int[]>[] adj = new ArrayList[26];\n        for (int i = 0; i < 26; i++) adj[i] = new ArrayList<>();\n\n        for (int i = 0; i < original.length; i++) {\n            adj[original[i] - 'a'].add(new int[]{changed[i] - 'a', cost[i]});\n        }\n\n        int[][] dist = new int[26][26];\n        for (int i = 0; i < 26; i++) {\n            Arrays.fill(dist[i], Integer.MAX_VALUE);\n            dijkstra(i, adj, dist[i]);\n        }\n\n        long ans = 0;\n        for (int i = 0; i < source.length(); i++) {\n            int u = source.charAt(i) - 'a';\n            int v = target.charAt(i) - 'a';\n            if (u == v) continue;\n            if (dist[u][v] == Integer.MAX_VALUE) return -1;\n            ans += dist[u][v];\n        }\n\n        return ans;\n    }\n}",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,197,Days,Consistencyiskey,seeyoutomorrow!\n\nYou are given two 0-indexed strings source and target, both of length n and consisting of lowercase English letters. You are also given two 0-indexed character arrays original and changed, and an integer array cost, where cost[i] represents the cost of changing the character original[i] to the character changed[i].\n\nYou start with the string source. In one operation, you can pick a character x from the string and change it to the character y at a cost of z if there exists any index j such that cost[j] == z, original[j] == x, and changed[j] == y.\n\nReturn the minimum cost to convert the string source to the string target using any number of operations. If it is impossible to convert source to target, return -1.\n\nNote that there may exist indices i, j such that original[j] == original[i] and changed[j] == changed[i].\n\n \nExample 1:\n\nInput: source = \"abcd\", target = \"acbe\", original = [\"a\",\"b\",\"c\",\"c\",\"e\",\"d\"], changed = [\"b\",\"c\",\"b\",\"e\",\"b\",\"e\"], cost = [2,5,5,1,2,20]\nOutput: 28\nExplanation: To convert the string \"abcd\" to string \"acbe\":\n- Change value at index 1 from 'b' to 'c' at a cost of 5.\n- Change value at index 2 from 'c' to 'e' at a cost of 1.\n- Change value at index 2 from 'e' to 'b' at a cost of 2.\n- Change value at index 3 from 'd' to 'e' at a cost of 20.\nThe total cost incurred is 5 + 1 + 2 + 20 = 28.\nIt can be shown that this is the minimum possible cost.\n\n\nExample 2:\n\nInput: source = \"aaaa\", target = \"bbbb\", original = [\"a\",\"c\"], changed = [\"c\",\"b\"], cost = [1,2]\nOutput: 12\nExplanation: To change the character 'a' to 'b' change the character 'a' to 'c' at a cost of 1, followed by changing the character 'c' to 'b' at a cost of 2, for a total cost of 1 + 2 = 3. To change all occurrences of 'a' to 'b', a total cost of 3 * 4 = 12 is incurred.\n\n\nExample 3:\n\nInput: source = \"abcd\", target = \"abce\", original = [\"a\"], changed = [\"e\"], cost = [10000]\nOutput: -1\nExplanation: It is impossible to convert source to target because the value at index 3 cannot be changed from 'd' to 'e'.\n\n\n \nConstraints:\n\n\n\t1 <= source.length == target.length <= 105\n\tsource, target consist of lowercase English letters.\n\t1 <= cost.length == original.length == changed.length <= 2000\n\toriginal[i], changed[i] are lowercase English letters.\n\t1 <= cost[i] <= 106\n\toriginal[i] != changed[i]",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-29T09:18:58.000Z"
+    },
+    {
+      "id": "leetcode-medium-minimum-number-of-flips-to-make-the-binary-string-alternating",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Minimum Number of Flips to Make the Binary String Alternating",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int minFlips(String s) {\n        int n = s.length();\n        String t = s + s;\n\n        int ans = n;\n        int mis0 = 0;\n\n        for(int i = 0; i < 2*n; i++){\n\n            char expected = (i % 2 == 0) ? '0' : '1';\n\n            if(t.charAt(i) != expected) mis0++;\n\n            if(i >= n){\n                int left = i - n;\n                char expLeft = (left % 2 == 0) ? '0' : '1';\n                if(t.charAt(left) != expLeft) mis0--;\n            }\n\n            if(i >= n - 1){\n                int mis1 = n - mis0;\n                ans = Math.min(ans, Math.min(mis0, mis1));\n            }\n        }\n\n        return ans;\n    }\n}",
+        "readme": "StaffStringDynamicProgrammingSlidingWindowWeeklyContest244\n\nYou are given a binary string s. You are allowed to perform two types of operations on the string in any sequence:\n\n\n\tType-1: Remove the character at the start of the string s and append it to the end of the string.\n\tType-2: Pick any character in s and flip its value, i.e., if its value is '0' it becomes '1' and vice-versa.\n\n\nReturn the minimum number of type-2 operations you need to perform such that s becomes alternating.\n\nThe string is called alternating if no two adjacent characters are equal.\n\n\n\tFor example, the strings \"010\" and \"1010\" are alternating, while the string \"0100\" is not.\n\n\n \nExample 1:\n\nInput: s = \"111000\"\nOutput: 2\nExplanation: Use the first operation two times to make s = \"100011\".\nThen, use the second operation on the third and sixth elements to make s = \"101010\".\n\n\nExample 2:\n\nInput: s = \"010\"\nOutput: 0\nExplanation: The string is already alternating.\n\n\nExample 3:\n\nInput: s = \"1110\"\nOutput: 1\nExplanation: Use the second operation on the second element to make s = \"1010\".\n\n\n \nConstraints:\n\n\n\t1 <= s.length <= 105\n\ts[i] is either '0' or '1'.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-07T12:49:59.000Z"
+    },
+    {
+      "id": "leetcode-medium-minimum-removals-to-balance-array",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Minimum Removals to Balance Array",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int minRemoval(int[] nums, int k) {\n        int n = nums.length;\n        Arrays.sort(nums);\n        int ans = 0;\n        for(int i = 0, j = 0; i < n; i ++){\n            while(j + 1 < n && (long) nums[i] * (long) k >= nums[j + 1]){\n                j++;\n            }\n            ans = Math.max(ans, j - i + 1);\n        }\n        return n - ans;\n    }\n}",
+        "readme": "SeniorArraySlidingWindowSortingBiweeklyContest162\n\nYou are given an integer array nums and an integer k.\n\nAn array is considered balanced if the value of its maximum element is at most k times the minimum element.\n\nYou may remove any number of elements from nums​​​​​​​ without making it empty.\n\nReturn the minimum number of elements to remove so that the remaining array is balanced.\n\nNote: An array of size 1 is considered balanced as its maximum and minimum are equal, and the condition always holds true.\n\n \nExample 1:\n\n\nInput: nums = [2,1,5], k = 2\n\nOutput: 1\n\nExplanation:\n\n\n\tRemove nums[2] = 5 to get nums = [2, 1].\n\tNow max = 2, min = 1 and max <= min * k as 2 <= 1 * 2. Thus, the answer is 1.\n\n\n\nExample 2:\n\n\nInput: nums = [1,6,2,9], k = 3\n\nOutput: 2\n\nExplanation:\n\n\n\tRemove nums[0] = 1 and nums[3] = 9 to get nums = [6, 2].\n\tNow max = 6, min = 2 and max <= min * k as 6 <= 2 * 3. Thus, the answer is 2.\n\n\n\nExample 3:\n\n\nInput: nums = [4,6], k = 2\n\nOutput: 0\n\nExplanation:\n\n\n\tSince nums is already balanced as 6 <= 4 * 2, no elements need to be removed.\n\n\n\n \nConstraints:\n\n\n\t1 <= nums.length <= 105\n\t1 <= nums[i] <= 109\n\t1 <= k <= 105",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-06T07:53:13.000Z"
+    },
+    {
+      "id": "leetcode-medium-number-of-steps-to-reduce-a-number-in-binary-representation-to-one",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Number of Steps to Reduce a Number in Binary Representation to One",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int numSteps(String s) {\n        int steps = 0;\n        int carry = 0;\n\n        for (int i = s.length() - 1; i > 0; i--) {\n            int bit = (s.charAt(i) - '0') + carry;\n\n            if (bit == 1) {\n                steps += 2;\n                carry = 1;\n            } else {\n                steps += 1;\n            }\n        }\n\n        return steps + carry;\n    }\n}",
+        "readme": "SeniorStringBitManipulationSimulationWeeklyContest183\n\nGiven the binary representation of an integer as a string s, return the number of steps to reduce it to 1 under the following rules:\n\n\n\t\n\tIf the current number is even, you have to divide it by 2.\n\t\n\t\n\tIf the current number is odd, you have to add 1 to it.\n\t\n\n\nIt is guaranteed that you can always reach one for all test cases.\n\n \nExample 1:\n\nInput: s = \"1101\"\nOutput: 6\nExplanation: \"1101\" corressponds to number 13 in their decimal representation.\nStep 1) 13 is odd, add 1 and obtain 14. \nStep 2) 14 is even, divide by 2 and obtain 7.\nStep 3) 7 is odd, add 1 and obtain 8.\nStep 4) 8 is even, divide by 2 and obtain 4.  \nStep 5) 4 is even, divide by 2 and obtain 2. \nStep 6) 2 is even, divide by 2 and obtain 1.  \n\n\nExample 2:\n\nInput: s = \"10\"\nOutput: 1\nExplanation: \"10\" corresponds to number 2 in their decimal representation.\nStep 1) 2 is even, divide by 2 and obtain 1.  \n\n\nExample 3:\n\nInput: s = \"1\"\nOutput: 0\n\n\n \nConstraints:\n\n\n\t1 <= s.length <= 500\n\ts consists of characters '0' or '1'\n\ts[0] == '1'",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-26T20:03:35.000Z"
+    },
+    {
+      "id": "leetcode-medium-partitioning-into-minimum-number-of-deci-binary-numbers",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Partitioning Into Minimum Number Of Deci-Binary Numbers",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int minPartitions(String n) {\n        int max = 0;\n        int size = n.length();\n        if(size==1)return n.charAt(0)-'0';\n        for(int i=1; i<size; i++){\n            char ch = n.charAt(i);\n            if(max<ch-'0'){\n                max = ch-'0';\n            }\n        }\n        if(max<n.charAt(0)-'0')return n.charAt(0)-'0';\n        return max;\n    }\n}",
+        "readme": "SeniorStringGreedyWeeklyContest219\n\nA decimal number is called deci-binary if each of its digits is either 0 or 1 without any leading zeros. For example, 101 and 1100 are deci-binary, while 112 and 3001 are not.\n\nGiven a string n that represents a positive decimal integer, return the minimum number of positive deci-binary numbers needed so that they sum up to n.\n\n \nExample 1:\n\nInput: n = \"32\"\nOutput: 3\nExplanation: 10 + 11 + 11 = 32\n\n\nExample 2:\n\nInput: n = \"82734\"\nOutput: 8\n\n\nExample 3:\n\nInput: n = \"27346209830709182346\"\nOutput: 9\n\n\n \nConstraints:\n\n\n\t1 <= n.length <= 105\n\tn consists of only digits.\n\tn does not contain any leading zeros and represents a positive integer.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-01T13:29:34.000Z"
+    },
+    {
+      "id": "leetcode-medium-separate-squares-i",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "Separate Squares I",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public double separateSquares(int[][] squares) {\n        List<double[]> events = new ArrayList<>(); \n\n        for (int[] sq : squares) {\n            int yi = sq[1], li = sq[2];\n\n            events.add(new double[]{yi, li});\n            events.add(new double[]{yi + li, -li});\n        }\n\n        events.sort((a, b) -> Double.compare(a[0], b[0]));\n\n        double total_w = 0.0;\n        for (int[] sq : squares) {\n            int li = sq[2];\n            total_w += (double)li * li;\n        }\n\n        double target = total_w / 2.0;\n\n        double curr_y = events.get(0)[0], curr_w = 0.0, accumulated = 0.0;\n\n        for (int i = 0; i < events.size(); i++) {\n            double[] event = events.get(i);\n            double y = event[0], change = event[1];\n\n            double separate = y - curr_y;\n            accumulated += curr_w * separate;\n            \n            if (accumulated >= target) {\n                double prev = accumulated - curr_w * separate;\n\n                double need = target - prev;\n                return curr_y + need / curr_w;\n            }\n\n            curr_y = y;\n            curr_w += change;\n        }\n\n        return 0.0;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-13T15:45:50.000Z"
+    },
+    {
+      "id": "leetcode-medium-the-k-th-lexicographical-string-of-all-happy-strings-of-length-n",
+      "platform": "Leetcode",
+      "difficulty": "Medium",
+      "problemName": "The k-th Lexicographical String of All Happy Strings of Length n",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n\n    public String getHappyString(int n, int k) {\n\n        int total = 3 * (1<<(n-1));\n        if(k>total) return \"\";\n\n        k--;\n        StringBuilder res=new StringBuilder();\n        char last='\\0';\n\n        for(int pos=0;pos<n;pos++){\n\n            int branch=1<<(n-pos-1);\n\n            List<Character> choices=new ArrayList<>();\n            for(char c:new char[]{'a','b','c'})\n                if(c!=last) choices.add(c);\n\n            int idx=k/branch;\n            res.append(choices.get(idx));\n            last=choices.get(idx);\n            k%=branch;\n        }\n\n        return res.toString();\n    }\n}",
+        "readme": "🗓️Make-upnotice,ThisistheDailyCodingChallengeforMarch14th2026.Thereare2incompletechallengesforMarch2026andyouhave1ticketleftforthismonth.Areyousureyouwanttouseatickettomakeupthissubmission?,No,Yes\n\nA happy string is a string that:\n\n\n\tconsists only of letters of the set ['a', 'b', 'c'].\n\ts[i] != s[i + 1] for all values of i from 1 to s.length - 1 (string is 1-indexed).\n\n\nFor example, strings \"abc\", \"ac\", \"b\" and \"abcbabcbcb\" are all happy strings and strings \"aa\", \"baa\" and \"ababbc\" are not happy strings.\n\nGiven two integers n and k, consider a list of all happy strings of length n sorted in lexicographical order.\n\nReturn the kth string of this list or return an empty string if there are less than k happy strings of length n.\n\n \nExample 1:\n\nInput: n = 1, k = 3\nOutput: \"c\"\nExplanation: The list [\"a\", \"b\", \"c\"] contains all happy strings of length 1. The third string is \"c\".\n\n\nExample 2:\n\nInput: n = 1, k = 4\nOutput: \"\"\nExplanation: There are only 3 happy strings of length 1.\n\n\nExample 3:\n\nInput: n = 3, k = 9\nOutput: \"cab\"\nExplanation: There are 12 different happy string of length 3 [\"aba\", \"abc\", \"aca\", \"acb\", \"bab\", \"bac\", \"bca\", \"bcb\", \"cab\", \"cac\", \"cba\", \"cbc\"]. You will find the 9th string = \"cab\"\n\n\n \nConstraints:\n\n\n\t1 <= n <= 10\n\t1 <= k <= 100",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-15T15:11:25.000Z"
+    },
+    {
+      "id": "leetcode-hard-divide-an-array-into-subarrays-with-minimum-cost-ii",
+      "platform": "Leetcode",
+      "difficulty": "Hard",
+      "problemName": "Divide an Array Into Subarrays With Minimum Cost II",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n\n    public long minimumCost(int[] nums, int k, int dist) {\n\n        int n = nums.length;\n        long result = Long.MAX_VALUE;\n        long windowSum = 0L;\n\n        java.util.TreeSet<Integer> using = new java.util.TreeSet<>(\n                (a, b) -> nums[a] == nums[b] ? a - b : nums[a] - nums[b]\n        );\n\n        java.util.TreeSet<Integer> waiting = new java.util.TreeSet<>(\n                (a, b) -> nums[a] == nums[b] ? a - b : nums[a] - nums[b]\n        );\n\n        for (int i = 1; i <= dist + 1; i++) {\n            using.add(i);\n            windowSum += nums[i];\n        }\n\n        while (using.size() > k - 1) {\n            int idx = using.pollLast();\n            windowSum -= nums[idx];\n            waiting.add(idx);\n        }\n\n        result = Math.min(result, windowSum);\n\n        for (int i = 1; i + dist + 1 < n; i++) {\n\n            waiting.add(i + dist + 1);\n\n            if (using.contains(i)) {\n                using.remove(i);\n                windowSum -= nums[i];\n\n                int idx = waiting.pollFirst();\n                using.add(idx);\n                windowSum += nums[idx];\n\n            } else {\n                waiting.remove(i);\n\n                int wMin = waiting.first();\n                int uMax = using.last();\n\n                if (nums[wMin] < nums[uMax]) {\n                    using.remove(uMax);\n                    waiting.add(uMax);\n                    windowSum -= nums[uMax];\n\n                    waiting.remove(wMin);\n                    using.add(wMin);\n                    windowSum += nums[wMin];\n                }\n            }\n\n            result = Math.min(result, windowSum);\n        }\n\n        return result + nums[0];\n    }\n}",
+        "readme": "ArrayHashTableSlidingWindowHeap(PriorityQueue)BiweeklyContest122\n\nYou are given a 0-indexed array of integers nums of length n, and two positive integers k and dist.\n\nThe cost of an array is the value of its first element. For example, the cost of [1,2,3] is 1 while the cost of [3,4,1] is 3.\n\nYou need to divide nums into k disjoint contiguous subarrays, such that the difference between the starting index of the second subarray and the starting index of the kth subarray should be less than or equal to dist. In other words, if you divide nums into the subarrays nums[0..(i1 - 1)], nums[i1..(i2 - 1)], ..., nums[ik-1..(n - 1)], then ik-1 - i1 <= dist.\n\nReturn the minimum possible sum of the cost of these subarrays.\n\n \nExample 1:\n\nInput: nums = [1,3,2,6,4,2], k = 3, dist = 3\nOutput: 5\nExplanation: The best possible way to divide nums into 3 subarrays is: [1,3], [2,6,4], and [2]. This choice is valid because ik-1 - i1 is 5 - 2 = 3 which is equal to dist. The total cost is nums[0] + nums[2] + nums[5] which is 1 + 2 + 2 = 5.\nIt can be shown that there is no possible way to divide nums into 3 subarrays at a cost lower than 5.\n\n\nExample 2:\n\nInput: nums = [10,1,2,2,2,1], k = 4, dist = 3\nOutput: 15\nExplanation: The best possible way to divide nums into 4 subarrays is: [10], [1], [2], and [2,2,1]. This choice is valid because ik-1 - i1 is 3 - 1 = 2 which is less than dist. The total cost is nums[0] + nums[1] + nums[2] + nums[3] which is 10 + 1 + 2 + 2 = 15.\nThe division [10], [1], [2,2,2], and [1] is not valid, because the difference between ik-1 and i1 is 5 - 1 = 4, which is greater than dist.\nIt can be shown that there is no possible way to divide nums into 4 subarrays at a cost lower than 15.\n\n\nExample 3:\n\nInput: nums = [10,8,18,9], k = 3, dist = 1\nOutput: 36\nExplanation: The best possible way to divide nums into 4 subarrays is: [10], [8], and [18,9]. This choice is valid because ik-1 - i1 is 2 - 1 = 1 which is equal to dist.The total cost is nums[0] + nums[1] + nums[2] which is 10 + 8 + 18 = 36.\nThe division [10], [8,18], and [9] is not valid, because the difference between ik-1 and i1 is 3 - 1 = 2, which is greater than dist.\nIt can be shown that there is no possible way to divide nums into 3 subarrays at a cost lower than 36.\n\n\n \nConstraints:\n\n\n\t3 <= n <= 105\n\t1 <= nums[i] <= 109\n\t3 <= k <= n\n\tk - 2 <= dist <= n - 2",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-02T07:30:50.000Z"
+    },
+    {
+      "id": "leetcode-hard-fancy-sequence",
+      "platform": "Leetcode",
+      "difficulty": "Hard",
+      "problemName": "Fancy Sequence",
+      "language": "java",
+      "files": {
+        "code": "class Fancy {\n    private static final int MOD = 1000000007;\n    private ArrayList<Long> val;  \n    private long a, b;   \n\n    public Fancy() {\n        val = new ArrayList<>(); \n        a = 1;\n        b = 0;\n    }\n\n    private long modPow(long x, long y, long mod) {\n        long res = 1;\n        x = x % mod;\n        while (y > 0) {\n            if (y % 2 == 1) {\n                res = (res * x) % mod;\n            }\n            y = y / 2;\n            x = (x * x) % mod;\n        }\n        return res;\n    }\n\n    public void append(int val) {\n        long x = (val - b + MOD) % MOD;\n        this.val.add((x * modPow(a, MOD - 2, MOD)) % MOD);  \n    }\n\n    public void addAll(int inc) {\n        b = (b + inc) % MOD;\n    }\n\n    public void multAll(int m) {\n        a = (a * m) % MOD;\n        b = (b * m) % MOD;\n    }\n\n    public int getIndex(int idx) {\n        if (idx >= val.size()) return -1; \n        return (int)((a * val.get(idx) + b) % MOD);\n    }\n}",
+        "readme": "PrincipalMathDesignSegmentTreeBiweeklyContest37\n\nWrite an API that generates fancy sequences using the append, addAll, and multAll operations.\n\nImplement the Fancy class:\n\n\n\tFancy() Initializes the object with an empty sequence.\n\tvoid append(val) Appends an integer val to the end of the sequence.\n\tvoid addAll(inc) Increments all existing values in the sequence by an integer inc.\n\tvoid multAll(m) Multiplies all existing values in the sequence by an integer m.\n\tint getIndex(idx) Gets the current value at index idx (0-indexed) of the sequence modulo 109 + 7. If the index is greater or equal than the length of the sequence, return -1.\n\n\n \nExample 1:\n\nInput\n[\"Fancy\", \"append\", \"addAll\", \"append\", \"multAll\", \"getIndex\", \"addAll\", \"append\", \"multAll\", \"getIndex\", \"getIndex\", \"getIndex\"]\n[[], [2], [3], [7], [2], [0], [3], [10], [2], [0], [1], [2]]\nOutput\n[null, null, null, null, null, 10, null, null, null, 26, 34, 20]\n\nExplanation\nFancy fancy = new Fancy();\nfancy.append(2);   // fancy sequence: [2]\nfancy.addAll(3);   // fancy sequence: [2+3] -> [5]\nfancy.append(7);   // fancy sequence: [5, 7]\nfancy.multAll(2);  // fancy sequence: [5*2, 7*2] -> [10, 14]\nfancy.getIndex(0); // return 10\nfancy.addAll(3);   // fancy sequence: [10+3, 14+3] -> [13, 17]\nfancy.append(10);  // fancy sequence: [13, 17, 10]\nfancy.multAll(2);  // fancy sequence: [13*2, 17*2, 10*2] -> [26, 34, 20]\nfancy.getIndex(0); // return 26\nfancy.getIndex(1); // return 34\nfancy.getIndex(2); // return 20\n\n\n \nConstraints:\n\n\n\t1 <= val, inc, m <= 100\n\t0 <= idx <= 105\n\tAt most 105 calls total will be made to append, addAll, multAll, and getIndex.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-03-15T15:12:27.000Z"
+    },
+    {
+      "id": "leetcode-hard-last-day-where-you-can-still-cross",
+      "platform": "Leetcode",
+      "difficulty": "Hard",
+      "problemName": "Last Day Where You Can Still Cross",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    private int[][] directions = {{1,0},{-1,0},{0,1},{0,-1}};\n    private int rows, cols;\n    public int latestDayToCross(int row, int col, int[][] cells) {\n        this.rows = row;\n        this.cols = col;\n        int left = 1, right = cells.length, answer = 0;\n        while (left<=right){\n            int mid=left+(right-left)/2;\n            if(canCross(mid,cells)){\n                answer=mid;\n                left=mid+1;\n            } else{\n                right=mid-1;\n            }\n        }\n        return answer;\n    }\n    \n    private boolean canCross(int day, int[][] cells) {\n        int[][] grid = new int[rows][cols];\n        \n        for (int i = 0; i < day; i++) {\n            grid[cells[i][0] - 1][cells[i][1] - 1] = 1;\n        }\n        \n        Queue<int[]> queue = new LinkedList<>();\n        boolean[][] visited = new boolean[rows][cols];\n        \n        for (int c = 0; c < cols; c++) {\n            if (grid[0][c] == 0) {\n                queue.offer(new int[]{0, c});\n                visited[0][c] = true;\n            }\n        }\n        \n        while (!queue.isEmpty()) {\n            int[] curr = queue.poll();\n            int r = curr[0], c = curr[1];\n            \n            if (r == rows - 1) return true;\n            \n            for (int[] dir : directions) {\n                int nr = r + dir[0];\n                int nc = c + dir[1];\n                \n                if (nr>=0&&nr<rows&&nc>=0&&nc<cols&&!visited[nr][nc]&&grid[nr][nc]==0){\n                    visited[nr][nc]=true;\n                    queue.offer(new int[]{nr,nc});\n                }\n            }\n        }\n        return false;\n    }\n}",
+        "readme": "DailyCodingChallengeCompleted!,YouhavebeenawardedDCCDecember2025!,Consistencyiskey,seeyounextmonth!\n\nThere is a 1-based binary matrix where 0 represents land and 1 represents water. You are given integers row and col representing the number of rows and columns in the matrix, respectively.\n\nInitially on day 0, the entire matrix is land. However, each day a new cell becomes flooded with water. You are given a 1-based 2D array cells, where cells[i] = [ri, ci] represents that on the ith day, the cell on the rith row and cith column (1-based coordinates) will be covered with water (i.e., changed to 1).\n\nYou want to find the last day that it is possible to walk from the top to the bottom by only walking on land cells. You can start from any cell in the top row and end at any cell in the bottom row. You can only travel in the four cardinal directions (left, right, up, and down).\n\nReturn the last day where it is possible to walk from the top to the bottom by only walking on land cells.\n\n \nExample 1:\n\nInput: row = 2, col = 2, cells = [[1,1],[2,1],[1,2],[2,2]]\nOutput: 2\nExplanation: The above image depicts how the matrix changes each day starting from day 0.\nThe last day where it is possible to cross from top to bottom is on day 2.\n\n\nExample 2:\n\nInput: row = 2, col = 2, cells = [[1,1],[1,2],[2,1],[2,2]]\nOutput: 1\nExplanation: The above image depicts how the matrix changes each day starting from day 0.\nThe last day where it is possible to cross from top to bottom is on day 1.\n\n\nExample 3:\n\nInput: row = 3, col = 3, cells = [[1,2],[2,1],[3,3],[2,2],[1,1],[1,3],[2,3],[3,2],[3,1]]\nOutput: 3\nExplanation: The above image depicts how the matrix changes each day starting from day 0.\nThe last day where it is possible to cross from top to bottom is on day 3.\n\n\n \nConstraints:\n\n\n\t2 <= row, col <= 2 * 104\n\t4 <= row * col <= 2 * 104\n\tcells.length == row * col\n\t1 <= ri <= row\n\t1 <= ci <= col\n\tAll the values of cells are unique.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2025-12-31T14:04:33.000Z"
+    },
+    {
+      "id": "leetcode-hard-longest-balanced-subarray-ii",
+      "platform": "Leetcode",
+      "difficulty": "Hard",
+      "problemName": "Longest Balanced Subarray II",
+      "language": "java",
+      "files": {
+        "code": "class LazyTag {\n\n    int toAdd;\n\n    LazyTag() {\n        this.toAdd = 0;\n    }\n\n    LazyTag add(LazyTag other) {\n        this.toAdd += other.toAdd;\n        return this;\n    }\n\n    boolean hasTag() {\n        return this.toAdd != 0;\n    }\n\n    void clear() {\n        this.toAdd = 0;\n    }\n}\n\nclass SegmentTreeNode {\n\n    int minValue;\n    int maxValue;\n    LazyTag lazyTag;\n\n    SegmentTreeNode() {\n        this.minValue = 0;\n        this.maxValue = 0;\n        this.lazyTag = new LazyTag();\n    }\n}\n\nclass SegmentTree {\n\n    private int n;\n    private SegmentTreeNode[] tree;\n\n    SegmentTree(int[] data) {\n        this.n = data.length;\n        this.tree = new SegmentTreeNode[this.n * 4 + 1];\n        for (int i = 0; i < tree.length; i++) {\n            tree[i] = new SegmentTreeNode();\n        }\n        build(data, 1, this.n, 1);\n    }\n\n    void add(int l, int r, int val) {\n        LazyTag tag = new LazyTag();\n        tag.toAdd = val;\n        update(l, r, tag, 1, this.n, 1);\n    }\n\n    int findLast(int start, int val) {\n        if (start > this.n) {\n            return -1;\n        }\n        return find(start, this.n, val, 1, this.n, 1);\n    }\n\n    private void applyTag(int i, LazyTag tag) {\n        tree[i].minValue += tag.toAdd;\n        tree[i].maxValue += tag.toAdd;\n        tree[i].lazyTag.add(tag);\n    }\n\n    private void pushdown(int i) {\n        if (tree[i].lazyTag.hasTag()) {\n            LazyTag tag = new LazyTag();\n            tag.toAdd = tree[i].lazyTag.toAdd;\n            applyTag(i << 1, tag);\n            applyTag((i << 1) | 1, tag);\n            tree[i].lazyTag.clear();\n        }\n    }\n\n    private void pushup(int i) {\n        tree[i].minValue = Math.min(\n            tree[i << 1].minValue,\n            tree[(i << 1) | 1].minValue\n        );\n        tree[i].maxValue = Math.max(\n            tree[i << 1].maxValue,\n            tree[(i << 1) | 1].maxValue\n        );\n    }\n\n    private void build(int[] data, int l, int r, int i) {\n        if (l == r) {\n            tree[i].minValue = tree[i].maxValue = data[l - 1];\n            return;\n        }\n\n        int mid = l + ((r - l) >> 1);\n        build(data, l, mid, i << 1);\n        build(data, mid + 1, r, (i << 1) | 1);\n        pushup(i);\n    }\n\n    private void update(\n        int targetL,\n        int targetR,\n        LazyTag tag,\n        int l,\n        int r,\n        int i\n    ) {\n        if (targetL <= l && r <= targetR) {\n            applyTag(i, tag);\n            return;\n        }\n\n        pushdown(i);\n        int mid = l + ((r - l) >> 1);\n        if (targetL <= mid) update(targetL, targetR, tag, l, mid, i << 1);\n        if (targetR > mid) update(\n            targetL,\n            targetR,\n            tag,\n            mid + 1,\n            r,\n            (i << 1) | 1\n        );\n        pushup(i);\n    }\n\n    private int find(int targetL, int targetR, int val, int l, int r, int i) {\n        if (tree[i].minValue > val || tree[i].maxValue < val) {\n            return -1;\n        }\n\n        if (l == r) {\n            return l;\n        }\n\n        pushdown(i);\n        int mid = l + ((r - l) >> 1);\n\n        if (targetR >= mid + 1) {\n            int res = find(targetL, targetR, val, mid + 1, r, (i << 1) | 1);\n            if (res != -1) return res;\n        }\n\n        if (l <= targetR && mid >= targetL) {\n            return find(targetL, targetR, val, l, mid, i << 1);\n        }\n\n        return -1;\n    }\n}\n\nclass Solution {\n\n    public int longestBalanced(int[] nums) {\n        Map<Integer, Queue<Integer>> occurrences = new HashMap<>();\n\n        int len = 0;\n        int[] prefixSum = new int[nums.length];\n        prefixSum[0] = sgn(nums[0]);\n        occurrences.computeIfAbsent(nums[0], k -> new LinkedList<>()).add(1);\n\n        for (int i = 1; i < nums.length; i++) {\n            prefixSum[i] = prefixSum[i - 1];\n            Queue<Integer> occ = occurrences.computeIfAbsent(nums[i], k ->\n                new LinkedList<>()\n            );\n            if (occ.isEmpty()) {\n                prefixSum[i] += sgn(nums[i]);\n            }\n            occ.add(i + 1);\n        }\n\n        SegmentTree seg = new SegmentTree(prefixSum);\n\n        for (int i = 0; i < nums.length; i++) {\n            len = Math.max(len, seg.findLast(i + len, 0) - i);\n\n            int nextPos = nums.length + 1;\n            occurrences.get(nums[i]).poll();\n            if (!occurrences.get(nums[i]).isEmpty()) {\n                nextPos = occurrences.get(nums[i]).peek();\n            }\n\n            seg.add(i + 1, nextPos - 1, -sgn(nums[i]));\n        }\n\n        return len;\n    }\n\n    private int sgn(int x) {\n        return (x % 2) == 0 ? 1 : -1;\n    }\n}",
+        "readme": "PrincipalArrayHashTableDivideandConquerSegmentTreePrefixSumWeeklyContest472\n\nYou are given an integer array nums.\n\nA subarray is called balanced if the number of distinct even numbers in the subarray is equal to the number of distinct odd numbers.\n\nReturn the length of the longest balanced subarray.\n\n \nExample 1:\n\n\nInput: nums = [2,5,4,3]\n\nOutput: 4\n\nExplanation:\n\n\n\tThe longest balanced subarray is [2, 5, 4, 3].\n\tIt has 2 distinct even numbers [2, 4] and 2 distinct odd numbers [5, 3]. Thus, the answer is 4.\n\n\n\nExample 2:\n\n\nInput: nums = [3,2,2,5,4]\n\nOutput: 5\n\nExplanation:\n\n\n\tThe longest balanced subarray is [3, 2, 2, 5, 4].\n\tIt has 2 distinct even numbers [2, 4] and 2 distinct odd numbers [3, 5]. Thus, the answer is 5.\n\n\n\nExample 3:\n\n\nInput: nums = [1,2,3,2]\n\nOutput: 3\n\nExplanation:\n\n\n\tThe longest balanced subarray is [2, 3, 2].\n\tIt has 1 distinct even number [2] and 1 distinct odd number [3]. Thus, the answer is 3.\n\n\n\n \nConstraints:\n\n\n\t1 <= nums.length <= 105\n\t1 <= nums[i] <= 105",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-11T14:48:16.000Z"
+    },
+    {
+      "id": "leetcode-hard-max-dot-product-of-two-subsequences",
+      "platform": "Leetcode",
+      "difficulty": "Hard",
+      "problemName": "Max Dot Product of Two Subsequences",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n\n    // dp[i][j] stores the maximum dot product for nums1[0..i] and nums2[0..j]\n    Integer[][] dp;\n\n    public int maxDotProduct(int[] nums1, int[] nums2) {\n        dp = new Integer[nums1.length][nums2.length];\n        return solve(nums1, nums2, nums1.length - 1, nums2.length - 1);\n    }\n\n    private int solve(int[] nums1, int[] nums2, int i, int j) {\n\n        // Base case: if either array is exhausted\n        if (i < 0 || j < 0) {\n            return Integer.MIN_VALUE; // invalid (non-empty constraint)\n        }\n\n        // If already computed, reuse it\n        if (dp[i][j] != null) {\n            return dp[i][j];\n        }\n\n        // Option 1: take current pair\n        int product = nums1[i] * nums2[j];\n\n        // Option 2: extend a previous subsequence\n        int extend = solve(nums1, nums2, i - 1, j - 1);\n        int take = product;\n        if (extend != Integer.MIN_VALUE) {\n            take = Math.max(take, product + extend);\n        }\n\n        // Option 3: skip one element\n        int skip = Math.max(\n            solve(nums1, nums2, i - 1, j),\n            solve(nums1, nums2, i, j - 1)\n        );\n\n        // Store and return the best result\n        return dp[i][j] = Math.max(take, skip);\n    }\n}",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,176,Days,Consistencyiskey,seeyoutomorrow!\n\nGiven two arrays nums1 and nums2.\n\nReturn the maximum dot product between non-empty subsequences of nums1 and nums2 with the same length.\n\nA subsequence of a array is a new array which is formed from the original array by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, [2,3,5] is a subsequence of [1,2,3,4,5] while [1,5,3] is not).\n\n \nExample 1:\n\nInput: nums1 = [2,1,-2,5], nums2 = [3,0,-6]\nOutput: 18\nExplanation: Take subsequence [2,-2] from nums1 and subsequence [3,-6] from nums2.\nTheir dot product is (2*3 + (-2)*(-6)) = 18.\n\nExample 2:\n\nInput: nums1 = [3,-2], nums2 = [2,-6,7]\nOutput: 21\nExplanation: Take subsequence [3] from nums1 and subsequence [7] from nums2.\nTheir dot product is (3*7) = 21.\n\nExample 3:\n\nInput: nums1 = [-1,-1], nums2 = [1,1]\nOutput: -1\nExplanation: Take subsequence [-1] from nums1 and subsequence [1] from nums2.\nTheir dot product is -1.\n\n \nConstraints:\n\n\n\t1 <= nums1.length, nums2.length <= 500\n\t-1000 <= nums1[i], nums2[i] <= 1000",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-08T05:38:27.000Z"
+    },
+    {
+      "id": "leetcode-hard-maximal-rectangle",
+      "platform": "Leetcode",
+      "difficulty": "Hard",
+      "problemName": "Maximal Rectangle",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int maximalRectangle(char[][] matrix) {\n        int m = matrix.length, n = matrix[0].length, ans = 0;\n        int[]hist = new int[n];\n\n        for(int i=0;i<m;i++){\n            for(int j=0;j<n;j++){\n                if(matrix[i][j]!='0')hist[j]+=1;\n                else hist[j] = 0;\n            }\n            int area = area(hist);\n            ans = Math.max(ans, area);\n        }\n\n        return ans;\n       \n    }\n\n    public static int area(int[] heights) {\n        int n = heights.length;\n        int maxArea = 0;\n        Stack<Integer> stack = new Stack<>();\n\n        for (int i = 0; i <= n; i++) {\n            int h = (i == n) ? 0 : heights[i];\n            while (!stack.isEmpty() && h < heights[stack.peek()]) {\n                int height = heights[stack.pop()];\n                int width = stack.isEmpty() ? i : i - stack.peek() - 1;\n                maxArea = Math.max(maxArea, height * width);\n            }\n            stack.push(i);\n        }\n\n        return maxArea;\n    }\n}",
+        "readme": "DailyCodingChallengeCompleted!,CompletionStreak:,179,Days,Consistencyiskey,seeyoutomorrow!\n\nGiven a rows x cols binary matrix filled with 0's and 1's, find the largest rectangle containing only 1's and return its area.\n\n \nExample 1:\n\nInput: matrix = [[\"1\",\"0\",\"1\",\"0\",\"0\"],[\"1\",\"0\",\"1\",\"1\",\"1\"],[\"1\",\"1\",\"1\",\"1\",\"1\"],[\"1\",\"0\",\"0\",\"1\",\"0\"]]\nOutput: 6\nExplanation: The maximal rectangle is shown in the above picture.\n\n\nExample 2:\n\nInput: matrix = [[\"0\"]]\nOutput: 0\n\n\nExample 3:\n\nInput: matrix = [[\"1\"]]\nOutput: 1\n\n\n \nConstraints:\n\n\n\trows == matrix.length\n\tcols == matrix[i].length\n\t1 <= rows, cols <= 200\n\tmatrix[i][j] is '0' or '1'.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-11T14:18:18.000Z"
+    },
+    {
+      "id": "leetcode-hard-minimum-cost-path-with-teleportations",
+      "platform": "Leetcode",
+      "difficulty": "Hard",
+      "problemName": "Minimum Cost Path with Teleportations",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int minCost(int[][] grid, int k) {\n        int n = grid.length, m = grid[0].length;\n        \n        // 1. Find the Maximum Value in the grid to size our helper arrays\n        int maxVal = 0;\n        for(int[] row : grid) {\n            for(int val : row) maxVal = Math.max(maxVal, val);\n        }\n\n        // dp[i][j] = Min cost to reach (n-1, m-1) from (i, j)\n        int[][] dp = new int[n][m];\n        \n        // temp[v] = Min cost starting from ANY cell with value 'v'\n        int[] temp = new int[maxVal + 1];\n        int[] best = new int[maxVal + 1];\n        \n        Arrays.fill(temp, Integer.MAX_VALUE);\n        \n        // Base Case: Cost from target to target is 0. \n        // Note: The cost is incurred when ENTERING a cell. \n        // We consider the target reached, so starting at target has 0 *additional* cost.\n        temp[grid[n - 1][m - 1]] = 0;\n\n        // --- INITIALIZATION (K=0) ---\n        // Fill DP table using standard walking rules (Right/Down)\n        for(int i = n - 1; i >= 0; i--) {\n            for(int j = m - 1; j >= 0; j--) {\n                if(i == n - 1 && j == m - 1) continue; // Skip target\n                \n                int down = (i + 1 < n) ? dp[i + 1][j] + grid[i + 1][j] : Integer.MAX_VALUE;\n                int right = (j + 1 < m) ? dp[i][j + 1] + grid[i][j + 1] : Integer.MAX_VALUE;\n                \n                dp[i][j] = Math.min(down, right);\n                \n                // Update the best known cost for this cell's value\n                if (dp[i][j] != Integer.MAX_VALUE) {\n                    temp[grid[i][j]] = Math.min(temp[grid[i][j]], dp[i][j]);\n                }\n            }\n        }\n\n        // --- LAYERS (K > 0) ---\n        // For each allowed teleport, we try to relax the grid costs\n        for(int x = 0; x < k; x++) {\n            \n            // 1. Build Prefix Minimum Array\n            // best[v] = min cost obtainable from any cell with value <= v\n            best[0] = temp[0];\n            for(int v = 1; v <= maxVal; v++) {\n                best[v] = Math.min(best[v - 1], temp[v]);\n            }\n            \n            // 2. Update DP Table with Teleport Options\n            for(int i = n - 1; i >= 0; i--) {\n                for(int j = m - 1; j >= 0; j--) {\n                    if(i == n - 1 && j == m - 1) continue;\n                    \n                    int down = (i + 1 < n) ? dp[i + 1][j] + grid[i + 1][j] : Integer.MAX_VALUE;\n                    int right = (j + 1 < m) ? dp[i][j + 1] + grid[i][j + 1] : Integer.MAX_VALUE;\n                    int walkCost = Math.min(down, right);\n                    \n                    // Teleport Option: Jump to the best state with value <= grid[i][j]\n                    int teleportCost = best[grid[i][j]];\n                    \n                    dp[i][j] = Math.min(walkCost, teleportCost);\n                    \n                    // Update temp for the NEXT iteration\n                    if (dp[i][j] != Integer.MAX_VALUE) {\n                        temp[grid[i][j]] = Math.min(temp[grid[i][j]], dp[i][j]);\n                    }\n                }\n            }\n        }\n        \n        return dp[0][0];\n    }\n}",
+        "readme": "ArrayDynamicProgrammingMatrixBiweeklyContest163\n\nYou are given a m x n 2D integer array grid and an integer k. You start at the top-left cell (0, 0) and your goal is to reach the bottom‐right cell (m - 1, n - 1).\n\nThere are two types of moves available:\n\n\n\t\n\tNormal move: You can move right or down from your current cell (i, j), i.e. you can move to (i, j + 1) (right) or (i + 1, j) (down). The cost is the value of the destination cell.\n\t\n\t\n\tTeleportation: You can teleport from any cell (i, j), to any cell (x, y) such that grid[x][y] <= grid[i][j]; the cost of this move is 0. You may teleport at most k times.\n\t\n\n\nReturn the minimum total cost to reach cell (m - 1, n - 1) from (0, 0).\n\n \nExample 1:\n\n\nInput: grid = [[1,3,3],[2,5,4],[4,3,5]], k = 2\n\nOutput: 7\n\nExplanation:\n\nInitially we are at (0, 0) and cost is 0.\n\nCurrent PositionMoveNew PositionTotal Cost(0, 0)Move Down(1, 0)0 + 2 = 2(1, 0)Move Right(1, 1)2 + 5 = 7(1, 1)Teleport to (2, 2)(2, 2)7 + 0 = 7\n\nThe minimum cost to reach bottom-right cell is 7.\n\n\nExample 2:\n\n\nInput: grid = [[1,2],[2,3],[3,4]], k = 1\n\nOutput: 9\n\nExplanation: \n\nInitially we are at (0, 0) and cost is 0.\n\nCurrent PositionMoveNew PositionTotal Cost(0, 0)Move Down(1, 0)0 + 2 = 2(1, 0)Move Right(1, 1)2 + 3 = 5(1, 1)Move Down(2, 1)5 + 4 = 9\n\nThe minimum cost to reach bottom-right cell is 9.\n\n\n \nConstraints:\n\n\n\t2 <= m, n <= 80\n\tm == grid.length\n\tn == grid[i].length\n\t0 <= grid[i][j] <= 104\n\t0 <= k <= 10",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-28T07:33:21.000Z"
+    },
+    {
+      "id": "leetcode-hard-minimum-cost-to-convert-string-ii",
+      "platform": "Leetcode",
+      "difficulty": "Hard",
+      "problemName": "Minimum Cost to Convert String II",
+      "language": "java",
+      "files": {
+        "code": "import java.util.*;\n\nclass Solution {\n    public long minimumCost(String source, String target, String[] original, String[] changed, int[] cost) {\n        int n = source.length();\n        Map<String, Integer> strToId = new HashMap<>();\n        int idCounter = 0;\n\n        for (String s : original) if (!strToId.containsKey(s)) strToId.put(s, idCounter++);\n        for (String s : changed) if (!strToId.containsKey(s)) strToId.put(s, idCounter++);\n\n        long INF = 1_000_000_000_000_000L;\n        long[][] dist = new long[idCounter][idCounter];\n        for (int i = 0; i < idCounter; i++) {\n            Arrays.fill(dist[i], INF);\n            dist[i][i] = 0;\n        }\n\n        for (int i = 0; i < original.length; i++) {\n            int u = strToId.get(original[i]);\n            int v = strToId.get(changed[i]);\n            dist[u][v] = Math.min(dist[u][v], (long) cost[i]);\n        }\n\n        // Floyd-Warshall\n        for (int k = 0; k < idCounter; k++) {\n            for (int i = 0; i < idCounter; i++) {\n                for (int j = 0; j < idCounter; j++) {\n                    if (dist[i][k] < INF && dist[k][j] < INF) {\n                        dist[i][j] = Math.min(dist[i][j], dist[i][k] + dist[k][j]);\n                    }\n                }\n            }\n        }\n\n        long[] dp = new long[n + 1];\n        Arrays.fill(dp, INF);\n        dp[0] = 0;\n\n        Set<Integer> uniqueLens = new HashSet<>();\n        for (String s : original) uniqueLens.add(s.length());\n        Integer[] lens = uniqueLens.toArray(new Integer[0]);\n\n        for (int i = 0; i < n; i++) {\n            if (dp[i] == INF) continue;\n\n            if (source.charAt(i) == target.charAt(i)) {\n                dp[i + 1] = Math.min(dp[i + 1], dp[i]);\n            }\n\n            for (int len : lens) {\n                if (i + len <= n) {\n                    String subS = source.substring(i, i + len);\n                    String subT = target.substring(i, i + len);\n\n                    if (subS.equals(subT)) {\n                        dp[i + len] = Math.min(dp[i + len], dp[i]);\n                    } else if (strToId.containsKey(subS) && strToId.containsKey(subT)) {\n                        int u = strToId.get(subS);\n                        int v = strToId.get(subT);\n                        if (dist[u][v] < INF) {\n                            dp[i + len] = Math.min(dp[i + len], dp[i] + dist[u][v]);\n                        }\n                    }\n                }\n            }\n        }\n\n        return dp[n] >= INF ? -1 : dp[n];\n    }\n}",
+        "readme": "ArrayStringDynamicProgrammingGraphTheoryTrieShortestPathWeeklyContest377\n\nYou are given two 0-indexed strings source and target, both of length n and consisting of lowercase English characters. You are also given two 0-indexed string arrays original and changed, and an integer array cost, where cost[i] represents the cost of converting the string original[i] to the string changed[i].\n\nYou start with the string source. In one operation, you can pick a substring x from the string, and change it to y at a cost of z if there exists any index j such that cost[j] == z, original[j] == x, and changed[j] == y. You are allowed to do any number of operations, but any pair of operations must satisfy either of these two conditions:\n\n\n\tThe substrings picked in the operations are source[a..b] and source[c..d] with either b < c or d < a. In other words, the indices picked in both operations are disjoint.\n\tThe substrings picked in the operations are source[a..b] and source[c..d] with a == c and b == d. In other words, the indices picked in both operations are identical.\n\n\nReturn the minimum cost to convert the string source to the string target using any number of operations. If it is impossible to convert source to target, return -1.\n\nNote that there may exist indices i, j such that original[j] == original[i] and changed[j] == changed[i].\n\n \nExample 1:\n\nInput: source = \"abcd\", target = \"acbe\", original = [\"a\",\"b\",\"c\",\"c\",\"e\",\"d\"], changed = [\"b\",\"c\",\"b\",\"e\",\"b\",\"e\"], cost = [2,5,5,1,2,20]\nOutput: 28\nExplanation: To convert \"abcd\" to \"acbe\", do the following operations:\n- Change substring source[1..1] from \"b\" to \"c\" at a cost of 5.\n- Change substring source[2..2] from \"c\" to \"e\" at a cost of 1.\n- Change substring source[2..2] from \"e\" to \"b\" at a cost of 2.\n- Change substring source[3..3] from \"d\" to \"e\" at a cost of 20.\nThe total cost incurred is 5 + 1 + 2 + 20 = 28. \nIt can be shown that this is the minimum possible cost.\n\n\nExample 2:\n\nInput: source = \"abcdefgh\", target = \"acdeeghh\", original = [\"bcd\",\"fgh\",\"thh\"], changed = [\"cde\",\"thh\",\"ghh\"], cost = [1,3,5]\nOutput: 9\nExplanation: To convert \"abcdefgh\" to \"acdeeghh\", do the following operations:\n- Change substring source[1..3] from \"bcd\" to \"cde\" at a cost of 1.\n- Change substring source[5..7] from \"fgh\" to \"thh\" at a cost of 3. We can do this operation because indices [5,7] are disjoint with indices picked in the first operation.\n- Change substring source[5..7] from \"thh\" to \"ghh\" at a cost of 5. We can do this operation because indices [5,7] are disjoint with indices picked in the first operation, and identical with indices picked in the second operation.\nThe total cost incurred is 1 + 3 + 5 = 9.\nIt can be shown that this is the minimum possible cost.\n\n\nExample 3:\n\nInput: source = \"abcdefgh\", target = \"addddddd\", original = [\"bcd\",\"defgh\"], changed = [\"ddd\",\"ddddd\"], cost = [100,1578]\nOutput: -1\nExplanation: It is impossible to convert \"abcdefgh\" to \"addddddd\".\nIf you select substring source[1..3] as the first operation to change \"abcdefgh\" to \"adddefgh\", you cannot select substring source[3..7] as the second operation because it has a common index, 3, with the first operation.\nIf you select substring source[3..7] as the first operation to change \"abcdefgh\" to \"abcddddd\", you cannot select substring source[1..3] as the second operation because it has a common index, 3, with the first operation.\n\n\n \nConstraints:\n\n\n\t1 <= source.length == target.length <= 1000\n\tsource, target consist only of lowercase English characters.\n\t1 <= cost.length == original.length == changed.length <= 100\n\t1 <= original[i].length == changed[i].length <= source.length\n\toriginal[i], changed[i] consist only of lowercase English characters.\n\toriginal[i] != changed[i]\n\t1 <= cost[i] <= 106",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-30T07:58:23.000Z"
+    },
+    {
+      "id": "leetcode-hard-minimum-operations-to-equalize-binary-string",
+      "platform": "Leetcode",
+      "difficulty": "Hard",
+      "problemName": "Minimum Operations to Equalize Binary String",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n    public int minOperations(String s, int k) {\n        int zero = 0;\n        int len = s.length();\n\n        for (int i = 0; i < len; i++)\n            zero += ~s.charAt(i) & 1;\n\n        if (zero == 0)\n            return 0;\n\n        if (len == k)\n            return (zero == len ? 1 : -1);\n\n        int base = len - k;\n\n        int odd = Math.max(\n            (zero + k - 1) / k,\n            (len - zero + base - 1) / base\n        );\n\n        odd += ~odd & 1;\n\n        int even = Math.max(\n            (zero + k - 1) / k,\n            (zero + base - 1) / base\n        );\n\n        even += even & 1;\n\n        int res = Integer.MAX_VALUE;\n\n        if ((k & 1) == (zero & 1))\n            res = Math.min(res, odd);\n\n        if ((~zero & 1) == 1)\n            res = Math.min(res, even);\n\n        return res == Integer.MAX_VALUE ? -1 : res;\n    }\n}",
+        "readme": "SeniorStaffMathStringBreadth-FirstSearchUnion-FindOrderedSetBiweeklyContest164\n\nYou are given a binary string s, and an integer k.\n\nIn one operation, you must choose exactly k different indices and flip each '0' to '1' and each '1' to '0'.\n\nReturn the minimum number of operations required to make all characters in the string equal to '1'. If it is not possible, return -1.\n\n \nExample 1:\n\n\nInput: s = \"110\", k = 1\n\nOutput: 1\n\nExplanation:\n\n\n\tThere is one '0' in s.\n\tSince k = 1, we can flip it directly in one operation.\n\n\n\nExample 2:\n\n\nInput: s = \"0101\", k = 3\n\nOutput: 2\n\nExplanation:\n\nOne optimal set of operations choosing k = 3 indices in each operation is:\n\n\n\tOperation 1: Flip indices [0, 1, 3]. s changes from \"0101\" to \"1000\".\n\tOperation 2: Flip indices [1, 2, 3]. s changes from \"1000\" to \"1111\".\n\n\nThus, the minimum number of operations is 2.\n\n\nExample 3:\n\n\nInput: s = \"101\", k = 2\n\nOutput: -1\n\nExplanation:\n\nSince k = 2 and s has only one '0', it is impossible to flip exactly k indices to make all '1'. Hence, the answer is -1.\n\n\n \nConstraints:\n\n\n\t1 <= s.length <= 10​​​​​​​5\n\ts[i] is either '0' or '1'.\n\t1 <= k <= s.length",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-27T14:26:54.000Z"
+    },
+    {
+      "id": "leetcode-hard-minimum-pair-removal-to-sort-array-ii",
+      "platform": "Leetcode",
+      "difficulty": "Hard",
+      "problemName": "Minimum Pair Removal to Sort Array II",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n\n  private static class Segment implements Comparable<Segment> {\n      int index;\n      long value;\n      long mergeCost;\n      Segment left;\n      Segment right;\n\n      Segment(int idx, long val) {\n          index = idx;\n          value = val;\n      }\n\n      @Override\n      public int compareTo(Segment o) {\n          if (right == null || o.right == null) {\n              return right == null ? 1 : -1;\n          }\n          long diff = mergeCost - o.mergeCost;\n          if (diff != 0) return diff < 0 ? -1 : 1;\n          return index - o.index;\n      }\n  }\n\n  public int minimumPairRemoval(int[] nums) {\n      TreeSet<Segment> heap = new TreeSet<>();\n      int violations = 0;\n\n      Segment current = null;\n\n      for (int i = 0; i < nums.length; i++) {\n          Segment node = new Segment(i, nums[i]);\n\n          if (current != null) {\n              if (node.value < current.value) violations++;\n\n              current.right = node;\n              node.left = current;\n\n              current.mergeCost = current.value + node.value;\n              heap.add(current);\n          }\n          current = node;\n      }\n\n      heap.add(current);\n\n      int operations = 0;\n\n      while (violations > 0) {\n          operations++;\n\n          Segment best = heap.pollFirst();\n          Segment next = best.right;\n\n          if (next.value < best.value) violations--;\n\n          best.value += next.value;\n          best.mergeCost = best.value + (next.right != null ? next.right.value : 0);\n\n          best.right = next.right;\n          if (next.right != null) {\n              if (next.right.value < next.value) violations--;\n              next.right.left = best;\n              if (best.value > next.right.value) violations++;\n          }\n\n          heap.remove(next);\n          heap.add(best);\n\n          Segment prev = best.left;\n          if (prev != null) {\n              heap.remove(prev);\n\n              if (prev.value > prev.mergeCost - prev.value) violations--;\n              if (prev.value > best.value) violations++;\n\n              prev.mergeCost = prev.value + best.value;\n              prev.right = best;\n\n              heap.add(prev);\n          }\n      }\n\n      return operations;\n  }\n}",
+        "readme": "ArrayHashTableLinkedListHeap(PriorityQueue)SimulationDoubly-LinkedListOrderedSetWeeklyContest444\n\nGiven an array nums, you can perform the following operation any number of times:\n\n\n\tSelect the adjacent pair with the minimum sum in nums. If multiple such pairs exist, choose the leftmost one.\n\tReplace the pair with their sum.\n\n\nReturn the minimum number of operations needed to make the array non-decreasing.\n\nAn array is said to be non-decreasing if each element is greater than or equal to its previous element (if it exists).\n\n \nExample 1:\n\n\nInput: nums = [5,2,3,1]\n\nOutput: 2\n\nExplanation:\n\n\n\tThe pair (3,1) has the minimum sum of 4. After replacement, nums = [5,2,4].\n\tThe pair (2,4) has the minimum sum of 6. After replacement, nums = [5,6].\n\n\nThe array nums became non-decreasing in two operations.\n\n\nExample 2:\n\n\nInput: nums = [1,2,2]\n\nOutput: 0\n\nExplanation:\n\nThe array nums is already sorted.\n\n\n \nConstraints:\n\n\n\t1 <= nums.length <= 105\n\t-109 <= nums[i] <= 109",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-23T16:21:49.000Z"
+    },
+    {
+      "id": "leetcode-hard-separate-squares-ii",
+      "platform": "Leetcode",
+      "difficulty": "Hard",
+      "problemName": "Separate Squares II",
+      "language": "java",
+      "files": {
+        "code": "import java.util.*;\n\nclass Solution {\n    // Helper class to represent active X-intervals\n    private static class Interval implements Comparable<Interval> {\n        int start, end;\n        \n        Interval(int start, int end) {\n            this.start = start;\n            this.end = end;\n        }\n        \n        // Needed for sort\n        public int compareTo(Interval other) {\n            if (this.start != other.start) return Integer.compare(this.start, other.start);\n            return Integer.compare(this.end, other.end);\n        }\n\n        // Needed for removing specific objects from ArrayList\n        public boolean equals(Object o) {\n            if (this == o) return true;\n            if (o == null || getClass() != o.getClass()) return false;\n            Interval interval = (Interval) o;\n            return start == interval.start && end == interval.end;\n        }\n    }\n\n    // Helper class for Sweep Line events\n    private static class Event implements Comparable<Event> {\n        int y;\n        int type; // 1 for start, -1 for end\n        int xStart, xEnd;\n\n        Event(int y, int type, int xStart, int xEnd) {\n            this.y = y;\n            this.type = type;\n            this.xStart = xStart;\n            this.xEnd = xEnd;\n        }\n\n        public int compareTo(Event other) {\n            return Integer.compare(this.y, other.y);\n        }\n    }\n\n    public double separateSquares(int[][] squares) {\n        List<Event> sweepEvents = new ArrayList<>();\n        for (int[] sq : squares) {\n            int x = sq[0];\n            int y = sq[1];\n            int l = sq[2];\n            sweepEvents.add(new Event(y, 1, x, x + l));\n            sweepEvents.add(new Event(y + l, -1, x, x + l));\n        }\n\n        Collections.sort(sweepEvents);\n\n        List<Interval> activeIntervals = new ArrayList<>();\n        // Store strips as: [y_bottom, height, union_width]\n        List<double[]> processedStrips = new ArrayList<>();\n        \n        double totalArea = 0;\n        int prevY = sweepEvents.get(0).y;\n\n        for (Event event : sweepEvents) {\n            // Process the gap (strip) between the previous event and this one\n            if (event.y > prevY) {\n                double unionWidth = getUnionWidth(activeIntervals);\n                double height = (double) event.y - prevY;\n                \n                if (unionWidth > 0) {\n                    processedStrips.add(new double[]{prevY, height, unionWidth});\n                    totalArea += height * unionWidth;\n                }\n            }\n\n            // Update active intervals list\n            Interval currentInterval = new Interval(event.xStart, event.xEnd);\n            if (event.type == 1) {\n                activeIntervals.add(currentInterval);\n            } else {\n                activeIntervals.remove(currentInterval);\n            }\n            \n            prevY = event.y;\n        }\n\n        // Second Pass: Find the split point\n        double targetArea = totalArea / 2.0;\n        double accumulatedArea = 0;\n\n        for (double[] strip : processedStrips) {\n            double bottomY = strip[0];\n            double height = strip[1];\n            double width = strip[2];\n            double stripArea = height * width;\n\n            if (accumulatedArea + stripArea >= targetArea) {\n                double missingArea = targetArea - accumulatedArea;\n                return bottomY + (missingArea / width);\n            }\n            accumulatedArea += stripArea;\n        }\n\n        return 0.0;\n    }\n\n    // Brute force union width calculation: O(K log K) where K is active squares\n    private double getUnionWidth(List<Interval> intervals) {\n        if (intervals.isEmpty()) return 0;\n\n        // Create a copy to sort, so we don't mess up the main list order unnecessarily\n        List<Interval> sorted = new ArrayList<>(intervals);\n        Collections.sort(sorted);\n\n        double unionLength = 0;\n        double currentEnd = -1e18; // Negative infinity\n\n        for (Interval iv : sorted) {\n            if (iv.start >= currentEnd) {\n                // Disjoint interval\n                unionLength += (iv.end - iv.start);\n                currentEnd = iv.end;\n            } else if (iv.end > currentEnd) {\n                // Overlapping interval\n                unionLength += (iv.end - currentEnd);\n                currentEnd = iv.end;\n            }\n        }\n        return unionLength;\n    }\n}",
+        "readme": "",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": false,
+      "hasNotes": false,
+      "lastUpdated": "2026-01-14T17:54:29.000Z"
+    },
+    {
+      "id": "leetcode-hard-trionic-array-ii",
+      "platform": "Leetcode",
+      "difficulty": "Hard",
+      "problemName": "Trionic Array II",
+      "language": "java",
+      "files": {
+        "code": "class Solution {\n\n    public long maxSumTrionic(int[] nums) {\n        \n        int n = nums.length;\n        long res= -1 * (long)1e16;\n\n        for(int i=1;i<n-2;i++){\n\n            int a = i; \n            int b = i; \n\n            long net = nums[a];\n\n            while(b+1<n && nums[b+1] < nums[b]){\n                net+=(long)nums[b+1];\n                b++;\n            }\n\n            if(b==a)continue;\n\n            int c= b; \n\n            long left = 0;\n            long right = 0;\n\n            long lx =Integer.MIN_VALUE;\n            long rx =Integer.MIN_VALUE;\n\n            while(a-1>=0 && nums[a-1] < nums[a]){\n                left+=(long)nums[a-1];\n                lx = Math.max(lx, left);\n                a--;\n            }\n\n            if(a==i)continue;\n\n            while(b+1<n && nums[b+1] > nums[b]){\n                right+=(long)nums[b+1];\n                rx = Math.max(rx, right);\n                b++;\n            }\n\n            if(b==c)continue;\n            i=b-1;\n            res = Math.max( res, lx+rx+net);\n\n        }\n        return res;\n    }\n}",
+        "readme": "SeniorStaffArrayDynamicProgrammingWeeklyContest461\n\nYou are given an integer array nums of length n.\n\nA trionic subarray is a contiguous subarray nums[l...r] (with 0 <= l < r < n) for which there exist indices l < p < q < r such that:\n\n\n\tnums[l...p] is strictly increasing,\n\tnums[p...q] is strictly decreasing,\n\tnums[q...r] is strictly increasing.\n\n\nReturn the maximum sum of any trionic subarray in nums.\n\n \nExample 1:\n\n\nInput: nums = [0,-2,-1,-3,0,2,-1]\n\nOutput: -4\n\nExplanation:\n\nPick l = 1, p = 2, q = 3, r = 5:\n\n\n\tnums[l...p] = nums[1...2] = [-2, -1] is strictly increasing (-2 < -1).\n\tnums[p...q] = nums[2...3] = [-1, -3] is strictly decreasing (-1 > -3)\n\tnums[q...r] = nums[3...5] = [-3, 0, 2] is strictly increasing (-3 < 0 < 2).\n\tSum = (-2) + (-1) + (-3) + 0 + 2 = -4.\n\n\n\nExample 2:\n\n\nInput: nums = [1,4,2,7]\n\nOutput: 14\n\nExplanation:\n\nPick l = 0, p = 1, q = 2, r = 3:\n\n\n\tnums[l...p] = nums[0...1] = [1, 4] is strictly increasing (1 < 4).\n\tnums[p...q] = nums[1...2] = [4, 2] is strictly decreasing (4 > 2).\n\tnums[q...r] = nums[2...3] = [2, 7] is strictly increasing (2 < 7).\n\tSum = 1 + 4 + 2 + 7 = 14.\n\n\n\n \nConstraints:\n\n\n\t4 <= n = nums.length <= 105\n\t-109 <= nums[i] <= 109\n\tIt is guaranteed that at least one trionic subarray exists.",
+        "notes": ""
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": false,
+      "lastUpdated": "2026-02-04T03:58:33.000Z"
+    }
+  ]
 }
